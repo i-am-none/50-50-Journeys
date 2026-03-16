@@ -375,7 +375,7 @@ export default function ExpeditionPage() {
       <section className="py-24 px-6 max-w-5xl mx-auto">
         <div className="grid md:grid-cols-2 gap-10">
           <div className="bg-white dark:bg-slate-800 p-10 rounded-3xl border-l-4 border-slate-400">
-            <h8 className="text-slate-400 font-bold uppercase tracking-widest text-xs mb-6 block">What You Know</h8>
+            <span className="text-slate-400 font-bold uppercase tracking-widest text-xs mb-6 block">What You Know</span>
             <ul className="space-y-4">
               {expedition.knownItems.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-slate-600 dark:text-slate-300">
@@ -386,7 +386,7 @@ export default function ExpeditionPage() {
             </ul>
           </div>
           <div className="bg-[#20603d] p-10 rounded-3xl text-white border-l-4 border-[#C17C3A]">
-            <h8 className="text-white/60 font-bold uppercase tracking-widest text-xs mb-6 block">What Remains a Mystery</h8>
+            <span className="text-white/60 font-bold uppercase tracking-widest text-xs mb-6 block">What Remains a Mystery</span>
             <ul className="space-y-4">
               {expedition.mysteryItems.map((item) => (
                 <li key={item} className="flex items-center gap-3">
@@ -510,7 +510,7 @@ export default function ExpeditionPage() {
             </div>
           </div>
           <div>
-            <h9 className="text-white font-bold mb-6 block">Explorer Portal</h9>
+            <h4 className="text-white font-bold mb-6 block">Explorer Portal</h4>
             <ul className="space-y-4">
               {["Active Journeys", "Preparation Guide", "Mission Logs", "Community Forum"].map((link) => (
                 <li key={link}><a className="hover:text-white" href="#">{link}</a></li>
@@ -518,7 +518,7 @@ export default function ExpeditionPage() {
             </ul>
           </div>
           <div>
-            <h9 className="text-white font-bold mb-6 block">Legal &amp; Privacy</h9>
+            <h4 className="text-white font-bold mb-6 block">Legal &amp; Privacy</h4>
             <ul className="space-y-4">
               {["Terms of Adventure", "Privacy Protocol", "Safety Standards", "Sustainability Pact"].map((link) => (
                 <li key={link}><a className="hover:text-white" href="#">{link}</a></li>

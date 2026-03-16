@@ -545,7 +545,7 @@ export default function ExperiencesPage() {
             <div className="rounded-xl overflow-hidden h-full relative">
               <img
                 className="w-full h-full object-cover grayscale"
-                src={MEDIA.experience.bnWGranny}
+                src={MEDIA.experience.bnwGranny}
                 alt="Elder grandmother portrait"
               />
             </div>

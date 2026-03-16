@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { MEDIA } from "@/lib/media";
 
 const videos = [
-  "/home/hero/drone-river.mp4",
-  "/home/hero/drone-road.mp4",
-  "/home/hero/group-trek.mp4",
+  MEDIA.hero.droneRiver,
+  MEDIA.hero.droneRoad,
+  MEDIA.hero.groupTrek,
 ];
 
 const VIDEO_DISPLAY_DURATION = 10000; // 10 seconds per video

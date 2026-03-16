@@ -7,6 +7,7 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { motion, type Variants } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
+import { MEDIA } from "@/lib/media";
 
 const PRIMARY = "#20603d";
 const MOUNTAIN_BLUE = "#4A7C9E";
@@ -184,7 +185,7 @@ export default function ExperiencesPage() {
         {/* Background Video */}
         <video
           className="absolute inset-0 w-full h-full object-cover scale-110"
-          src="/Experience/horses.mp4"
+          src={MEDIA.experience.horses}
           autoPlay
           loop
           muted
@@ -527,14 +528,14 @@ export default function ExperiencesPage() {
             <div className="rounded-xl overflow-hidden h-full relative">
               <img
                 className="w-full h-full object-cover"
-                src="/Experience/kids.jpg"
+                src={MEDIA.experience.kids}
                 alt="Local children"
               />
             </div>
             <div className="rounded-xl overflow-hidden h-full col-span-1 md:col-span-2 relative">
               <video
                 className="w-full h-full object-cover"
-                src="/Experience/solo.mp4"
+                src={MEDIA.experience.solo}
                 autoPlay
                 loop
                 muted
@@ -544,7 +545,7 @@ export default function ExperiencesPage() {
             <div className="rounded-xl overflow-hidden h-full relative">
               <img
                 className="w-full h-full object-cover grayscale"
-                src="/Experience/bnw-granny.jpg"
+                src={MEDIA.experience.bnWGranny}
                 alt="Elder grandmother portrait"
               />
             </div>
@@ -589,7 +590,7 @@ export default function ExperiencesPage() {
         >
           <div className="absolute inset-0">
             <img
-              src="/Experience/canopy-rays.jpg"
+              src={MEDIA.experience.canopyRays}
               alt="Forest canopy with rays of light"
               className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
             />
@@ -623,7 +624,7 @@ export default function ExperiencesPage() {
             <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden">
                 <img
-                  src="/Experience/locals.jpg"
+                  src={MEDIA.experience.locals}
                   alt="Local community members"
                   className="w-full h-full object-cover"
                 />
@@ -736,7 +737,7 @@ export default function ExperiencesPage() {
       <section className="relative py-32 flex items-center justify-center overflow-hidden">
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          src="/Experience/backshot.mp4"
+          src={MEDIA.experience.horses}
           autoPlay
           loop
           muted

@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 import { Spotlight } from "@/components/ui/spotlight";
 import { HoverEffect, Card, CardTitle } from "@/components/ui/card-hover-effect";
 import { GlowingButton, MovingBorder } from "@/components/ui/moving-border";
+import { MEDIA } from "@/lib/media";
 
 const PRIMARY = "#1F5E3B";
 
@@ -23,7 +24,7 @@ export default function CommunitiesPage() {
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          src="/Communities/local-dancing.mp4"
+          src={MEDIA.communities.localDancing}
           autoPlay
           loop
           muted
@@ -56,7 +57,7 @@ export default function CommunitiesPage() {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] bg-slate-200">
             <img
               className="w-full h-full object-cover"
-              src="/Communities/yogi.jpg"
+              src={MEDIA.communities.yogi}
               alt="Local practitioner in meditation"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#172211]/60 to-transparent" />
@@ -159,7 +160,7 @@ export default function CommunitiesPage() {
             <div className="lg:w-1/2 h-80 w-full rounded-2xl overflow-hidden shadow-lg relative">
               <video
                 className="w-full h-full object-cover"
-                src="/Communities/ritual.mp4"
+                src={MEDIA.communities.ritual}
                 autoPlay
                 loop
                 muted
@@ -172,7 +173,7 @@ export default function CommunitiesPage() {
             <div className="rounded-xl overflow-hidden h-full relative">
               <video
                 className="w-full h-full object-cover"
-                src="/Communities/shephard.mp4"
+                src={MEDIA.communities.shephard}
                 autoPlay
                 loop
                 muted
@@ -182,7 +183,7 @@ export default function CommunitiesPage() {
             <div className="rounded-xl overflow-hidden h-full col-span-1 md:col-span-2 relative">
               <video
                 className="w-full h-full object-cover"
-                src="/Communities/kids-timelapse.mp4"
+                src={MEDIA.communities.kidsTimelapse}
                 autoPlay
                 loop
                 muted
@@ -192,7 +193,7 @@ export default function CommunitiesPage() {
             <div className="rounded-xl overflow-hidden h-full relative">
               <img
                 className="w-full h-full object-cover"
-                src="/Communities/local-uncle.jpg"
+                src={MEDIA.communities.localUncle}
                 alt="Local community elder"
               />
             </div>
@@ -207,7 +208,7 @@ export default function CommunitiesPage() {
             <div className="relative rounded-2xl overflow-hidden aspect-video mb-8 lg:mb-0">
               <video
                 className="w-full h-full object-cover"
-                src="/Communities/bird-feed.mp4"
+                src={MEDIA.communities.birdFeed}
                 autoPlay
                 loop
                 muted

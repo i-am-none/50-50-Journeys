@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import { Pool, neonConfig } from "@neondatabase/serverless";
 import { PrismaNeon } from "@prisma/adapter-neon";
+import { PrismaClient } from "@prisma/client";
 import ws from "ws";
 
 neonConfig.webSocketConstructor = ws;
@@ -17,7 +17,8 @@ const prismaClientSingleton = () => {
   }
 
   const pool = new Pool({ connectionString });
-  const adapter = new PrismaNeon(pool);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const adapter = new PrismaNeon(pool as any);
   
   return new PrismaClient({
     adapter,

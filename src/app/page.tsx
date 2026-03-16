@@ -1,65 +1,649 @@
-import Image from "next/image";
+import Navbar from "@/components/navbar";
+
+const PRIMARY = "#20603d";
+const MOUNTAIN_BLUE = "#4A7C9E";
+const WARM_EARTH = "#C17C3A";
+const BG_LIGHT = "#F5F3EE";
+const BG_DARK = "#0c1410";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main>
+      {/* Material Symbols */}
+      <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet"
+      />
+
+      <Navbar />
+
+      {/* ─── HERO ─────────────────────────────────────────────────── */}
+      <section
+        id="experiences"
+        className="relative h-screen w-full flex items-center justify-center overflow-hidden"
+      >
+        <div className="absolute inset-0 z-0">
+          <img
+            className="w-full h-full object-cover scale-110"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIFGfxEowQmjVGwfweXWHWcbCBf5FcGWnAxxlcuiwaTVmXAV0_4hDhOS2ndqqBmIc-27ythcq6eFeli1G5cbwxluYMsYSBkj1qp1DHOLZZDUwQ5ucsnJ3wSNeOuoJJcne1kE7sOru8GOKMzQ6V7B_kDJLs9E7J2nJnYVvY-ft9sOvdUrqe9DQJqwiyxSClQeuvzmhy9Le_81TvMA5EUeAoH58PDJnnTfz6Zti1yRBmhrKFc18IlMuF9PrqnXKJvHOQZExc5xw_gLgq"
+            alt="Cinematic mountain landscape with morning fog"
+          />
+          <div className="absolute inset-0 bg-black/35" />
+        </div>
+
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <h1
+            className="font-display text-5xl md:text-8xl font-black text-white leading-[0.9] mb-6 tracking-tighter"
+            style={{ textWrap: "balance" } as React.CSSProperties}
+          >
+            Half Wellness.
+            <br />
+            Half Mystery.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+          <p className="text-white/90 text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto tracking-wide leading-relaxed">
+            Disconnect from the noise and embrace hidden cultural journeys
+            designed for soul seekers. Fully unforgettable.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              className="text-[#20603d] px-8 py-4 rounded-xl font-bold uppercase tracking-widest hover:scale-105 transition-transform shadow-xl"
+              style={{ backgroundColor: "white" }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Start Your Journey
+            </button>
+            <button className="border border-white/30 bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-white/20 transition-all">
+              How It Works
+            </button>
+          </div>
+        </div>
+
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+          <span className="material-symbols-outlined text-white text-3xl">
+            keyboard_double_arrow_down
+          </span>
+        </div>
+      </section>
+
+      {/* ─── CONCEPT ──────────────────────────────────────────────── */}
+      <section
+        id="concept"
+        className="py-24 px-6 md:px-12 max-w-7xl mx-auto"
+        style={{ backgroundColor: BG_LIGHT }}
+      >
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <div
+              className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest"
+              style={{ backgroundColor: `${PRIMARY}18`, color: PRIMARY }}
             >
-              Learning
-            </a>{" "}
-            center.
+              The 50/50 Concept
+            </div>
+            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
+              The perfect balance between{" "}
+              <span style={{ color: PRIMARY }} className="italic">
+                inner peace
+              </span>{" "}
+              and{" "}
+              <span style={{ color: MOUNTAIN_BLUE }} className="italic">
+                outer discovery
+              </span>
+              .
+            </h2>
+            <div className="grid gap-6">
+              {/* Wellness card */}
+              <div className="flex gap-4 p-6 bg-white rounded-2xl border border-[#20603d]/5 hover:border-[#20603d]/20 transition-all group glow-card">
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center transition-colors flex-shrink-0"
+                  style={{ backgroundColor: `${PRIMARY}18`, color: PRIMARY }}
+                >
+                  <span className="material-symbols-outlined">
+                    self_improvement
+                  </span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg mb-1">50% Wellness</h3>
+                  <p className="text-slate-600 font-light leading-relaxed text-sm">
+                    Curated yoga, detox rituals, and nature immersion to reset
+                    your spirit. We focus on local healing traditions unique to
+                    each landscape.
+                  </p>
+                </div>
+              </div>
+
+              {/* Mystery card */}
+              <div
+                className="flex gap-4 p-6 bg-white rounded-2xl border transition-all group glow-card"
+                style={{ borderColor: `${MOUNTAIN_BLUE}10` }}
+              >
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center transition-colors flex-shrink-0"
+                  style={{ backgroundColor: `${MOUNTAIN_BLUE}18`, color: MOUNTAIN_BLUE }}
+                >
+                  <span className="material-symbols-outlined">explore</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg mb-1">50% Mystery</h3>
+                  <p className="text-slate-600 font-light leading-relaxed text-sm">
+                    Secret destinations and local folklore revealed only when
+                    you arrive. Embrace the thrill of the unknown with expertly
+                    crafted itineraries.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl">
+            <img
+              className="w-full h-full object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiuMWHgu3FIJoJR7-hVRv39Br8zHxSKymF1ZxVhWVS6bU4--7u5mcocAqpuwlh6p_q-LHBIz0m2rhJQmcyA1lkdVJmmkm1dr1Bo3eX3Rr4G-rLOfshkqje1ptlI6_gYJdGzL8X1E9z_Gdr8lfx8fli3B9UKJvwYIEaqoLw1X7LA1iyp9W64Wh0cROYGAXWBZ9fKhophd4dTcCH3EahOvlCcuKASTC3TNeP9XUzL3mQmiR37FsfzlNBKU-xiUq7unHIosOlPQqO0sBx"
+              alt="Person meditating on a mountain cliff overlooking clouds"
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `linear-gradient(to top, ${PRIMARY}66 0%, transparent 60%)`,
+              }}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ─── PATH TO DISCOVERY ────────────────────────────────────── */}
+      <section
+        className="py-20 overflow-hidden border-y"
+        style={{ backgroundColor: BG_LIGHT, borderColor: `${PRIMARY}10` }}
+      >
+        <div className="px-6 md:px-12 mb-12 flex flex-col items-center text-center">
+          <h2 className="font-display text-3xl font-bold mb-4">
+            Your Path to Discovery
+          </h2>
+          <div
+            className="h-1 w-20 rounded-full"
+            style={{ backgroundColor: PRIMARY }}
+          />
+        </div>
+
+        <div className="flex overflow-x-auto pb-12 pt-4 px-12 gap-8 no-scrollbar snap-x">
+          {[
+            { num: "01", icon: "edit_document", title: "Apply", desc: "Submit your profile and travel philosophy to join our community." },
+            { num: "02", icon: "flight_takeoff", title: "Mystery Destination", desc: "Revealed through a handwritten note mid-flight or at the gate." },
+            { num: "03", icon: "nightlight_round", title: "Arrival Ritual", desc: "Ancient welcoming ceremonies led by local village elders." },
+            { num: "04", icon: "diversity_3", title: "Cultural Missions", desc: "Hands-on tasks that connect you deeply with local artisans." },
+            { num: "05", icon: "auto_stories", title: "Story Discovery", desc: "Uncover the legends and lore that shaped the local history." },
+            { num: "06", icon: "flare", title: "Final Reveal", desc: "The journey's climax — a moment of profound clarity and connection." },
+          ].map((step) => (
+            <div key={step.num} className="flex-none w-64 snap-center relative">
+              <div
+                className="absolute -top-3 left-0 font-bold opacity-20 text-4xl italic font-display"
+                style={{ color: PRIMARY }}
+              >
+                {step.num}
+              </div>
+              <div
+                className="p-6 bg-white rounded-2xl border h-full flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                style={{ borderColor: `${PRIMARY}15` }}
+              >
+                <span
+                  className="material-symbols-outlined text-3xl"
+                  style={{ color: PRIMARY }}
+                >
+                  {step.icon}
+                </span>
+                <h4 className="font-bold">{step.title}</h4>
+                <p className="text-xs text-slate-500">{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── CURRENT MISSIONS ─────────────────────────────────────── */}
+      <section
+        id="communities"
+        className="py-24 px-6 md:px-12 max-w-7xl mx-auto"
+        style={{ backgroundColor: BG_LIGHT }}
+      >
+        <h2 className="font-display text-4xl font-bold mb-12 text-center">
+          Current Missions
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAiQchn7JfOfh18rxU451dE91zn9B1n1xI-wdAdmCsUL7im1Zt6b1mgbNp8JuaBcV6og56oi0WjNbR1M-3in2mfSRknF36j5Y00hW8LdTtJYF7-9kA861qmN6LjibtovjXUHDehdEQim2egh6aQALhcDkpSC6LiRj6hqLPvswbFDRukQ3WUCn_X9ZotSsi-kTwuhfkzTjMsvxa4TwdN7WJi7serzKSBpUMwrwWiR7v4h_0zANwEvUnH8bb8CHk2jcTLXthWiUoOClWg",
+              alt: "Ancient village alleyway in Japan",
+              title: "Hidden Village Stories",
+              desc: "Infiltrate the forgotten oral histories of the Shikoku trails.",
+              tag: "Mystery",
+            },
+            {
+              src: "https://lh3.googleusercontent.com/aida-public/AB6AXuATf5uGmAZOcuim59Imgm46SLvvA-tiB-YRiTxJ55ymUtx8fLgi8Q6x84sYrPWNgT1mk7DWTnTldIYVHOqju8t9thBf2cU9eU705CUVuoPTGxh94Dqxxu2yKHCbFBExREc6z6mkB2ybO2DhDQ0SZWSPOLEppXpit75tykt9jD7wzuYcruEZAL-uIy17YwH0M8AXhCEpkg247oRwukUWSzbDyRg2ld3EY5PGdfyOInTpRz64DjRiV8OG6wOi5zw5_kg7nY60PT_2-RYq",
+              alt: "Shepherd leading sheep in a misty green field",
+              title: "Shepherd Trails",
+              desc: "Live with nomadic tribes in the Altai Mountains for 48 hours.",
+              tag: "Culture",
+            },
+            {
+              src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBRIbWVGlo4aUSDFa3U3ZJK3p-0yvTXvNJPu_SZIrh_MILBIFoZciNws66h8ckFP5wxxpg7jdb0AIflJRYBu372RnV32LY0TpbsuM2454v9va22Wzi413AV4N78x1KwcR1jQyW2qIeY7tNkiXJiL4BBLcCkORHc_4DSyCTQESmiYzD_GMfWh45kLtLTpA3iiAU7IeNBGcNoVnTFGJw-jVDQTNsQpMO25dMEYcIMPfXI180Kf8WWe0jtVE3B0ky1fNq_H6mfJod23i0q",
+              alt: "Close up of traditional incense burning in a temple",
+              title: "Local Rituals",
+              desc: "Participate in ancient healing ceremonies in the Sacred Valley.",
+              tag: "Wellness",
+            },
+          ].map((mission) => (
+            <div
+              key={mission.title}
+              className="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-slate-200"
+            >
+              <img
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src={mission.src}
+                alt={mission.alt}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-8 flex flex-col justify-end">
+                <h3 className="text-white font-bold text-2xl mb-2">
+                  {mission.title}
+                </h3>
+                <p className="text-white/70 text-sm">{mission.desc}</p>
+                <div className="mt-4 flex gap-2">
+                  <span className="px-2 py-1 bg-white/20 backdrop-blur-sm rounded text-[10px] uppercase font-bold text-white tracking-widest">
+                    {mission.tag}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── DIGITAL SILENCE ──────────────────────────────────────── */}
+      <section className="py-24 overflow-hidden" style={{ backgroundColor: BG_DARK, color: "white" }}>
+        <div className="px-6 md:px-12 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          {/* Image */}
+          <div className="relative order-2 md:order-1">
+            <div
+              className="absolute -top-20 -left-20 w-64 h-64 rounded-full blur-[120px]"
+              style={{ backgroundColor: `${PRIMARY}33` }}
+            />
+            <div className="relative rounded-3xl overflow-hidden aspect-video">
+              <img
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxm990pTMPnQh9oJF_7MqlBwNudpWB0XB5GFH3-0m5dmZpLrXYQ4otLbe8A2Zr6P_vbcBxVn3NkqkNHvPw9c3BvqyEb0-t-Yt1Kjh579V7QK6r2jZBaEpdYZbFiTNkEfdRJWmvrmGzn4kL5PdwHttyUUNASD6ONJygvkJHhg3bNWstYUgqxEiWL4v8C2MCGamnQGi5pq-t1GEnitNbj-kgJhuXa9cAvA-ikQ2FLygkkY-1wW1-Y7z_M6rtW7zFSID3T0LXIiw_eCZU"
+                alt="Person sitting by a lake in the forest with no devices"
+              />
+            </div>
+            <div className="mt-6 flex items-center gap-4">
+              <div className="flex -space-x-4">
+                {[
+                  "https://lh3.googleusercontent.com/aida-public/AB6AXuDWaIMh2UE_qFul3ccchB5idMke1zW08LQpUeD4qj_B1D88_9tsWDOhn0cZVlbnmHmLollrQ2SrEliSiyCys9qIjwpP1LAUNCyCd6pTau5XGBy--5ImG2HTVVgsWWRrHu_vdj_NJP2ax1g6pjvnl6cBVyAQSgf-ym8RYF81H33-p9eFmMWFcPTpuJV5BLNwplncqTq4A65iRnIO6IJTqLfIpPSs5J96Yqq5Rxe-59iWnvmVBfCUuKbDP7N33YL-rmYIbCAlD6aRfRRE",
+                  "https://lh3.googleusercontent.com/aida-public/AB6AXuCnxBlD_74lSAz7N5R8kehFbn04b65dsU2gk3YrKlGeLitpVQWnx4Mr3N-SxYK7PJg0ssCXGR_-QsX7mSc4n63QB8s2jxvCOvL1-Bx9ftbFe5I8qtdrTR0LKbT6razwYmMdl0aPPRnQfZFMju2VkL2Nt1b8H_ugQZh0J2dRgGgTD71PF4eMCUs_Auw-MXosAbi6ukbEtOC8a6i1GP1V8vnlEqs4sVrvsP_FcB1_HvJx0w4FYEFRgKjJ8VJLEv99JZMEHwPEtCxpdWD3",
+                  "https://lh3.googleusercontent.com/aida-public/AB6AXuASbxJMPfTTIcz011gGqo9hWEOfXcFsmgit1fHvdFurYyCn-R3h-vPxU-ommcGZNDeeurkdRZYLWiU7vPvIaC1hAj5gFK0sHx7CizAm8TyILBl-gif9WsmrrGwiexpBp9scU3_fRdEGlAAW1HgieFMap9QB1uyl1gxDtRVuoURBv-E8dsZPS7BoKi-NuLT7gVolAXqlireyxS8n30Mkqu0jdX5K6gHVyszAza8cvghErgAtTRgiZ8SyIsc__C_ZjnTiLhd34KS_TS9R",
+                ].map((src, i) => (
+                  <img
+                    key={i}
+                    className="w-12 h-12 rounded-full border-4"
+                    style={{ borderColor: BG_DARK }}
+                    src={src}
+                    alt={`Community member ${i + 1}`}
+                  />
+                ))}
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center border-4 text-xs font-bold text-white"
+                  style={{ backgroundColor: PRIMARY, borderColor: BG_DARK }}
+                >
+                  +7
+                </div>
+              </div>
+              <span className="text-sm font-light text-slate-400 italic">
+                Joining the detox this month
+              </span>
+            </div>
+          </div>
+
+          {/* Text */}
+          <div className="space-y-6 order-1 md:order-2">
+            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight">
+              The Digital Silence
+            </h2>
+            <p className="text-slate-400 text-lg leading-relaxed font-light">
+              True reconnection starts with a disconnection. During our
+              journeys, devices are kept in handmade lock-boxes. Rediscover the
+              world through your eyes, not your lens.
+            </p>
+            <ul className="space-y-4">
+              {[
+                { icon: "do_not_disturb_on", text: "Analog-only exploration tools provided." },
+                { icon: "auto_graph", text: "Professional photographer documentation (delivered post-trip)." },
+                { icon: "psychology", text: "Mindfulness focus and presence-based missions." },
+              ].map((item) => (
+                <li key={item.icon} className="flex items-start gap-3">
+                  <span className="material-symbols-outlined" style={{ color: PRIMARY }}>
+                    {item.icon}
+                  </span>
+                  <span>{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── ECOSYSTEM (BENTO) ────────────────────────────────────── */}
+      <section
+        className="py-24 px-6 md:px-12 max-w-7xl mx-auto"
+        style={{ backgroundColor: BG_LIGHT }}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 md:h-[600px]">
+          {/* Large left card */}
+          <div
+            className="md:col-span-2 md:row-span-2 bg-white p-8 rounded-3xl border flex flex-col justify-between group overflow-hidden relative hover:shadow-xl transition-all duration-500"
+            style={{ borderColor: `${PRIMARY}08` }}
+          >
+            <div className="relative z-10">
+              <h3 className="text-3xl font-bold font-display mb-4">
+                The Ecosystem
+              </h3>
+              <p className="text-slate-600 max-w-xs">
+                Connecting conscious travelers with local communities through
+                our proprietary transparency platform.
+              </p>
+            </div>
+            <div className="absolute -bottom-20 -right-20 opacity-10 group-hover:scale-110 transition-transform duration-700">
+              <span className="material-symbols-outlined text-[300px]" style={{ color: PRIMARY }}>
+                hub
+              </span>
+            </div>
+            <div className="mt-12 flex flex-wrap gap-4 relative z-10">
+              {["70+ Communities", "12 Countries", "100% Impact"].map((badge) => (
+                <div
+                  key={badge}
+                  className="px-4 py-2 rounded-full text-xs font-bold"
+                  style={{ backgroundColor: `${PRIMARY}10`, color: PRIMARY }}
+                >
+                  {badge}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Community Driven */}
+          <div
+            className="md:col-span-2 p-8 rounded-3xl flex items-center justify-between text-white hover:scale-[1.01] transition-transform"
+            style={{ backgroundColor: MOUNTAIN_BLUE }}
+          >
+            <div>
+              <h4 className="text-xl font-bold mb-2">Community Driven</h4>
+              <p className="text-white/80 text-sm">
+                Travelers vote on next year&apos;s exploratory regions.
+              </p>
+            </div>
+            <span className="material-symbols-outlined text-5xl">
+              diversity_1
+            </span>
+          </div>
+
+          {/* Sustainability */}
+          <div
+            className="p-6 rounded-3xl flex flex-col justify-end text-white hover:scale-[1.01] transition-transform"
+            style={{ backgroundColor: WARM_EARTH }}
+          >
+            <span className="material-symbols-outlined text-4xl mb-4">
+              shield_with_heart
+            </span>
+            <h4 className="font-bold">Sustainability</h4>
+            <p className="text-xs text-white/80">
+              Regenerative tourism model.
+            </p>
+          </div>
+
+          {/* Membership */}
+          <div
+            className="p-6 rounded-3xl flex flex-col justify-end text-white hover:scale-[1.01] transition-transform"
+            style={{ backgroundColor: PRIMARY }}
+          >
+            <span className="material-symbols-outlined text-4xl mb-4">
+              workspace_premium
+            </span>
+            <h4 className="font-bold">Membership</h4>
+            <p className="text-xs text-white/80">Exclusive early access.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── MEMBERSHIP TIERS ─────────────────────────────────────── */}
+      <section
+        id="membership"
+        className="py-24"
+        style={{ backgroundColor: BG_DARK, color: "white" }}
+      >
+        <div className="px-6 md:px-12 max-w-7xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="font-display text-4xl font-bold mb-6">
+              Membership Tiers
+            </h2>
+            <p className="text-slate-400 font-light">
+              Join our inner circle for priority boarding on the world&apos;s most
+              mysterious paths.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Explorer */}
+            <div className="p-10 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-4 opacity-10">
+                <span className="material-symbols-outlined text-8xl">
+                  explore
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold mb-2">The Explorer</h3>
+              <div className="text-4xl font-black mb-6">
+                $1,200{" "}
+                <span className="text-sm font-normal text-slate-400">
+                  / year
+                </span>
+              </div>
+              <ul className="space-y-4 mb-10 text-slate-300">
+                {["2 Mystery Journeys / year", "Basic Wellness Kit", "Community Access"].map(
+                  (feature) => (
+                    <li key={feature} className="flex items-center gap-2">
+                      <span
+                        className="material-symbols-outlined text-sm"
+                        style={{ color: PRIMARY }}
+                      >
+                        check_circle
+                      </span>
+                      {feature}
+                    </li>
+                  )
+                )}
+              </ul>
+              <button className="w-full py-4 border border-white/20 rounded-xl font-bold uppercase tracking-widest hover:bg-white hover:text-[#20603d] transition-all duration-200">
+                Join Now
+              </button>
+            </div>
+
+            {/* Nomad */}
+            <div
+              className="p-10 rounded-3xl relative overflow-hidden"
+              style={{
+                border: `2px solid ${PRIMARY}`,
+                backgroundColor: `${PRIMARY}1a`,
+              }}
+            >
+              <div
+                className="absolute top-4 right-4 px-3 py-1 text-white text-[10px] rounded-full font-bold uppercase tracking-widest"
+                style={{ backgroundColor: PRIMARY }}
+              >
+                Most Popular
+              </div>
+              <h3 className="text-2xl font-bold mb-2">The Nomad</h3>
+              <div className="text-4xl font-black mb-6">
+                $3,500{" "}
+                <span className="text-sm font-normal text-slate-400">
+                  / year
+                </span>
+              </div>
+              <ul className="space-y-4 mb-10 text-slate-300">
+                {[
+                  "Unlimited Mystery Journeys",
+                  'Exclusive "Black Site" Locations',
+                  "Personal Wellness Concierge",
+                  "Guest Pass (1/year)",
+                ].map((feature) => (
+                  <li key={feature} className="flex items-center gap-2">
+                    <span
+                      className="material-symbols-outlined text-sm"
+                      style={{ color: PRIMARY }}
+                    >
+                      check_circle
+                    </span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <button
+                className="w-full py-4 rounded-xl font-bold uppercase tracking-widest hover:opacity-90 transition-all text-white"
+                style={{ backgroundColor: PRIMARY }}
+              >
+                Select Nomad
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CTA ──────────────────────────────────────────────────── */}
+      <section className="relative py-32 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            className="w-full h-full object-cover grayscale brightness-50"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaWMgnUKXsE7e9aA4WMieVgomQymxC_I21DEHpYEuyVQn2lGk-PzSc3ZrOdYnyafv21AuzqiDwYXFOCKKPUdmEdsvhQE-4d0wxLe_VCDGmJZdhi__lyyDkPaY9Kd83pCPqa5iV9uSSt2JU5l-m59YmAJtkLV-xF-dq6nHbkCgB9NmJeteZcb_rPPg4R9jQhwGy9DnxsUuVdqpd8GgifC5JlbXPSoat9_4VjD861wl1DljpTeQJFFtb_f2MplRKZo10AXOm7NAXhjXS"
+            alt="Dreamy valley landscape with mist and low sunlight"
+          />
+          <div className="absolute inset-0 mist-overlay" />
+        </div>
+
+        <div className="relative z-10 text-center px-6 max-w-3xl">
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
+            Your Next Journey Will Not Be Revealed Until It Begins.
+          </h2>
+          <button
+            className="px-12 py-5 rounded-2xl text-lg font-bold uppercase tracking-widest shadow-2xl hover:scale-105 transition-all duration-200 text-white"
+            style={{ backgroundColor: PRIMARY }}
+          >
+            Apply for Entry
+          </button>
+          <p className="text-white/60 mt-8 text-sm uppercase tracking-widest font-medium">
+            Limited spots available for Summer 2026
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ─── FOOTER ───────────────────────────────────────────────── */}
+      <footer
+        className="py-20 px-6 md:px-12 border-t"
+        style={{ backgroundColor: BG_DARK, color: "#94a3b8", borderColor: "rgba(255,255,255,0.05)" }}
+      >
+        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+          <div className="col-span-1">
+            <div className="flex items-center gap-2 mb-6">
+              <div
+                className="w-8 h-8 rounded-full flex items-center justify-center text-white"
+                style={{ backgroundColor: PRIMARY }}
+              >
+                <span className="material-symbols-outlined text-sm">
+                  landscape
+                </span>
+              </div>
+              <span className="font-display font-bold tracking-tighter text-white">
+                50/50 JOURNEYS
+              </span>
+            </div>
+            <p className="text-sm leading-relaxed">
+              Redefining modern travel through the lens of mystery and profound
+              inner wellness. Founded in the mountains, serving the soul.
+            </p>
+          </div>
+
+          {[
+            {
+              title: "Explore",
+              links: ["Destinations", "The Missions", "Our Guides", "Testimonials"],
+            },
+            {
+              title: "Philosophy",
+              links: ["Wellness Ethos", "Mystery Logic", "Impact Report", "Sustainability"],
+            },
+          ].map((col) => (
+            <div key={col.title}>
+              <h5 className="text-white font-bold mb-6 uppercase text-xs tracking-widest">
+                {col.title}
+              </h5>
+              <ul className="space-y-4 text-sm">
+                {col.links.map((link) => (
+                  <li key={link}>
+                    <a
+                      href="#"
+                      className="transition-colors hover:text-[#20603d]"
+                    >
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          <div>
+            <h5 className="text-white font-bold mb-6 uppercase text-xs tracking-widest">
+              Connect
+            </h5>
+            <div className="flex gap-4 mb-6">
+              {["public", "camera"].map((icon) => (
+                <a
+                  key={icon}
+                  href="#"
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#20603d] transition-colors"
+                >
+                  <span className="material-symbols-outlined text-sm">
+                    {icon}
+                  </span>
+                </a>
+              ))}
+            </div>
+            <p className="text-xs mb-2">Newsletter for the curious:</p>
+            <div className="flex mt-2">
+              <input
+                type="email"
+                placeholder="Email address"
+                className="bg-white/5 border border-white/10 rounded-l-lg p-2 text-xs w-full focus:outline-none focus:border-[#20603d] text-slate-300"
+              />
+              <button
+                className="p-2 rounded-r-lg text-white"
+                style={{ backgroundColor: PRIMARY }}
+              >
+                <span className="material-symbols-outlined text-sm">
+                  arrow_forward
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+
+        <div
+          className="max-w-7xl mx-auto border-t mt-20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest"
+          style={{ borderColor: "rgba(255,255,255,0.05)" }}
+        >
+          <p>© 2026 50/50 Journeys. All rights reserved.</p>
+          <div className="flex gap-8">
+            {["Privacy Policy", "Terms of Service", "Cookies"].map((item) => (
+              <a key={item} href="#" className="hover:text-white transition-colors">
+                {item}
+              </a>
+            ))}
+          </div>
+        </div>
+      </footer>
+    </main>
   );
 }

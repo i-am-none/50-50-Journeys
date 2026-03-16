@@ -54,7 +54,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: oklch(0.37 0.1 152);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -65,7 +65,7 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: oklch(0.37 0.1 152);
   --chart-1: oklch(0.809 0.105 251.813);
   --chart-2: oklch(0.623 0.214 259.815);
   --chart-3: oklch(0.546 0.245 262.881);
@@ -74,12 +74,19 @@
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary: oklch(0.37 0.1 152);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-ring: oklch(0.37 0.1 152);
+
+  /* Brand tokens */
+  --brand-primary: #20603d;
+  --brand-mountain-blue: #4A7C9E;
+  --brand-warm-earth: #C17C3A;
+  --brand-bg-light: #F5F3EE;
+  --brand-bg-dark: #0c1410;
 }
 
 .dark {
@@ -122,8 +129,75 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
   }
   html {
     @apply font-sans;
   }
+}
+
+/* Custom utilities for 50/50 Journeys */
+.glass-effect {
+  background: rgba(245, 243, 238, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.mist-overlay {
+  background: linear-gradient(
+    0deg,
+    rgba(20, 30, 25, 0.92) 0%,
+    rgba(20, 30, 25, 0.45) 50%,
+    rgba(20, 30, 25, 0) 100%
+  );
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.font-display {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.glow-card:hover {
+  box-shadow: 0 0 28px rgba(32, 96, 61, 0.18);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes spotlight {
+  0% { opacity: 0; transform: translate(-72%, -62%) scale(0.5); }
+  100% { opacity: 1; transform: translate(-50%, -40%) scale(1); }
+}
+
+.animate-spotlight {
+  animation: spotlight 2s ease forwards;
+}
+
+/* Dark mode body overrides */
+html.dark body {
+  background-color: #0c1410;
+  color: #f1f5f1;
+}
+
+html.dark .glass-effect {
+  background: rgba(12, 20, 16, 0.88);
+  border-color: rgba(32, 96, 61, 0.2);
+}
+
+/* Hover effects for dark mode expedition cards */
+html.dark .glow-card:hover {
+  box-shadow: 0 0 32px rgba(32, 96, 61, 0.25);
 }

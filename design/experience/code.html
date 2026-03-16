@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>50/50 Journeys | Mystery Cultural Expeditions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#20603d",
+                        "mountain": "#4A7C9E",
+                        "earth": "#C17C3A",
+                        "background-light": "#F5F3EE",
+                        "background-dark": "#141e19",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-nav {
+            background: rgba(245, 243, 238, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(20, 30, 25, 0.2), rgba(20, 30, 25, 0.8));
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 glass-nav border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-primary text-white p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-2xl">explore</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-primary uppercase">50/50 Journeys</h1>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Experiences</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Concept</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Communities</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Membership</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">About</a>
+</div>
+<button class="bg-primary text-white px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+                Apply Now
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-[90vh] w-full overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Majestic mist-covered mountain landscape at dawn" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQBiHTF-YWGco-Z8cmAYDjmKDcPQdcn1YW4dXRfKYf83buGJyQHQairX0Unc6XZJiNOZK2AxBd1AvDavBeJR49AiD5TgWr0zLFCxt_M-I7sl-E2ZWKDgzhiGqSi4VX-LMQNPQzs15iQoA948XyWpa2bGshmPZKpp_zvFDpxGu5pbbTviKkLdYjmjIBcgJvsp02pJRLeafmK_oXNO9CdO6_0x7x3X6P4iYEnah0RF6EXem_g7prOfFxW7WDs3u6yDgR-g_FlCRZj4h1')"></div>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="relative h-full max-w-7xl mx-auto px-6 flex flex-col items-center justify-center text-center space-y-8">
+<span class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-4 py-1.5 rounded-full text-xs font-bold tracking-[0.2em] uppercase">Mystery Cultural Expeditions</span>
+<h1 class="text-5xl md:text-7xl font-black text-white leading-tight max-w-4xl tracking-tight">
+                Choose Your Next <br/> <span class="text-earth">Mystery Journey</span>
+</h1>
+<p class="text-lg md:text-xl text-slate-200 max-w-2xl font-light">
+                Embark on mystery cultural expeditions where the destination is a guarded secret until the moment you arrive. Rediscover the magic of the unknown.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform">Browse Expeditions</button>
+<button class="bg-white/10 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-primary transition-all">How It Works</button>
+</div>
+</div>
+</section>
+<!-- Filter Bar -->
+<div class="max-w-7xl mx-auto px-6 -mt-10 relative z-10">
+<div class="bg-white dark:bg-slate-900 p-4 rounded-2xl shadow-2xl flex flex-wrap gap-3 justify-center border border-primary/5">
+<button class="flex items-center gap-2 bg-background-light dark:bg-slate-800 px-5 py-3 rounded-full hover:bg-primary hover:text-white transition-all">
+<span class="text-sm font-semibold">Region</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<button class="flex items-center gap-2 bg-background-light dark:bg-slate-800 px-5 py-3 rounded-full hover:bg-primary hover:text-white transition-all">
+<span class="text-sm font-semibold">Season</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<button class="flex items-center gap-2 bg-background-light dark:bg-slate-800 px-5 py-3 rounded-full hover:bg-primary hover:text-white transition-all">
+<span class="text-sm font-semibold">Journey Type</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<button class="flex items-center gap-2 bg-background-light dark:bg-slate-800 px-5 py-3 rounded-full hover:bg-primary hover:text-white transition-all">
+<span class="text-sm font-semibold">Difficulty</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Featured Expeditions -->
+<section class="max-w-7xl mx-auto px-6 py-24">
+<div class="flex justify-between items-end mb-12">
+<div class="space-y-2">
+<h2 class="text-3xl font-bold tracking-tight">Active Expeditions</h2>
+<p class="text-slate-500 font-medium">Curated journeys opening this season</p>
+</div>
+<a class="text-primary font-bold hover:underline flex items-center gap-2" href="#">View all <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Dense evergreen forest with soft morning light" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBi9s0I8df1O4j2-k8WMKBk5F7m20KwlA2FmH-ae6FVBR8SyUzWDfaqXLOsKvVS0NTrm4_kyMDUV2ogAjOpu0xxZl1Z_B_wRmTJcwqhn2xorrea7pfaevUj5pBU84MDfaj78LY8Ct9pIN65f8eOh6fJTPcwFqbP1prA8UOGBDTxdojReNnorpxedPe_3lzJbNc2a7KOZSyf7kBEczMUkT-J2yCWFNilqxdEi1nGWzlonQ_v89ZOO_jotoqe1SVUzFQHbKfbeJK_KKg2')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Coming Soon</div>
+<div class="absolute bottom-6 left-6 right-6 text-white">
+<p class="text-xs font-bold uppercase tracking-widest text-mountain mb-1">Mystery Expedition</p>
+<h3 class="text-2xl font-bold mb-4">The Silent Valley</h3>
+<div class="flex flex-wrap gap-y-2 gap-x-4 text-xs font-medium opacity-90 border-t border-white/20 pt-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 3 Days</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span> 4-7 Pax</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">mountain_flag</span> Moderate</span>
+</div>
+</div>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<span class="text-earth font-bold text-sm italic">Location revealed on arrival</span>
+<button class="size-10 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Traditional stone village hidden in mountains" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCUOZCVXhfTxcPXItoC45kQDMHIeKC46DaGBw0FN9rp0bS76tQ2kloKen2PXSBbAxiuiS20F-f_IrzOBfRbj87n4WGEBuCw1fqnkipGj7mU5Iq-mCyHoJEf8gApcjs43Akz2wK7S5xHxRbXSXdykAzlDMG3y-iDJ6e8NQ7yETCWX2yY-Okt0jSmgvnq4OJu93jL7wuUZD9MNreoz33z1fRO3ZCZSY_htAoD3taHP3T_pXNC0mbQOKWVc9xWmDApO0Ood6-vGLki_vi1')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4 bg-earth text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Limited Spots</div>
+<div class="absolute bottom-6 left-6 right-6 text-white">
+<p class="text-xs font-bold uppercase tracking-widest text-mountain mb-1">Mystery Expedition</p>
+<h3 class="text-2xl font-bold mb-4">The Forgotten Orchard</h3>
+<div class="flex flex-wrap gap-y-2 gap-x-4 text-xs font-medium opacity-90 border-t border-white/20 pt-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 5 Days</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span> 4-6 Pax</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">mountain_flag</span> Easy</span>
+</div>
+</div>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<span class="text-earth font-bold text-sm italic">Location revealed on arrival</span>
+<button class="size-10 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Old library in a remote monastery" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuARBC2MTD2zFXqnUU-tftHWb3WZeaaekn4lNCE74JjPjX4cjzAvWsPnyZZ1cB225VHxqiFfGHLW9SRMhIbI9XAVSIl-mvA65I2TtQ_vWymXSGQXxSI1oGbftlkwVA4SqiDKlX7xRtMP2D0_Yii-jXdWy3jjm_-EYk3z6Yqtc0AiY6UM564qVgJOeE2znEBibRaIJLLTR021H74_pfVWji08_YM_k8kcsc5N1Oc4W81XQNA2gh8vYAqutiwlBhs4JQK7FWe3Vy9tkDVW')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6 text-white">
+<p class="text-xs font-bold uppercase tracking-widest text-mountain mb-1">Mystery Expedition</p>
+<h3 class="text-2xl font-bold mb-4">Whispers of the Coast</h3>
+<div class="flex flex-wrap gap-y-2 gap-x-4 text-xs font-medium opacity-90 border-t border-white/20 pt-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 4 Days</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span> 6 Pax</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">mountain_flag</span> Challenging</span>
+</div>
+</div>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<span class="text-earth font-bold text-sm italic">Location revealed on arrival</span>
+<button class="size-10 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Journey Timeline -->
+<section class="bg-primary/5 py-24 overflow-hidden">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-3xl font-bold text-center mb-16 tracking-tight">The Path to Discovery</h2>
+<div class="flex flex-col lg:flex-row items-center justify-between relative">
+<!-- Timeline Connector Line -->
+<div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-primary/10 -translate-y-1/2"></div>
+<!-- Steps -->
+<div class="flex flex-col items-center text-center space-y-4 relative z-10 w-full lg:w-1/6 mb-12 lg:mb-0">
+<div class="size-16 rounded-full bg-primary text-white flex items-center justify-center shadow-xl ring-8 ring-white">
+<span class="material-symbols-outlined">assignment</span>
+</div>
+<div>
+<h4 class="font-bold">Apply</h4>
+<p class="text-xs text-slate-500 max-w-[120px]">Share your interests and style</p>
+</div>
+</div>
+<div class="flex flex-col items-center text-center space-y-4 relative z-10 w-full lg:w-1/6 mb-12 lg:mb-0">
+<div class="size-16 rounded-full bg-mountain text-white flex items-center justify-center shadow-xl ring-8 ring-white">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div>
+<h4 class="font-bold">Prepare</h4>
+<p class="text-xs text-slate-500 max-w-[120px]">Receive mystery packing list</p>
+</div>
+</div>
+<div class="flex flex-col items-center text-center space-y-4 relative z-10 w-full lg:w-1/6 mb-12 lg:mb-0">
+<div class="size-16 rounded-full bg-earth text-white flex items-center justify-center shadow-xl ring-8 ring-white">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<h4 class="font-bold">Arrival Ritual</h4>
+<p class="text-xs text-slate-500 max-w-[120px]">The secret is finally revealed</p>
+</div>
+</div>
+<div class="flex flex-col items-center text-center space-y-4 relative z-10 w-full lg:w-1/6 mb-12 lg:mb-0">
+<div class="size-16 rounded-full bg-primary text-white flex items-center justify-center shadow-xl ring-8 ring-white">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div>
+<h4 class="font-bold">Missions</h4>
+<p class="text-xs text-slate-500 max-w-[120px]">Engage with local culture</p>
+</div>
+</div>
+<div class="flex flex-col items-center text-center space-y-4 relative z-10 w-full lg:w-1/6 mb-12 lg:mb-0">
+<div class="size-16 rounded-full bg-mountain text-white flex items-center justify-center shadow-xl ring-8 ring-white">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<div>
+<h4 class="font-bold">Discovery</h4>
+<p class="text-xs text-slate-500 max-w-[120px]">Uncover the village story</p>
+</div>
+</div>
+<div class="flex flex-col items-center text-center space-y-4 relative z-10 w-full lg:w-1/6">
+<div class="size-16 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-xl ring-8 ring-white">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-bold">Final Reveal</h4>
+<p class="text-xs text-slate-500 max-w-[120px]">A lifelong transformation</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Features -->
+<section class="max-w-7xl mx-auto px-6 py-24">
+<h2 class="text-3xl font-bold mb-12 text-center tracking-tight">The 50/50 Pillars</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[600px]">
+<div class="md:col-span-2 md:row-span-2 bg-primary rounded-3xl p-8 text-white relative overflow-hidden group">
+<div class="absolute inset-0 opacity-20 group-hover:scale-105 transition-transform duration-1000 bg-cover bg-center" data-alt="Dense atmospheric mountain mist" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB7NQJtfH_th9yCGpoSqCw_mbL0l3_OBBbtdFkRt083v15lVdgczuhhJAOqwHoJrQVQS7mv6k8HpJvBeMSceHYlNcYgic8NgLy2KXbdugvzL08K-aurl_Sm0HZgPoXSE95RYfaB0hTcQr-3Gwk3-dsLuhlQUhLqigWN6QkJAiXHixzxCmQptAzWT3qUvEJCjbxBvPUh0_tlmGU3XtJb5qcj77ZaxfVx4GQ2tqiljFNWT3PzlpkRhXCU0GzeYkybNaZWH6YfjniZhabs')"></div>
+<div class="relative h-full flex flex-col justify-end">
+<span class="material-symbols-outlined text-4xl mb-4">map</span>
+<h3 class="text-3xl font-bold mb-2">Mystery Destinations</h3>
+<p class="text-slate-200">Our locations are vetted for authenticity, choosing paths less traveled by traditional tourism.</p>
+</div>
+</div>
+<div class="md:col-span-1 bg-mountain/20 rounded-3xl p-6 border border-mountain/30 hover:bg-mountain/30 transition-all cursor-default">
+<span class="material-symbols-outlined text-mountain text-3xl mb-4">phonelink_off</span>
+<h4 class="font-bold text-lg mb-1">Digital Detox</h4>
+<p class="text-sm text-slate-600">Swap screens for stories. We handle logistics so you can disconnect.</p>
+</div>
+<div class="md:col-span-1 bg-earth/20 rounded-3xl p-6 border border-earth/30 hover:bg-earth/30 transition-all cursor-default">
+<span class="material-symbols-outlined text-earth text-3xl mb-4">groups_3</span>
+<h4 class="font-bold text-lg mb-1">Small Groups</h4>
+<p class="text-sm text-slate-600">Intimate gatherings of 4-8 explorers to foster real connection.</p>
+</div>
+<div class="md:col-span-2 bg-slate-100 dark:bg-slate-800 rounded-3xl p-6 flex items-center gap-6 group hover:bg-slate-200 transition-all">
+<div class="size-16 shrink-0 bg-white rounded-2xl flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">diversity_1</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Community Hosts</h4>
+<p class="text-sm text-slate-600">Guided by local storytellers, not traditional tour guides.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Expedition Missions -->
+<section class="max-w-7xl mx-auto px-6 py-12">
+<h2 class="text-3xl font-bold mb-10 tracking-tight">Immersive Missions</h2>
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="p-8 rounded-2xl bg-white border border-primary/10 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all group relative overflow-hidden">
+<div class="absolute -right-8 -bottom-8 size-32 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+<span class="material-symbols-outlined text-primary mb-4">auto_stories</span>
+<h3 class="text-xl font-bold mb-3">Hidden Village Stories</h3>
+<p class="text-sm text-slate-600 leading-relaxed">Seek out the oldest resident and learn about the local legend of the stone watchtower.</p>
+</div>
+<div class="p-8 rounded-2xl bg-white border border-primary/10 shadow-sm hover:shadow-xl hover:border-earth/30 transition-all group relative overflow-hidden">
+<div class="absolute -right-8 -bottom-8 size-32 bg-earth/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+<span class="material-symbols-outlined text-earth mb-4">skillet</span>
+<h3 class="text-xl font-bold mb-3">Traditional Cooking</h3>
+<p class="text-sm text-slate-600 leading-relaxed">Join a family for a wood-fire meal preparation using heirloom ingredients from their garden.</p>
+</div>
+<div class="p-8 rounded-2xl bg-white border border-primary/10 shadow-sm hover:shadow-xl hover:border-mountain/30 transition-all group relative overflow-hidden">
+<div class="absolute -right-8 -bottom-8 size-32 bg-mountain/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+<span class="material-symbols-outlined text-mountain mb-4">hiking</span>
+<h3 class="text-xl font-bold mb-3">Shepherd Trails</h3>
+<p class="text-sm text-slate-600 leading-relaxed">Navigate ancient mountain paths used by nomadic herders for centuries to reach the sacred peak.</p>
+</div>
+</div>
+</section>
+<!-- Limited Journeys Model -->
+<section class="max-w-7xl mx-auto px-6 py-24">
+<div class="bg-primary/90 text-white rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
+<div class="p-12 md:w-1/2 flex flex-col justify-center space-y-6">
+<h2 class="text-4xl font-bold tracking-tight">Preserving the <span class="text-earth">Unspoiled</span></h2>
+<p class="text-slate-300 leading-relaxed">To ensure tourism remains a gift and not a burden, we limit our presence to 4-6 journeys per village per year. This model sustains local economies without disrupting the social fabric.</p>
+<div class="flex items-center gap-8 pt-4">
+<div class="text-center">
+<div class="text-4xl font-black text-earth">6</div>
+<div class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Max Journeys / Yr</div>
+</div>
+<div class="text-center">
+<div class="text-4xl font-black text-earth">12</div>
+<div class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Total Partners</div>
+</div>
+<div class="text-center">
+<div class="text-4xl font-black text-earth">100%</div>
+<div class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Local Lead</div>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 min-h-[300px] bg-cover bg-center" data-alt="Stunning aerial view of a sustainable remote settlement" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuATh_HdgNHizPHbr4PHxym_Q4fWckZ2RGDxNqLQA1_fwEhBJdeUsUJG7xl4MSWFXdrlzcySckywA3aDeyH-c4IXdubFr-ma0Km9C6fazdMMoj4kTUnBnp6v82RbXFxXQljlWw5yaPq7WVz6jjQTiw_63wLzklHzkYcWLhbTXkMPzG51sIu5yx6jsBKnHsVpMOqff-m7-Cmg1p_0cct0VLA8EiWPkYGkFR38ZNtifsm0qG1p0DYmK0-de5exFmZ4uGIYJDHQZ9Bm3oUC')"></div>
+</div>
+</section>
+<!-- Membership Section -->
+<section class="bg-background-dark py-24 px-6 text-white">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-4 tracking-tight">Join the Fellowship</h2>
+<p class="text-slate-400 max-w-xl mx-auto">Exclusive access to our mystery calendar and private community events.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+<!-- Plan 1 -->
+<div class="bg-white/5 border border-white/10 p-10 rounded-3xl hover:border-primary transition-all">
+<h3 class="text-2xl font-bold mb-2">Explorer</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-4xl font-black">$290</span>
+<span class="text-slate-400">/year</span>
+</div>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-3 text-slate-300"><span class="material-symbols-outlined text-primary">check_circle</span> Early access to expedition drops</li>
+<li class="flex items-center gap-3 text-slate-300"><span class="material-symbols-outlined text-primary">check_circle</span> 1 Journey booking included</li>
+<li class="flex items-center gap-3 text-slate-300"><span class="material-symbols-outlined text-primary">check_circle</span> Digital detox preparation kit</li>
+</ul>
+<button class="w-full py-4 rounded-xl bg-white text-slate-900 font-bold hover:bg-primary hover:text-white transition-all">Choose Explorer</button>
+</div>
+<!-- Plan 2 -->
+<div class="bg-white/5 border border-white/10 p-10 rounded-3xl hover:border-mountain transition-all relative">
+<div class="absolute -top-3 right-8 bg-mountain text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Most Popular</div>
+<h3 class="text-2xl font-bold mb-2">Nomad</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-4xl font-black">$550</span>
+<span class="text-slate-400">/year</span>
+</div>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-3 text-slate-300"><span class="material-symbols-outlined text-mountain">check_circle</span> Priority expedition queuing</li>
+<li class="flex items-center gap-3 text-slate-300"><span class="material-symbols-outlined text-mountain">check_circle</span> 2 Journey bookings included</li>
+<li class="flex items-center gap-3 text-slate-300"><span class="material-symbols-outlined text-mountain">check_circle</span> Access to secret solo routes</li>
+<li class="flex items-center gap-3 text-slate-300"><span class="material-symbols-outlined text-mountain">check_circle</span> Private storyteller community</li>
+</ul>
+<button class="w-full py-4 rounded-xl bg-mountain text-white font-bold hover:opacity-90 transition-all">Choose Nomad</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="relative h-[600px] flex items-center justify-center text-center px-6 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Ethereal pine forest shrouded in thick morning mist" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBx80-fUWNxMwIiV_o2kiX0NY3Mg-dwRU1Hd3aCXNrSZWnf915v1PICyHPBZVOK7FQ7SL2PhRfsivE1xxEqY4_tBdSSNuwlvYNTqNLBV_VbjH5HfBzODQLoGAMovQORWORk-UlXQBsWbmjqBrSY-5Tk0FRpZmGMlopDNGjoEaCwGmiFxQT4m43e8808b2OE-t6ENRnX5CMeNeOEYXnuE_KFgvMP76MxACOOq1OmA4nbkg1S6GN-wg3X0Uki36dPt3fvJ-7ec_6IM9U6')"></div>
+<div class="absolute inset-0 bg-primary/40 backdrop-blur-[2px]"></div>
+<div class="relative max-w-4xl space-y-8">
+<h2 class="text-4xl md:text-6xl font-black text-white leading-tight tracking-tight">
+                Your Next Destination Will Remain A Mystery Until The Journey Begins
+            </h2>
+<button class="bg-primary text-white px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition-all shadow-2xl shadow-primary/40">
+                Apply for the Next Expedition
+            </button>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-900 text-white py-16 px-6">
+<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+<div class="md:col-span-1 space-y-4">
+<div class="flex items-center gap-3">
+<div class="bg-primary text-white p-1 rounded">
+<span class="material-symbols-outlined text-xl">explore</span>
+</div>
+<h2 class="text-xl font-bold uppercase">50/50 Journeys</h2>
+</div>
+<p class="text-slate-400 text-sm">Restoring mystery to travel through sustainable cultural expeditions.</p>
+<div class="flex gap-4 pt-2">
+<a class="size-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary transition-all" href="#"><span class="material-symbols-outlined text-sm">public</span></a>
+<a class="size-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary transition-all" href="#"><span class="material-symbols-outlined text-sm">share</span></a>
+<a class="size-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary transition-all" href="#"><span class="material-symbols-outlined text-sm">photo_camera</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-slate-100 uppercase text-xs tracking-widest">Explore</h4>
+<ul class="space-y-3 text-slate-400 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Upcoming Drops</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">How it Works</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Community Stories</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-slate-100 uppercase text-xs tracking-widest">Company</h4>
+<ul class="space-y-3 text-slate-400 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Our Mission</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Partner Villages</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-slate-100 uppercase text-xs tracking-widest">Newsletter</h4>
+<p class="text-slate-400 text-xs mb-4 leading-relaxed">Join the waitlist for the next season's mystery drops.</p>
+<div class="flex">
+<input class="bg-white/5 border-white/10 rounded-l-lg px-4 py-2 w-full focus:ring-primary focus:border-primary" placeholder="Email" type="email"/>
+<button class="bg-primary px-4 py-2 rounded-r-lg hover:opacity-90"><span class="material-symbols-outlined">send</span></button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto border-t border-white/5 mt-16 pt-8 text-center text-xs text-slate-500">
+            © 2024 50/50 Journeys. Designed for the curious.
+        </div>
+</footer>
+</body></html>

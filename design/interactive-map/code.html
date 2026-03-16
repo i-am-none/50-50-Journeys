@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>50/50 Journeys | Interactive Journey Map</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Montserrat:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#20603d",
+                        "mountain-blue": "#4A7C9E",
+                        "warm-earth": "#C17C3A",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#141e19",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "heading": ["Montserrat", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .map-dots {
+            background-image: radial-gradient(circle, rgba(32, 96, 61, 0.2) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .marker-pulse {
+            position: relative;
+        }
+        .marker-pulse::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: #20603d;
+            border-radius: 50%;
+            opacity: 0.5;
+            z-index: -1;
+        }
+        .dotted-path {
+            stroke-dasharray: 8, 8;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 selection:bg-primary/30">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 glass-panel border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-10">
+<a class="flex items-center gap-2 group" href="#">
+<span class="material-symbols-outlined text-primary text-3xl">explore</span>
+<span class="font-heading text-xl font-extrabold tracking-tighter text-primary">50/50 JOURNEYS</span>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Expeditions</a>
+<a class="text-sm font-semibold text-primary underline underline-offset-8" href="#">The Map</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Ethics</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Journal</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<button class="hidden lg:flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full bg-primary/5 border border-primary/20">
+<span class="material-symbols-outlined text-sm">search</span>
+                    Search Regions
+                </button>
+<button class="bg-primary text-white px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 transition-opacity">
+                    Join Club
+                </button>
+</div>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#e8edea]">
+<div class="absolute inset-0 z-0 opacity-40 mix-blend-multiply map-dots"></div>
+<div class="absolute inset-0 z-0 bg-gradient-to-b from-transparent to-background-light"></div>
+<!-- Stylized Mountain Map Illustration -->
+<div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-60">
+<svg class="w-full h-full object-cover text-primary/10" fill="currentColor" viewbox="0 0 1000 600">
+<path d="M0 600 L200 400 L400 550 L600 300 L800 500 L1000 350 L1000 600 Z"></path>
+<path class="opacity-50" d="M0 600 L150 450 L350 580 L550 400 L750 520 L1000 450 L1000 600 Z"></path>
+</svg>
+</div>
+<div class="relative z-10 text-center max-w-4xl px-6">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase mb-6">Cartographic Discovery</span>
+<h1 class="font-heading text-6xl md:text-8xl font-black text-slate-900 leading-[0.9] tracking-tighter mb-8">
+                    EXPLORE THE <br/> JOURNEY <span class="text-primary italic">MAP</span>
+</h1>
+<p class="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                    Immerse yourself in hidden cultural landscapes across the globe. A curated cartography of the world's most remote villages.
+                </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="bg-primary text-white px-10 py-5 rounded-full font-bold text-lg shadow-xl shadow-primary/20 hover:scale-105 transition-transform flex items-center gap-2">
+                        Browse Expeditions
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="px-10 py-5 rounded-full font-bold text-lg border-2 border-primary/20 text-primary hover:bg-primary/5 transition-colors">
+                        The Mystery Principle
+                    </button>
+</div>
+</div>
+<!-- Floating Map Legend -->
+<div class="absolute bottom-12 left-12 glass-panel p-6 rounded-xl hidden xl:block">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-primary marker-pulse"></div>
+<span class="text-xs font-bold uppercase tracking-wider text-slate-500">Active Outpost</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-warm-earth"></div>
+<span class="text-xs font-bold uppercase tracking-wider text-slate-500">Discovery Phase</span>
+</div>
+<div class="flex items-center gap-3">
+<svg class="dotted-path text-primary/50" height="2" width="24"><line stroke="currentColor" stroke-width="2" x1="0" x2="24" y1="1" y2="1"></line></svg>
+<span class="text-xs font-bold uppercase tracking-wider text-slate-500">Nomadic Route</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Journey Map -->
+<section class="py-24 px-6 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
+<div class="max-w-2xl">
+<h2 class="font-heading text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Interactive Journey Map</h2>
+<p class="text-lg text-slate-600">Navigate the terrain of our active partnerships. Each marker represents a community where we share the journey of preservation.</p>
+</div>
+<div class="flex gap-2">
+<button class="p-3 rounded-lg border border-slate-200 hover:bg-white transition-colors">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+<button class="p-3 rounded-lg border border-slate-200 hover:bg-white transition-colors">
+<span class="material-symbols-outlined">zoom_out</span>
+</button>
+<button class="p-3 rounded-lg border border-slate-200 hover:bg-white transition-colors">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+</div>
+<div class="relative w-full aspect-[21/9] bg-[#e1e8e4] rounded-3xl border border-primary/10 overflow-hidden group shadow-2xl">
+<img class="w-full h-full object-cover opacity-80" data-alt="Detailed topographic mountain map with valleys and rivers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyqXxR7YxKsgqZFLF-WbDoBkC1yJLhioRQRaIDFTiyxWMUy1THm47nZiVsRmcLowkX4I_U-8Ck9kpJ1gHK6p2FVdLJtaNNw35HqCSpujlQ9agqdfSjqNhEp40z-NY5hBNXfGgDZ6BaermrkWFAVQKEV8RtFFcyEpJY2lWwrxjAOZ8U10jdaQZmMHHuVNONBVWFVuFBdN0WP6z8WdcA2hQg79adVYIF5zRCeasd2UiQGCcW7_mwGkL1qhLHhJCWurQRdzyMZB8PKg3D"/>
+<!-- Pulsing Markers -->
+<div class="absolute top-1/3 left-1/4">
+<div class="group/marker relative">
+<div class="w-6 h-6 bg-primary rounded-full border-4 border-white shadow-lg animate-pulse cursor-pointer"></div>
+<!-- Hover Card -->
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 glass-panel p-4 rounded-xl opacity-0 group-hover/marker:opacity-100 transition-all translate-y-2 group-hover/marker:translate-y-0 pointer-events-none">
+<img class="w-full h-32 object-cover rounded-lg mb-3" data-alt="Aerial view of a mist-covered green valley" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYkuT49qJAUK6Gtb13bgdr3m8-Yk5_e6Oh8VxAOH8UB8aDwTA0n6wznoawgbPw-opzqyC0GHsarrHbQwnHbBPC1FZoJ3QyQlWKgKvwo9iO6s9mufOpzxBBZDMPi57xlAXL2ZkI69VIX5S_YYr6xOgOkx_vF8Z_hDyBtMdeqcIjvnbQ0vspKDjEA5CfEXRodERrOF2D_ugQLgto_CFucFC85IKvczFGFbV1-Gn78AwMD-Y1gOyuY1aGRtVzp3gTN0rwc0AI34UWHVC0"/>
+<h4 class="font-bold text-slate-900">The Silent Valley</h4>
+<p class="text-xs text-slate-500 mb-3">4 Active Villages • High Altitude</p>
+<a class="text-xs font-bold text-primary flex items-center gap-1" href="#">View Expedition <span class="material-symbols-outlined text-sm">north_east</span></a>
+</div>
+</div>
+</div>
+<div class="absolute bottom-1/4 left-1/2">
+<div class="group/marker relative">
+<div class="w-6 h-6 bg-warm-earth rounded-full border-4 border-white shadow-lg cursor-pointer"></div>
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 glass-panel p-4 rounded-xl opacity-0 group-hover/marker:opacity-100 transition-all translate-y-2 group-hover/marker:translate-y-0 pointer-events-none">
+<img class="w-full h-32 object-cover rounded-lg mb-3" data-alt="Distant camp fire in a mountain terrain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9j0jb6lWl135o9NBhtl2rLpfCGq8cmoSPe3ITtW6nzHQfz2WX7UJgwLDavnwsE8OfXLTD5f_KMd-obSyoqz-9eDNaWsTl07l3pfw0Ul0cgF_TNGwgn5FaLYCuTs7mvDmMzymvwB-LiDeznnK3diLe7TokOKC_dHcsGLfmCcHEGyDHWuaLQWvIGP8m_1jzKsiWuNIUW7HSpyKxUB_B05mQ9ONlDBnVAYB4mtchtq1sey5V_SMPtCfAlAP6dyw-HJLbLTD97ib-5Yo-"/>
+<h4 class="font-bold text-slate-900">The Shepherd’s Trail</h4>
+<p class="text-xs text-slate-500 mb-3">Nomadic Route • Seasonal</p>
+<a class="text-xs font-bold text-primary flex items-center gap-1" href="#">View Route <span class="material-symbols-outlined text-sm">north_east</span></a>
+</div>
+</div>
+</div>
+<!-- SVG Routes Overlay -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none">
+<path class="dotted-path opacity-40" d="M400,200 Q550,250 800,450" fill="none" stroke="#20603d" stroke-width="2"></path>
+</svg>
+</div>
+</section>
+<!-- Expedition Regions -->
+<section class="bg-primary/5 py-24 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-heading text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Expedition Regions</h2>
+<div class="w-20 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-primary/5">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Snow-capped Himalayan peaks against a blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdhkCWeTHmz79fQ5lBPOBzyeIUNf-F9JlYF5wGo1UN5Jrfw22IY8co1jykwriFCqU7X6E8VWuuWTU83cSSioUcniGwdq0sAsXtX1TKu3oTfn-id-mEUXYcDCTUV7dq6qbTGBe1AbYKbI-krF8SUFDR1VuCcF0qeqy-ZqXrFw6NmMhXsZBgzJZCtvHMzv2R5BtY21qWAQ3tSi4agGQZE0poRhi45t-bDIDMYzoDQfzZxWuO7pU13DIs4Vt9oVv8QM3xepllgUpysyde"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold tracking-tighter text-primary">TIER 1 PRESERVATION</div>
+</div>
+<div class="p-8">
+<h3 class="font-heading text-xl font-bold text-slate-900 mb-2">Hidden Himalayan Valleys</h3>
+<p class="text-slate-600 text-sm mb-6 leading-relaxed">Accessed only via multi-day trekking, these valleys host cultures unchanged for centuries.</p>
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-slate-400">8 VILLAGES IN NETWORK</span>
+<button class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-primary/5">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Sunlight filtering through a dense pine forest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApjzt7bNE2XXLU7lyueOoyoQIryfGMVWUZMdmPrOn8yXun6ccT6VX7OOTwy4VGYknWPVlzndjkWgzh4JxczG4ba82xhGz4SCVV-jKRCtEuDKVvbgHA8E-ZRUc-dOrQV6ivvUosOcouc_dfRbshdAcpuwtR6VUDPywFrC7XYlVVHU-0qENAz42afuaD2OUc-Gq1rsW3sLzG_pzhK5ctR6wxf_31EW0k8bSfXa_oQ1WUITB8VXkorHg0_I7Trs1behREPcGC4XKxSSvt"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold tracking-tighter text-primary">TIER 2 PRESERVATION</div>
+</div>
+<div class="p-8">
+<h3 class="font-heading text-xl font-bold text-slate-900 mb-2">Forest Villages</h3>
+<p class="text-slate-600 text-sm mb-6 leading-relaxed">Arboreal communities with deep-rooted spiritual connections to the ancient surrounding timberlands.</p>
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-slate-400">12 VILLAGES IN NETWORK</span>
+<button class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-primary/5">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Stone village house with fruit trees on a slope" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5BkrvKDrQHjMbqsJZcfWk1sfZIiO_bWKiTKBRjILcDOu2pd-8YRN2TSUAiXsoZFc_2WRiGaQw3RHSz9k5MTkZ5N-xjE_i_PoCqP-ilH9QFoWni62upl1jQ7otno23AmfcivrXQ7Ine4dDjaJLQqv6s2THVo2vUXQAaHXaHUTsd-kbjtXBel5SOKiF1PmBrVl6SgKHsTErC9e1K7pZnDtMTcBgcKSM6Uv6F-5pwIiJ6X2jtctzzV1Y6bFD3eAhzusXYtljYwTKsPVo"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold tracking-tighter text-primary">TIER 1 PRESERVATION</div>
+</div>
+<div class="p-8">
+<h3 class="font-heading text-xl font-bold text-slate-900 mb-2">Mountain Orchard Communities</h3>
+<p class="text-slate-600 text-sm mb-6 leading-relaxed">Vertical agriculture specialists maintaining boutique heirloom harvests at 4000 meters.</p>
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-slate-400">5 VILLAGES IN NETWORK</span>
+<button class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Village Network Diagram & Mystery Principle -->
+<section class="py-24 px-6">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div>
+<span class="text-primary font-bold text-sm tracking-widest uppercase block mb-4">The Mystery Principle</span>
+<h2 class="font-heading text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">Why We Hide Our Locations</h2>
+<p class="text-slate-600 mb-8 leading-relaxed text-lg">
+                        Exposure is the first step toward erosion. To protect the cultural integrity of our partners, we never publish exact GPS coordinates or village names on public maps. You discover the destination only when your journey begins.
+                    </p>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">shield</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 mb-1">Cultural Buffer</h4>
+<p class="text-sm text-slate-500">We limit annual visits to a maximum of 50 guests per village to prevent 'over-tourism' burnout.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-xl bg-mountain-blue/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-mountain-blue">handshake</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 mb-1">Direct Partnership</h4>
+<p class="text-sm text-slate-500">100% of village entry fees go directly to communal heritage funds managed by elders.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="absolute inset-0 bg-primary/10 rounded-full blur-3xl opacity-30"></div>
+<div class="relative glass-panel rounded-3xl p-10 border border-primary/10 overflow-hidden">
+<!-- Abstract Blur Map Graphic -->
+<div class="absolute inset-0 opacity-20 select-none">
+<img class="w-full h-full object-cover blur-xl" data-alt="Blurred topographic map texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKZllP6wj7OJksrroV0TPcv2FEW5bTg8kfuxVDmvO3rGhlbMhtEMmgCRXRl6sdkuOukxVDmpw0T4uGNCBjROfX7MKzdFZWl6Hw2YgYaIlMy-4lEeiGK2ADP90oWmoNG8AKsP0L8xAQf4Lz4VonSmCmcK_YRDlGmjnH7Xoy_YfNt_Hcj2WK1IGOeI9OXsi1pB_0qAcNzWX8PkMjp4uFtn8a3uVYG1KAYwxoJh2LW-iPWd_FMiMbqNoJYCRZP3XURUkoIEDaxeixPnMe"/>
+</div>
+<div class="relative z-10">
+<h4 class="text-center font-heading text-lg font-bold mb-10 text-primary">Village Capacity Model</h4>
+<div class="flex flex-col items-center gap-4">
+<div class="w-24 h-24 rounded-full border-4 border-primary flex items-center justify-center bg-white shadow-xl">
+<span class="font-heading text-2xl font-black">50</span>
+</div>
+<div class="text-center">
+<p class="font-bold text-slate-900">Annual Limit</p>
+<p class="text-xs text-slate-500">GUESTS PER NETWORK VILLAGE</p>
+</div>
+<svg class="text-primary/20" height="60" width="2"><line stroke="currentColor" stroke-dasharray="4 4" stroke-width="2" x1="1" x2="1" y1="0" y2="60"></line></svg>
+<div class="grid grid-cols-3 gap-4 w-full">
+<div class="bg-white/50 p-4 rounded-xl border border-primary/10 text-center">
+<p class="font-bold text-primary">Preservation</p>
+<div class="h-1 w-full bg-primary/20 mt-2 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[90%]"></div>
+</div>
+</div>
+<div class="bg-white/50 p-4 rounded-xl border border-primary/10 text-center">
+<p class="font-bold text-primary">Privacy</p>
+<div class="h-1 w-full bg-primary/20 mt-2 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%]"></div>
+</div>
+</div>
+<div class="bg-white/50 p-4 rounded-xl border border-primary/10 text-center">
+<p class="font-bold text-primary">Impact</p>
+<div class="h-1 w-full bg-primary/20 mt-2 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[95%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Expedition Discovery Workflow -->
+<section class="bg-background-dark py-24 px-6 text-white overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row items-center justify-between mb-20 gap-8">
+<h2 class="font-heading text-4xl font-extrabold tracking-tight">Discovery Workflow</h2>
+<p class="text-slate-400 max-w-md">Our methodology for bringing new villages into the 50/50 network is rigorous and community-led.</p>
+</div>
+<div class="relative flex flex-col md:flex-row justify-between gap-8 md:gap-4">
+<!-- Workflow Connector Line -->
+<div class="absolute top-1/2 left-0 w-full h-px bg-white/10 -translate-y-1/2 hidden md:block"></div>
+<!-- Step 1 -->
+<div class="relative z-10 flex-1 group">
+<div class="w-12 h-12 rounded-full bg-primary border-4 border-background-dark flex items-center justify-center font-bold mb-6 group-hover:scale-110 transition-transform">1</div>
+<h4 class="font-bold text-lg mb-2">Exploration</h4>
+<p class="text-sm text-slate-400 leading-relaxed">Satellite identifying of remote clusters and heritage sites.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex-1 group">
+<div class="w-12 h-12 rounded-full bg-mountain-blue border-4 border-background-dark flex items-center justify-center font-bold mb-6 group-hover:scale-110 transition-transform">2</div>
+<h4 class="font-bold text-lg mb-2">Discovery</h4>
+<p class="text-sm text-slate-400 leading-relaxed">First-contact boots on ground to assess community interest.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 flex-1 group">
+<div class="w-12 h-12 rounded-full bg-warm-earth border-4 border-background-dark flex items-center justify-center font-bold mb-6 group-hover:scale-110 transition-transform">3</div>
+<h4 class="font-bold text-lg mb-2">Partnership</h4>
+<p class="text-sm text-slate-400 leading-relaxed">MoU signing with village council and defining visitor limits.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 flex-1 group">
+<div class="w-12 h-12 rounded-full bg-slate-700 border-4 border-background-dark flex items-center justify-center font-bold mb-6 group-hover:scale-110 transition-transform">4</div>
+<h4 class="font-bold text-lg mb-2">Pilot</h4>
+<p class="text-sm text-slate-400 leading-relaxed">Internal stress-test with 10 club members for logistics.</p>
+</div>
+<!-- Step 5 -->
+<div class="relative z-10 flex-1 group">
+<div class="w-12 h-12 rounded-full bg-white text-primary border-4 border-background-dark flex items-center justify-center font-bold mb-6 group-hover:scale-110 transition-transform">5</div>
+<h4 class="font-bold text-lg mb-2">Official</h4>
+<p class="text-sm text-slate-400 leading-relaxed">The region is quietly added to our private explorer map.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Explorer Expansion Animated Map Simulation -->
+<section class="py-24 px-6 relative bg-background-light overflow-hidden">
+<div class="max-w-7xl mx-auto flex flex-col items-center">
+<h2 class="font-heading text-3xl font-extrabold text-slate-900 mb-16 tracking-tight text-center">Expanding Horizons</h2>
+<div class="relative w-full max-w-4xl aspect-video bg-white rounded-3xl shadow-inner border border-primary/5 overflow-hidden">
+<img class="w-full h-full object-cover opacity-10" data-alt="World map outlined in minimalist green lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH7e8ojJHR5Gb_AF21E1dL4jJBn7sDP4Gw1IaIDr7DB_4nDPZdRfq7J7gYuxl-mU_W0t3T1AXbndoRUE5XNPL1Sb-1Vm8Qqexoz4GlzKCRGNOhOoc7Rp266UBy3ijqid9er2ytEd_SjFfBzmN3-vd_FeehTEdBF2TBpj11yT8eRzvIMwuf2xeK7brGrJOvkRPPfAkhJFD0EVRBbVQoJAEZYQnDIUW3NR17uiL1qCdGaggwLn8RMP0wwrdzHMn0u1QGGDxUJjujNZn6"/>
+<!-- Expansion Points -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="relative">
+<!-- Central Node (Himalayas) -->
+<div class="w-4 h-4 bg-primary rounded-full relative z-10">
+<div class="absolute inset-0 bg-primary rounded-full animate-ping opacity-75"></div>
+</div>
+<!-- Connecting Lines (Expansion) -->
+<svg class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] pointer-events-none">
+<path class="dotted-path" d="M400,200 L250,150" stroke="#4A7C9E" stroke-width="1"></path>
+<path class="dotted-path" d="M400,200 L550,100" stroke="#4A7C9E" stroke-width="1"></path>
+<path class="dotted-path" d="M400,200 L600,280" stroke="#4A7C9E" stroke-width="1"></path>
+</svg>
+<!-- Future Nodes -->
+<div class="absolute -top-32 -left-48 group">
+<div class="w-2 h-2 bg-mountain-blue rounded-full"></div>
+<span class="absolute top-4 left-0 whitespace-nowrap text-[10px] font-bold tracking-widest text-mountain-blue opacity-50">ANDES MOUNTAINS (2025)</span>
+</div>
+<div class="absolute -top-48 left-40 group">
+<div class="w-2 h-2 bg-mountain-blue rounded-full"></div>
+<span class="absolute top-4 left-0 whitespace-nowrap text-[10px] font-bold tracking-widest text-mountain-blue opacity-50">CAUCASUS REGION (2026)</span>
+</div>
+<div class="absolute top-32 left-60 group">
+<div class="w-2 h-2 bg-mountain-blue rounded-full"></div>
+<span class="absolute top-4 left-0 whitespace-nowrap text-[10px] font-bold tracking-widest text-mountain-blue opacity-50">PAMIR PLATEAU (2025)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="relative py-32 overflow-hidden bg-primary group">
+<div class="absolute inset-0 opacity-20">
+<img class="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-[10s]" data-alt="Cloudy mountain peak in high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD88nKFxmgFEmIjssA1VBmNw5J5RRxVAZ6t60xtC9-eVXpZh1Ag61Uv4Zg7MEpuhxCVpZkaPsz5OIA-ZZ6ELFzIXcUZnOv8LpS173BUHuPrQdM2fVWISDZ8R-IXK2TMk-Sv2HjV1lRY2Yqf0y2ddQEXTEqZ9EnnqpaGyz_gHChfMKgbzh1Ke0CKzyAH9NqIXl8y99TNamf9a7cBNKCWoc8Z5riKVDVRKS2FmvEAuMiqOECSXME9hwnoiW6n-ze7HnrQArzB1GF5j02c"/>
+</div>
+<!-- Mist/Cloud Animations Simulation Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent"></div>
+<div class="relative z-10 text-center px-6">
+<h2 class="font-heading text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter">
+                    YOUR NEXT JOURNEY BEGINS<br/>SOMEWHERE ON THIS MAP
+                </h2>
+<p class="text-white/70 text-lg md:text-xl max-w-xl mx-auto mb-12">
+                    Become a member to access the full interactive map and secure your place in our next seasonal expedition.
+                </p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="bg-white text-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-background-light transition-colors shadow-2xl">
+                        Apply for Membership
+                    </button>
+<button class="bg-primary/20 backdrop-blur-md text-white border border-white/30 px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition-colors">
+                        Inquire about Corporate
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-background-light border-t border-primary/10 py-20 px-6">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">explore</span>
+<span class="font-heading text-xl font-extrabold tracking-tighter text-primary">50/50 JOURNEYS</span>
+</div>
+<p class="text-slate-500 max-w-sm mb-8">A global alliance of cultural explorers dedicated to the preservation of remote village life through limited-impact tourism.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">mail</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 mb-6">Explore</h4>
+<ul class="space-y-4 text-sm text-slate-500 font-medium">
+<li><a class="hover:text-primary" href="#">Expeditions</a></li>
+<li><a class="hover:text-primary" href="#">Interactive Map</a></li>
+<li><a class="hover:text-primary" href="#">Heritage Fund</a></li>
+<li><a class="hover:text-primary" href="#">Journal</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 mb-6">Governance</h4>
+<ul class="space-y-4 text-sm text-slate-500 font-medium">
+<li><a class="hover:text-primary" href="#">Ethics &amp; Impact</a></li>
+<li><a class="hover:text-primary" href="#">The 50 Cap Rule</a></li>
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="#">Partner Portal</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold text-slate-400 uppercase tracking-widest">
+<p>© 2024 50/50 JOURNEYS. ALL COORDINATES PROTECTED.</p>
+<p>DESIGNED FOR THE CURIOUS &amp; THE CONSCIOUS</p>
+</div>
+</footer>
+</body></html>

@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import { Spotlight } from "@/components/ui/spotlight";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { GlowingButton, MovingBorder } from "@/components/ui/moving-border";
@@ -408,55 +409,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-background-dark text-white/60 py-20 px-6 lg:px-20">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
-          <div className="col-span-2 space-y-6">
-            <div className="flex items-center gap-3 text-white">
-              <span className="material-symbols-outlined text-3xl">landscape</span>
-              <h2 className="text-2xl font-bold">50/50 Journeys</h2>
-            </div>
-            <p className="max-w-md">Sustainable, mystery-led cultural expeditions for the conscious explorer. Headquartered in the heart of nature.</p>
-            <div className="flex gap-4">
-              <a className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors" href="#">
-                <span className="material-symbols-outlined text-sm">share</span>
-              </a>
-              <a className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors" href="#">
-                <span className="material-symbols-outlined text-sm">mail</span>
-              </a>
-            </div>
-          </div>
-          <div>
-            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
-            <ul className="space-y-4 text-sm">
-              {["Our Ethos", "Destinations", "Community Projects", "Apply"].map((link) => (
-                <li key={link}><a className="hover:text-white transition-colors" href="#">{link}</a></li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">Newsletter</h4>
-            <p className="text-sm mb-4">Get notified about our next secret departure.</p>
-            <div className="flex gap-2">
-              <input
-                className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 w-full text-white text-sm focus:outline-none focus:border-[#20603d]"
-                placeholder="Email address"
-                type="email"
-              />
-              <button className="bg-[#20603d] text-white p-2 rounded-lg">
-                <span className="material-symbols-outlined">send</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 text-xs flex justify-between">
-          <p>© 2024 50/50 Journeys. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

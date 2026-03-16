@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { Spotlight } from "@/components/ui/spotlight";
 import { motion, type Variants } from "framer-motion";
@@ -180,16 +181,17 @@ export default function ExperiencesPage() {
 
       {/* ─── HERO ──────────────────────────────────────────────────── */}
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 z-0">
-          <img
-            className="w-full h-full object-cover scale-110"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxm990pTMPnQh9oJF_7MqlBwNudpWB0XB5GFH3-0m5dmZpLrXYQ4otLbe8A2Zr6P_vbcBxVn3NkqkNHvPw9c3BvqyEb0-t-Yt1Kjh579V7QK6r2jZBaEpdYZbFiTNkEfdRJWmvrmGzn4kL5PdwHttyUUNASD6ONJygvkJHhg3bNWstYUgqxEiWL4v8C2MCGamnQGi5pq-t1GEnitNbj-kgJhuXa9cAvA-ikQ2FLygkkY-1wW1-Y7z_M6rtW7zFSID3T0LXIiw_eCZU"
-            alt="Mystery cultural expedition landscape"
-          />
-          <div className="absolute inset-0 bg-black/55" />
-          <div className="absolute inset-0" style={{ background: `linear-gradient(180deg, ${BG_DARK}00 40%, ${BG_DARK} 100%)` }} />
-        </div>
+        {/* Background Video */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover scale-110"
+          src="/Experience/horses.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0" style={{ background: `linear-gradient(180deg, ${BG_DARK}00 40%, ${BG_DARK} 100%)` }} />
 
         {/* Spotlight effect */}
         <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill={PRIMARY} />
@@ -520,6 +522,34 @@ export default function ExperiencesPage() {
             </p>
           </motion.div>
 
+          {/* Visual Grid with local media */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 h-48 md:h-64">
+            <div className="rounded-xl overflow-hidden h-full relative">
+              <img
+                className="w-full h-full object-cover"
+                src="/Experience/kids.jpg"
+                alt="Local children"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden h-full col-span-1 md:col-span-2 relative">
+              <video
+                className="w-full h-full object-cover"
+                src="/Experience/solo.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden h-full relative">
+              <img
+                className="w-full h-full object-cover grayscale"
+                src="/Experience/bnw-granny.jpg"
+                alt="Elder grandmother portrait"
+              />
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {MISSIONS.map((mission, i) => (
               <motion.div
@@ -559,8 +589,8 @@ export default function ExperiencesPage() {
         >
           <div className="absolute inset-0">
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaWMgnUKXsE7e9aA4WMieVgomQymxC_I21DEHpYEuyVQn2lGk-PzSc3ZrOdYnyafv21AuzqiDwYXFOCKKPUdmEdsvhQE-4d0wxLe_VCDGmJZdhi__lyyDkPaY9Kd83pCPqa5iV9uSSt2JU5l-m59YmAJtkLV-xF-dq6nHbkCgB9NmJeteZcb_rPPg4R9jQhwGy9DnxsUuVdqpd8GgifC5JlbXPSoat9_4VjD861wl1DljpTeQJFFtb_f2MplRKZo10AXOm7NAXhjXS"
-              alt="Aerial forest view"
+              src="/Experience/canopy-rays.jpg"
+              alt="Forest canopy with rays of light"
               className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
             />
           </div>
@@ -593,8 +623,8 @@ export default function ExperiencesPage() {
             <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiuMWHgu3FIJoJR7-hVRv39Br8zHxSKymF1ZxVhWVS6bU4--7u5mcocAqpuwlh6p_q-LHBIz0m2rhJQmcyA1lkdVJmmkm1dr1Bo3eX3Rr4G-rLOfshkqje1ptlI6_gYJdGzL8X1E9z_Gdr8lfx8fli3B9UKJvwYIEaqoLw1X7LA1iyp9W64Wh0cROYGAXWBZ9fKhophd4dTcCH3EahOvlCcuKASTC3TNeP9XUzL3mQmiR37FsfzlNBKU-xiUq7unHIosOlPQqO0sBx"
-                  alt="Sustainability aerial view"
+                  src="/Experience/locals.jpg"
+                  alt="Local community members"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -704,14 +734,16 @@ export default function ExperiencesPage() {
 
       {/* ─── FINAL CTA ───────────────────────────────────────────── */}
       <section className="relative py-32 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            className="w-full h-full object-cover grayscale brightness-50"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIFGfxEowQmjVGwfweXWHWcbCBf5FcGWnAxxlcuiwaTVmXAV0_4hDhOS2ndqqBmIc-27ythcq6eFeli1G5cbwxluYMsYSBkj1qp1DHOLZZDUwQ5ucsnJ3wSNeOuoJJcne1kE7sOru8GOKMzQ6V7B_kDJLs9E7J2nJnYVvY-ft9sOvdUrqe9DQJqwiyxSClQeuvzmhy9Le_81TvMA5EUeAoH58PDJnnTfz6Zti1yRBmhrKFc18IlMuF9PrqnXKJvHOQZExc5xw_gLgq"
-            alt="Expedition ending landscape"
-          />
-          <div className="absolute inset-0 mist-overlay" />
-        </div>
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/Experience/backshot.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 mist-overlay" />
 
         <div className="relative z-10 text-center px-6 max-w-3xl">
           <motion.h2
@@ -738,82 +770,7 @@ export default function ExperiencesPage() {
         </div>
       </section>
 
-      {/* ─── FOOTER ────────────────────────────────────────────────── */}
-      <footer
-        className="py-16 px-6 md:px-12 border-t"
-        style={{ backgroundColor: BG_DARK, color: "#94a3b8", borderColor: "rgba(255,255,255,0.05)" }}
-      >
-        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
-          <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 rounded-full flex items-center justify-center text-white" style={{ backgroundColor: PRIMARY }}>
-                <span className="material-symbols-outlined text-sm">landscape</span>
-              </div>
-              <span className="font-display font-bold tracking-tighter text-white">50/50 JOURNEYS</span>
-            </div>
-            <p className="text-sm leading-relaxed">
-              Redefining sustainable cultural travel. Founded in the mountains, guided by local wisdom.
-            </p>
-            <div className="flex gap-3 mt-6">
-              {["public", "camera"].map((icon) => (
-                <a
-                  key={icon}
-                  href="#"
-                  className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#20603d] transition-colors"
-                >
-                  <span className="material-symbols-outlined text-sm">{icon}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {[
-            { title: "Explore", links: ["Upcoming Drops", "How It Works", "Our Guides", "Community Stories"] },
-            { title: "Company", links: ["Our Mission", "Partner Villages", "Privacy Policy"] },
-          ].map((col) => (
-            <div key={col.title}>
-              <h5 className="text-white font-bold mb-6 uppercase text-xs tracking-widest">{col.title}</h5>
-              <ul className="space-y-4 text-sm">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="hover:text-[#20603d] transition-colors">{link}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          <div>
-            <h5 className="text-white font-bold mb-6 uppercase text-xs tracking-widest">Newsletter</h5>
-            <p className="text-xs mb-4 leading-relaxed">Receive secret previews before they go public.</p>
-            <div className="flex">
-              <input
-                type="email"
-                placeholder="Email"
-                className="bg-white/5 border border-white/10 rounded-l-lg p-2 text-xs w-full focus:outline-none focus:border-[#20603d] text-slate-300"
-              />
-              <button
-                className="p-2 rounded-r-lg text-white"
-                style={{ backgroundColor: PRIMARY }}
-              >
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div
-          className="max-w-7xl mx-auto border-t mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest"
-          style={{ borderColor: "rgba(255,255,255,0.05)" }}
-        >
-          <p>© 2026 50/50 Journeys. Designed by Vishu Puri.</p>
-          <div className="flex gap-8">
-            {["Privacy Policy", "Terms", "Cookies"].map((item) => (
-              <a key={item} href="#" className="hover:text-white transition-colors">{item}</a>
-            ))}
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const PRIMARY = "#20603d";
 const BG_LIGHT = "#f6f8f7";
@@ -7,7 +8,7 @@ const LIGHT_BEIGE = "#F5F3EE";
 
 export default function ConceptPage() {
   return (
-    <main className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
+    <main className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300 min-h-screen">
       {/* Material Symbols */}
       <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -377,65 +378,7 @@ export default function ConceptPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#141e19] text-slate-400 py-16 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
-          <div className="col-span-2 space-y-6">
-            <div className="flex items-center gap-3 text-white">
-              <span className="material-symbols-outlined text-[#20603d] text-3xl">
-                landscape
-              </span>
-              <span className="text-xl font-bold tracking-tight">
-                50/50 Journeys
-              </span>
-            </div>
-            <p className="max-w-sm">
-              Designing experiences for those who seek the silence within and the
-              stories without. A new paradigm for global exploration.
-            </p>
-          </div>
-          <div>
-            <h5 className="text-white font-bold mb-6 tracking-widest uppercase text-xs">
-              Explore
-            </h5>
-            <ul className="space-y-4 text-sm">
-              {["Wellness Retreats", "Mystery Missions", "Impact Report"].map(
-                (link) => (
-                  <li key={link}>
-                    <a
-                      className="hover:text-[#20603d] transition-colors"
-                      href="#"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-          <div>
-            <h5 className="text-white font-bold mb-6 tracking-widest uppercase text-xs">
-              Connect
-            </h5>
-            <ul className="space-y-4 text-sm">
-              {["Instagram", "Journal", "Privacy Policy"].map((link) => (
-                <li key={link}>
-                  <a
-                    className="hover:text-[#20603d] transition-colors"
-                    href="#"
-                  >
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto pt-16 mt-16 border-t border-white/5 text-xs flex justify-between">
-          <p>© 2024 50/50 Journeys. All rights reserved.</p>
-          <p>Made with intention for the mindful traveler.</p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

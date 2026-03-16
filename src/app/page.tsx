@@ -1,4 +1,6 @@
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import HeroVideo from "@/components/hero-video";
 
 const PRIMARY = "#20603d";
 const MOUNTAIN_BLUE = "#4A7C9E";
@@ -22,14 +24,7 @@ export default function Home() {
         id="experiences"
         className="relative h-screen w-full flex items-center justify-center overflow-hidden"
       >
-        <div className="absolute inset-0 z-0">
-          <img
-            className="w-full h-full object-cover scale-110"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIFGfxEowQmjVGwfweXWHWcbCBf5FcGWnAxxlcuiwaTVmXAV0_4hDhOS2ndqqBmIc-27ythcq6eFeli1G5cbwxluYMsYSBkj1qp1DHOLZZDUwQ5ucsnJ3wSNeOuoJJcne1kE7sOru8GOKMzQ6V7B_kDJLs9E7J2nJnYVvY-ft9sOvdUrqe9DQJqwiyxSClQeuvzmhy9Le_81TvMA5EUeAoH58PDJnnTfz6Zti1yRBmhrKFc18IlMuF9PrqnXKJvHOQZExc5xw_gLgq"
-            alt="Cinematic mountain landscape with morning fog"
-          />
-          <div className="absolute inset-0 bg-black/35" />
-        </div>
+        <HeroVideo />
 
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <h1
@@ -67,8 +62,7 @@ export default function Home() {
       {/* ─── CONCEPT ──────────────────────────────────────────────── */}
       <section
         id="concept"
-        className="py-24 px-6 md:px-12 max-w-7xl mx-auto"
-        style={{ backgroundColor: BG_LIGHT }}
+        className="py-24 px-6 md:px-12 max-w-7xl mx-auto bg-[#F5F3EE] dark:bg-[#0c1410]"
       >
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
@@ -78,7 +72,7 @@ export default function Home() {
             >
               The 50/50 Concept
             </div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
               The perfect balance between{" "}
               <span style={{ color: PRIMARY }} className="italic">
                 inner peace
@@ -91,7 +85,7 @@ export default function Home() {
             </h2>
             <div className="grid gap-6">
               {/* Wellness card */}
-              <div className="flex gap-4 p-6 bg-white rounded-2xl border border-[#20603d]/5 hover:border-[#20603d]/20 transition-all group glow-card">
+              <div className="flex gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl border border-[#20603d]/5 hover:border-[#20603d]/20 transition-all group glow-card">
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center transition-colors flex-shrink-0"
                   style={{ backgroundColor: `${PRIMARY}18`, color: PRIMARY }}
@@ -101,8 +95,8 @@ export default function Home() {
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg mb-1">50% Wellness</h3>
-                  <p className="text-slate-600 font-light leading-relaxed text-sm">
+                  <h3 className="font-bold text-lg mb-1 text-slate-900 dark:text-white">50% Wellness</h3>
+                  <p className="text-slate-600 dark:text-slate-300 font-light leading-relaxed text-sm">
                     Curated yoga, detox rituals, and nature immersion to reset
                     your spirit. We focus on local healing traditions unique to
                     each landscape.
@@ -112,7 +106,7 @@ export default function Home() {
 
               {/* Mystery card */}
               <div
-                className="flex gap-4 p-6 bg-white rounded-2xl border transition-all group glow-card"
+                className="flex gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl border transition-all group glow-card"
                 style={{ borderColor: `${MOUNTAIN_BLUE}10` }}
               >
                 <div
@@ -122,8 +116,8 @@ export default function Home() {
                   <span className="material-symbols-outlined">explore</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg mb-1">50% Mystery</h3>
-                  <p className="text-slate-600 font-light leading-relaxed text-sm">
+                  <h3 className="font-bold text-lg mb-1 text-slate-900 dark:text-white">50% Mystery</h3>
+                  <p className="text-slate-600 dark:text-slate-300 font-light leading-relaxed text-sm">
                     Secret destinations and local folklore revealed only when
                     you arrive. Embrace the thrill of the unknown with expertly
                     crafted itineraries.
@@ -151,11 +145,11 @@ export default function Home() {
 
       {/* ─── PATH TO DISCOVERY ────────────────────────────────────── */}
       <section
-        className="py-20 overflow-hidden border-y"
-        style={{ backgroundColor: BG_LIGHT, borderColor: `${PRIMARY}10` }}
+        className="py-20 overflow-hidden border-y bg-background-light dark:bg-background-dark"
+        style={{ borderColor: `${PRIMARY}10` }}
       >
         <div className="px-6 md:px-12 mb-12 flex flex-col items-center text-center">
-          <h2 className="font-display text-3xl font-bold mb-4">
+          <h2 className="font-display text-3xl font-bold mb-4 text-slate-900 dark:text-white">
             Your Path to Discovery
           </h2>
           <div
@@ -181,7 +175,7 @@ export default function Home() {
                 {step.num}
               </div>
               <div
-                className="p-6 bg-white rounded-2xl border h-full flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="p-6 bg-white dark:bg-slate-800 rounded-2xl border h-full flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                 style={{ borderColor: `${PRIMARY}15` }}
               >
                 <span
@@ -190,8 +184,8 @@ export default function Home() {
                 >
                   {step.icon}
                 </span>
-                <h4 className="font-bold">{step.title}</h4>
-                <p className="text-xs text-slate-500">{step.desc}</p>
+                <h4 className="font-bold text-slate-900 dark:text-white">{step.title}</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400">{step.desc}</p>
               </div>
             </div>
           ))}
@@ -201,10 +195,9 @@ export default function Home() {
       {/* ─── CURRENT MISSIONS ─────────────────────────────────────── */}
       <section
         id="communities"
-        className="py-24 px-6 md:px-12 max-w-7xl mx-auto"
-        style={{ backgroundColor: BG_LIGHT }}
+        className="py-24 px-6 md:px-12 max-w-7xl mx-auto bg-[#F5F3EE] dark:bg-[#0c1410]"
       >
-        <h2 className="font-display text-4xl font-bold mb-12 text-center">
+        <h2 className="font-display text-4xl font-bold mb-12 text-center text-slate-900 dark:text-white">
           Current Missions
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -330,20 +323,19 @@ export default function Home() {
 
       {/* ─── ECOSYSTEM (BENTO) ────────────────────────────────────── */}
       <section
-        className="py-24 px-6 md:px-12 max-w-7xl mx-auto"
-        style={{ backgroundColor: BG_LIGHT }}
+        className="py-24 px-6 md:px-12 max-w-7xl mx-auto bg-[#F5F3EE] dark:bg-[#0c1410]"
       >
         <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 md:h-[600px]">
           {/* Large left card */}
           <div
-            className="md:col-span-2 md:row-span-2 bg-white p-8 rounded-3xl border flex flex-col justify-between group overflow-hidden relative hover:shadow-xl transition-all duration-500"
+            className="md:col-span-2 md:row-span-2 bg-white dark:bg-slate-800 p-8 rounded-3xl border flex flex-col justify-between group overflow-hidden relative hover:shadow-xl transition-all duration-500"
             style={{ borderColor: `${PRIMARY}08` }}
           >
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold font-display mb-4">
+              <h3 className="text-3xl font-bold font-display mb-4 text-slate-900 dark:text-white">
                 The Ecosystem
               </h3>
-              <p className="text-slate-600 max-w-xs">
+              <p className="text-slate-600 dark:text-slate-300 max-w-xs">
                 Connecting conscious travelers with local communities through
                 our proprietary transparency platform.
               </p>
@@ -539,111 +531,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── FOOTER ───────────────────────────────────────────────── */}
-      <footer
-        className="py-20 px-6 md:px-12 border-t"
-        style={{ backgroundColor: BG_DARK, color: "#94a3b8", borderColor: "rgba(255,255,255,0.05)" }}
-      >
-        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
-          <div className="col-span-1">
-            <div className="flex items-center gap-2 mb-6">
-              <div
-                className="w-8 h-8 rounded-full flex items-center justify-center text-white"
-                style={{ backgroundColor: PRIMARY }}
-              >
-                <span className="material-symbols-outlined text-sm">
-                  landscape
-                </span>
-              </div>
-              <span className="font-display font-bold tracking-tighter text-white">
-                50/50 JOURNEYS
-              </span>
-            </div>
-            <p className="text-sm leading-relaxed">
-              Redefining modern travel through the lens of mystery and profound
-              inner wellness. Founded in the mountains, serving the soul.
-            </p>
-          </div>
-
-          {[
-            {
-              title: "Explore",
-              links: ["Destinations", "The Missions", "Our Guides", "Testimonials"],
-            },
-            {
-              title: "Philosophy",
-              links: ["Wellness Ethos", "Mystery Logic", "Impact Report", "Sustainability"],
-            },
-          ].map((col) => (
-            <div key={col.title}>
-              <h5 className="text-white font-bold mb-6 uppercase text-xs tracking-widest">
-                {col.title}
-              </h5>
-              <ul className="space-y-4 text-sm">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="transition-colors hover:text-[#20603d]"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          <div>
-            <h5 className="text-white font-bold mb-6 uppercase text-xs tracking-widest">
-              Connect
-            </h5>
-            <div className="flex gap-4 mb-6">
-              {["public", "camera"].map((icon) => (
-                <a
-                  key={icon}
-                  href="#"
-                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#20603d] transition-colors"
-                >
-                  <span className="material-symbols-outlined text-sm">
-                    {icon}
-                  </span>
-                </a>
-              ))}
-            </div>
-            <p className="text-xs mb-2">Newsletter for the curious:</p>
-            <div className="flex mt-2">
-              <input
-                type="email"
-                placeholder="Email address"
-                className="bg-white/5 border border-white/10 rounded-l-lg p-2 text-xs w-full focus:outline-none focus:border-[#20603d] text-slate-300"
-              />
-              <button
-                className="p-2 rounded-r-lg text-white"
-                style={{ backgroundColor: PRIMARY }}
-              >
-                <span className="material-symbols-outlined text-sm">
-                  arrow_forward
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div
-          className="max-w-7xl mx-auto border-t mt-20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest"
-          style={{ borderColor: "rgba(255,255,255,0.05)" }}
-        >
-          <p>© 2026 50/50 Journeys. All rights reserved.</p>
-          <div className="flex gap-8">
-            {["Privacy Policy", "Terms of Service", "Cookies"].map((item) => (
-              <a key={item} href="#" className="hover:text-white transition-colors">
-                {item}
-              </a>
-            ))}
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import { Spotlight } from "@/components/ui/spotlight";
 import { HoverEffect, Card, CardTitle } from "@/components/ui/card-hover-effect";
 import { GlowingButton, MovingBorder } from "@/components/ui/moving-border";
@@ -406,23 +407,7 @@ export default function ApplicationPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-slate-950 text-white/50 py-20 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-          <div className="flex items-center gap-3">
-            <div className="w-6 h-6 bg-[#20603d] rounded-full" />
-            <span className="text-lg font-black tracking-tighter text-white">50/50 JOURNEYS</span>
-          </div>
-          <div className="flex gap-8 text-sm font-medium">
-            {["Privacy", "Terms", "Contact", "Press"].map((link) => (
-              <a key={link} className="hover:text-white transition-colors" href="#">
-                {link}
-              </a>
-            ))}
-          </div>
-          <div className="text-xs">© 2024 50/50 Journeys. All rights reserved.</div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

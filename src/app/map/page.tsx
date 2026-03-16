@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import { Spotlight } from "@/components/ui/spotlight";
 import { GlowingButton, MovingBorder } from "@/components/ui/moving-border";
 import { motion } from "framer-motion";
@@ -496,46 +497,7 @@ export default function JourneyMapPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-background-light dark:bg-background-dark border-t border-[#20603d]/10 py-20 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <span className="material-symbols-outlined text-[#20603d] text-3xl">explore</span>
-              <span className="font-heading text-xl font-extrabold tracking-tighter text-[#20603d]">50/50 JOURNEYS</span>
-            </div>
-            <p className="text-slate-500 dark:text-slate-400 max-w-sm mb-8">A global alliance of cultural explorers dedicated to the preservation of remote village life through limited-impact tourism.</p>
-            <div className="flex gap-4">
-              <a className="w-10 h-10 rounded-full bg-[#20603d]/5 flex items-center justify-center text-[#20603d] hover:bg-[#20603d] hover:text-white transition-colors" href="#">
-                <span className="material-symbols-outlined text-xl">share</span>
-              </a>
-              <a className="w-10 h-10 rounded-full bg-[#20603d]/5 flex items-center justify-center text-[#20603d] hover:bg-[#20603d] hover:text-white transition-colors" href="#">
-                <span className="material-symbols-outlined text-xl">mail</span>
-              </a>
-            </div>
-          </div>
-          <div>
-            <h4 className="font-bold text-slate-900 dark:text-white mb-6">Explore</h4>
-            <ul className="space-y-4 text-sm text-slate-500 dark:text-slate-400 font-medium">
-              {["Expeditions", "Interactive Map", "Heritage Fund", "Journal"].map((link) => (
-                <li key={link}><a className="hover:text-[#20603d]" href="#">{link}</a></li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-slate-900 dark:text-white mb-6">Governance</h4>
-            <ul className="space-y-4 text-sm text-slate-500 dark:text-slate-400 font-medium">
-              {["Ethics & Impact", "The 50 Cap Rule", "Privacy Policy", "Partner Portal"].map((link) => (
-                <li key={link}><a className="hover:text-[#20603d]" href="#">{link}</a></li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-[#20603d]/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold text-slate-400 uppercase tracking-widest">
-          <p>© 2024 50/50 JOURNEYS. ALL COORDINATES PROTECTED.</p>
-          <p>DESIGNED FOR THE CURIOUS &amp; THE CONSCIOUS</p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import { Spotlight } from "@/components/ui/spotlight";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { GlowingButton, MovingBorder } from "@/components/ui/moving-border";
@@ -325,30 +326,7 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      {/* Simple Footer */}
-      <footer className="bg-background-light dark:bg-background-dark py-12 px-6 lg:px-20 border-t border-slate-200 dark:border-[#20603d]/10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-3">
-            <div className="size-6 text-[#20603d]">
-              <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </div>
-            <h3 className="font-bold text-slate-900 dark:text-white">50/50 Journeys</h3>
-          </div>
-          <div className="flex gap-8 text-sm text-slate-500 font-medium">
-            {["Privacy Policy", "Terms of Service", "FAQ"].map((link) => (
-              <a key={link} className="hover:text-[#20603d]" href="#">
-                {link}
-              </a>
-            ))}
-          </div>
-          <p className="text-sm text-slate-400">© 2024 50/50 Journeys. Exploring with intent.</p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

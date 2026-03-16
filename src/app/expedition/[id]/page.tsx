@@ -2,6 +2,7 @@
 
 import { useParams } from "next/navigation";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import { Spotlight } from "@/components/ui/spotlight";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { GlowingButton, MovingBorder } from "@/components/ui/moving-border";
@@ -492,45 +493,7 @@ export default function ExpeditionPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-background-dark py-20 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-white/60 text-sm">
-          <div className="col-span-2">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="size-6 bg-[#20603d] rounded flex items-center justify-center text-white">
-                <span className="material-symbols-outlined text-sm">landscape</span>
-              </div>
-              <h2 className="text-white text-lg font-black tracking-tighter">50/50 JOURNEYS</h2>
-            </div>
-            <p className="max-w-xs mb-8">A collaborative travel platform where half the plan is ours, and half the adventure is yours to discover.</p>
-            <div className="flex gap-4">
-              <a className="hover:text-white" href="#"><span className="material-symbols-outlined">public</span></a>
-              <a className="hover:text-white" href="#"><span className="material-symbols-outlined">camera</span></a>
-              <a className="hover:text-white" href="#"><span className="material-symbols-outlined">mail</span></a>
-            </div>
-          </div>
-          <div>
-            <h4 className="text-white font-bold mb-6 block">Explorer Portal</h4>
-            <ul className="space-y-4">
-              {["Active Journeys", "Preparation Guide", "Mission Logs", "Community Forum"].map((link) => (
-                <li key={link}><a className="hover:text-white" href="#">{link}</a></li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-bold mb-6 block">Legal &amp; Privacy</h4>
-            <ul className="space-y-4">
-              {["Terms of Adventure", "Privacy Protocol", "Safety Standards", "Sustainability Pact"].map((link) => (
-                <li key={link}><a className="hover:text-white" href="#">{link}</a></li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto border-t border-white/10 mt-20 pt-10 flex justify-between items-center text-xs text-white/40">
-          <p>© 2024 50/50 Journeys. All rights reserved.</p>
-          <p>Designed for the curious.</p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

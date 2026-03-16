@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import { Spotlight } from "@/components/ui/spotlight";
 import { HoverEffect, Card, CardTitle } from "@/components/ui/card-hover-effect";
 import { GlowingButton, MovingBorder } from "@/components/ui/moving-border";
@@ -18,15 +19,23 @@ export default function CommunitiesPage() {
 
       <Navbar />
 
-      {/* Hero Section with Spotlight */}
+      {/* Hero Section with Video Background */}
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
-        <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill={PRIMARY} />
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/Communities/local-dancing.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
         <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-1000"
+          className="absolute inset-0"
           style={{
-            backgroundImage: `linear-gradient(to bottom, rgba(31, 94, 59, 0.4), rgba(23, 34, 17, 0.8)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCa7ZE-NSx3f88CFz9g3Uxb-DkdpynREHsIs9_pZg-80U_yfttlp6e_LK6CLM3m4TiONacso1c6Yw0DnPWNHN6HFgY1czILIzivpO1bau40FiGkUTuACZnrLTLroIKMTsIKoZ9O_-GqdSoNdOaa48NYZUlIQpuhixIbvTpt8fRo8waD-ZxkGDExuiMVdy-GFLocMKrQvsgo5aMEWY04GxHfJxOXUBXn2Zj9HoIoVQJSpBvrtR-1ibSGdFZ7cKxaN8i2KRZD3BxZCvJe')`,
+            background: `linear-gradient(to bottom, rgba(31, 94, 59, 0.5), rgba(23, 34, 17, 0.85))`,
           }}
         />
+        <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill={PRIMARY} />
         <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
           <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6 tracking-tight">
             Our Journeys Are Powered By Communities
@@ -44,49 +53,51 @@ export default function CommunitiesPage() {
       {/* Philosophy Section */}
       <section className="py-24 max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div
-            className="rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] bg-slate-200"
-            style={{
-              backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuAsr6OpIrdvGn55AiThoXuIg10KaZ-EdgrFSISSztvUflQkTWRO5wj4cz1lR5_o1SPLsJJPpZ696J-47PaaY_ectNriqy3wF7kz6HovoYA07zRwjpVo7Msl8tneweGdCeqBBMSMyutBq8Y6sd19kxNZ6-T0XnPtrHsdxfEeYNg-as2FdnjDiX9xnjfvGplEjmbgkRKc4TWJEqAHMhr98pARPUlqx4xqnV7bD6_YgYwTxbUWWCEpP7N3IQ4k9tB6ViEfvFXr0c9pBYz7')`,
-            }}
-          />
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] bg-slate-200">
+            <img
+              className="w-full h-full object-cover"
+              src="/Communities/yogi.jpg"
+              alt="Local practitioner in meditation"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#172211]/60 to-transparent" />
+          </div>
           <div>
             <span className="text-[#C17C3A] font-bold tracking-widest uppercase text-sm mb-4 block">
               The Philosophy
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-8 leading-tight">
               Communities Are Partners, Not Attractions
             </h2>
             <div className="space-y-8">
               <div className="flex gap-4">
-                <div className="size-12 rounded-xl bg-[#1F5E3B]/10 flex items-center justify-center text-[#1F5E3B] shrink-0">
+                <div className="size-12 rounded-xl bg-[#1F5E3B]/10 dark:bg-[#1F5E3B]/20 flex items-center justify-center text-[#1F5E3B] shrink-0">
                   <span className="material-symbols-outlined">favorite</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg mb-1">Respect</h4>
-                  <p className="text-slate-600 leading-relaxed">
+                  <h4 className="font-bold text-lg mb-1 text-slate-900 dark:text-white">Respect</h4>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                     We honor local traditions, spiritual practices, and privacy above all travel logistics.
                   </p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="size-12 rounded-xl bg-[#4A7C9E]/10 flex items-center justify-center text-[#4A7C9E] shrink-0">
+                <div className="size-12 rounded-xl bg-[#4A7C9E]/10 dark:bg-[#4A7C9E]/20 flex items-center justify-center text-[#4A7C9E] shrink-0">
                   <span className="material-symbols-outlined">handshake</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg mb-1">Partnership</h4>
-                  <p className="text-slate-600 leading-relaxed">
+                  <h4 className="font-bold text-lg mb-1 text-slate-900 dark:text-white">Partnership</h4>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                     Villages own the experience. They decide the group size, the activities, and the stories shared.
                   </p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="size-12 rounded-xl bg-[#C17C3A]/10 flex items-center justify-center text-[#C17C3A] shrink-0">
+                <div className="size-12 rounded-xl bg-[#C17C3A]/10 dark:bg-[#C17C3A]/20 flex items-center justify-center text-[#C17C3A] shrink-0">
                   <span className="material-symbols-outlined">history_edu</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg mb-1">Cultural Preservation</h4>
-                  <p className="text-slate-600 leading-relaxed">
+                  <h4 className="font-bold text-lg mb-1 text-slate-900 dark:text-white">Cultural Preservation</h4>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                     Tourism should protect culture, not dilute it. We fund local preservation initiatives directly.
                   </p>
                 </div>
@@ -97,11 +108,11 @@ export default function CommunitiesPage() {
       </section>
 
       {/* Roles Section with HoverEffect Cards */}
-      <section className="bg-[#1F5E3B]/5 py-24">
+      <section className="bg-[#1F5E3B]/5 dark:bg-[#1F5E3B]/10 py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Roles Within the Village</h2>
-            <p className="text-slate-600 max-w-xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4 text-slate-900 dark:text-white">Roles Within the Village</h2>
+            <p className="text-slate-600 dark:text-slate-300 max-w-xl mx-auto">
               Everyone in the community has a voice and a role in our shared journey.
             </p>
           </div>
@@ -134,43 +145,57 @@ export default function CommunitiesPage() {
       </section>
 
       {/* Cultural Exchange with BentoGrid */}
-      <section className="py-24">
+      <section className="py-24 bg-background-light dark:bg-background-dark">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col lg:flex-row gap-12 items-center mb-16">
             <div className="lg:w-1/2">
-              <h2 className="text-4xl font-bold mb-6">
+              <h2 className="text-4xl font-bold mb-6 text-slate-900 dark:text-white">
                 Cultural Exchange, Not Cultural Consumption
               </h2>
-              <p className="text-slate-600 text-lg leading-relaxed mb-8">
+              <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-8">
                 Our journeys are designed for mutual learning. While they share their way of life with us, we bring curiosity and humble contribution. It&apos;s a two-way bridge built on human connection.
               </p>
             </div>
-            <div
-              className="lg:w-1/2 h-80 w-full rounded-2xl bg-cover bg-center shadow-lg"
-              style={{
-                backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJAX7TJfog6mYZXmlHfqKsoAlLITqwtgh3vgBuJGOHW1Qi8XyNQf1K8QNdmYoHkN0vHWn_G_-YJYmNpECuxyCXTyXRNq68yV_3CDkdrjlN83VSq4uP-VfG5cW-uR5H4Rnw54OSN9ZW2n3muIioRUyZ75Gb6uDBDkYGEorTR50sWBtRov_ZutJHFOzNhRW1Uv69PnZHZtWe83tw4nEsC2rRzeTOTf1VyjnLqWkivlTJ_MM7XyTN283IJZsG4rmqAAhobxFV7iSlUpmz')`,
-              }}
-            />
+            <div className="lg:w-1/2 h-80 w-full rounded-2xl overflow-hidden shadow-lg relative">
+              <video
+                className="w-full h-full object-cover"
+                src="/Communities/ritual.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#172211]/40 to-transparent" />
+            </div>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-64 md:h-96">
-            <div
-              className="rounded-xl bg-cover bg-center h-full"
-              style={{
-                backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuBjZbMNfG4xsT9CyEkOSEIuMxoTCX4_zFNtCwoN67TVPZh_Pa7Io5L_UY4wuhKq_24QJL7shJ8YH62n2I1g1aAygGexOZTm8cXmYm9PkbVPBT109awg0G6H33RtGOVbU8dMyHlyZ2aAAR-O-cYx7pztCXOa7L8Yq_4lAbbWJJDSV9bVV8Fw-ygdJl1HuVGrkvnh6JjBxbnD0TroMMw8N0sle84h5ZC2o5czUhS1q-gUmXcyABfXls9-pnKHa6_Zb-9sj53XcWoh5cM0')`,
-              }}
-            />
-            <div
-              className="rounded-xl bg-cover bg-center h-full col-span-1 md:col-span-2"
-              style={{
-                backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuCl9qMHLaCny0jadTZ60GErV97p5RQjGut1SeZ-LPF6PILh0nJNcY9bSA4Wjw3hqWqUsEjhdLC1yHiJWcsUe-9duaCzsOXhij5twuScNKcV9R1EsUf263jTmjnj2yQgi5aTg9crijXcUtjtD41uVz4Ck-0wvCKpYXGucuGj0WB2xWqfAUaVHukzEMvFVa3DZAuBVw57i9nH0EN1-LxVEtmkFJOUwj8WBTx08H2rRuiTHEBDe4RdtmlCstNw5NwbNPDwSY1C3Xt6NLoV')`,
-              }}
-            />
-            <div
-              className="rounded-xl bg-cover bg-center h-full"
-              style={{
-                backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuBigkFSjke77NBotVYlKB2MsiQ8uYv2LAKcHe_TQ53ADH5H2GXxhx5zQlY5F4uc0zdPJazgi0-ztuP4hmUsKqhCbR2lzGEKl6YEDdaqZ4BR7--Mdd9OJdJpQGcmt07mh6uLtWSrSXcZB7KRT40cInxBWVnrAHM_uyVPDL7RP2H95qGEKwDN-0F4r6xV6cKZXVp36x8Xn4Ds8VFawH3tH5eQ09XFLhr6ny2kn3uaIaQTyqIwNUMBDbA-_ZaiOeivCaY3y3vk7cpMubJt')`,
-              }}
-            />
+            <div className="rounded-xl overflow-hidden h-full relative">
+              <video
+                className="w-full h-full object-cover"
+                src="/Communities/shephard.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden h-full col-span-1 md:col-span-2 relative">
+              <video
+                className="w-full h-full object-cover"
+                src="/Communities/kids-timelapse.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden h-full relative">
+              <img
+                className="w-full h-full object-cover"
+                src="/Communities/local-uncle.jpg"
+                alt="Local community elder"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -179,6 +204,17 @@ export default function CommunitiesPage() {
       <section className="bg-[#172211] text-white py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div className="relative rounded-2xl overflow-hidden aspect-video mb-8 lg:mb-0">
+              <video
+                className="w-full h-full object-cover"
+                src="/Communities/bird-feed.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#172211]/60 to-transparent" />
+            </div>
             <div>
               <h2 className="text-4xl font-bold mb-8">Fair Wealth Distribution</h2>
               <p className="text-slate-300 text-lg mb-12">
@@ -234,26 +270,26 @@ export default function CommunitiesPage() {
 
       {/* Protecting Culture */}
       <section className="py-24 max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold mb-16">Protecting What We Love</h2>
+        <h2 className="text-4xl font-bold mb-16 text-slate-900 dark:text-white">Protecting What We Love</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
             <span className="material-symbols-outlined text-5xl text-[#C17C3A] mb-4">group</span>
-            <h4 className="text-xl font-bold mb-2">Limited Group Sizes</h4>
-            <p className="text-slate-600">
+            <h4 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">Limited Group Sizes</h4>
+            <p className="text-slate-600 dark:text-slate-300">
               Maximum of 8 travelers per journey to minimize impact and maintain intimacy.
             </p>
           </div>
           <div>
             <span className="material-symbols-outlined text-5xl text-[#C17C3A] mb-4">calendar_month</span>
-            <h4 className="text-xl font-bold mb-2">Limited Journeys</h4>
-            <p className="text-slate-600">
+            <h4 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">Limited Journeys</h4>
+            <p className="text-slate-600 dark:text-slate-300">
               Each village hosts only 4 times per year to prevent dependency and cultural fatigue.
             </p>
           </div>
           <div>
             <span className="material-symbols-outlined text-5xl text-[#C17C3A] mb-4">verified</span>
-            <h4 className="text-xl font-bold mb-2">Community Consent</h4>
-            <p className="text-slate-600">
+            <h4 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">Community Consent</h4>
+            <p className="text-slate-600 dark:text-slate-300">
               Communities can pause or end the partnership at any time for any reason.
             </p>
           </div>
@@ -261,9 +297,9 @@ export default function CommunitiesPage() {
       </section>
 
       {/* Partnership Model Timeline */}
-      <section className="py-24 bg-[#C17C3A]/5">
+      <section className="py-24 bg-[#C17C3A]/5 dark:bg-[#C17C3A]/10">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16">Our Partnership Model</h2>
+          <h2 className="text-4xl font-bold text-center mb-16 text-slate-900 dark:text-white">Our Partnership Model</h2>
           <div className="relative">
             <div className="hidden md:block absolute left-1/2 h-full w-px bg-[#C17C3A]/30 -translate-x-1/2" />
             <div className="space-y-16">
@@ -279,7 +315,7 @@ export default function CommunitiesPage() {
                 >
                   <div className={`md:w-1/2 ${step.left ? "md:text-right md:pr-12" : "md:text-left md:pl-12"}`}>
                     <h3 className="text-2xl font-bold text-[#C17C3A] mb-2">{step.title}</h3>
-                    <p className="text-slate-600">{step.desc}</p>
+                    <p className="text-slate-600 dark:text-slate-300">{step.desc}</p>
                   </div>
                   <div className="relative z-10 size-10 rounded-full bg-[#C17C3A] text-white flex items-center justify-center font-bold">
                     {step.num}
@@ -342,8 +378,8 @@ export default function CommunitiesPage() {
       </section>
 
       {/* Testimonials with HoverEffect */}
-      <section className="py-24 max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16">Voices from Our Partners</h2>
+      <section className="py-24 max-w-7xl mx-auto px-6 bg-background-light dark:bg-background-dark">
+        <h2 className="text-4xl font-bold text-center mb-16 text-slate-900 dark:text-white">Voices from Our Partners</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
@@ -365,14 +401,14 @@ export default function CommunitiesPage() {
               role: "Lead Guide, Solukhumbu",
             },
           ].map((testimonial) => (
-            <Card key={testimonial.name} className="bg-white p-8 rounded-2xl border border-slate-100 flex flex-col h-full">
+            <Card key={testimonial.name} className="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 flex flex-col h-full">
               <div
                 className="size-16 rounded-full mb-6 bg-cover bg-center shadow-md"
                 style={{ backgroundImage: `url('${testimonial.image}')` }}
               />
-              <p className="text-slate-600 italic mb-6 flex-grow">{testimonial.quote}</p>
+              <p className="text-slate-600 dark:text-slate-300 italic mb-6 flex-grow">{testimonial.quote}</p>
               <div>
-                <CardTitle className="text-lg">{testimonial.name}</CardTitle>
+                <CardTitle className="text-lg dark:text-white">{testimonial.name}</CardTitle>
                 <p className="text-xs text-slate-400 uppercase tracking-widest mt-1">{testimonial.role}</p>
               </div>
             </Card>
@@ -397,64 +433,7 @@ export default function CommunitiesPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#172211] text-white py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 border-b border-white/10 pb-16">
-            <div className="col-span-1 md:col-span-2">
-              <div className="flex items-center gap-2 mb-6">
-                <span className="material-symbols-outlined text-[#1F5E3B] text-3xl">landscape</span>
-                <span className="text-2xl font-bold tracking-tight">50/50 Journeys</span>
-              </div>
-              <p className="text-slate-400 max-w-sm mb-8 leading-relaxed">
-                Radically transparent travel that puts local communities first. 50% profit, 50% purpose.
-              </p>
-              <div className="flex gap-4">
-                {["share", "photo_camera", "mail"].map((icon) => (
-                  <a
-                    key={icon}
-                    className="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#1F5E3B] transition-colors"
-                    href="#"
-                  >
-                    <span className="material-symbols-outlined text-xl">{icon}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h5 className="font-bold mb-6">Quick Links</h5>
-              <ul className="space-y-4 text-slate-400">
-                {["Experiences", "The Concept", "Communities", "Membership"].map((link) => (
-                  <li key={link}>
-                    <a className="hover:text-white transition-colors" href="#">
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h5 className="font-bold mb-6">Impact</h5>
-              <ul className="space-y-4 text-slate-400">
-                {["Sustainability Report", "Partner With Us", "Cultural Projects", "Ethics & Safety"].map((link) => (
-                  <li key={link}>
-                    <a className="hover:text-white transition-colors" href="#">
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-slate-500">
-            <p>© 2024 50/50 Journeys. All rights reserved.</p>
-            <div className="flex gap-8">
-              <a className="hover:text-white" href="#">Privacy Policy</a>
-              <a className="hover:text-white" href="#">Terms of Service</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

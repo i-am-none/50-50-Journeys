@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Spotlight } from "@/components/ui/spotlight";
@@ -68,9 +69,11 @@ export default function ApplicationPage() {
             <GlowingButton className="w-full sm:w-auto bg-[#20603d] text-white px-10 py-4 rounded-full text-lg font-bold hover:scale-105 transition-transform shadow-xl">
               Start Application
             </GlowingButton>
-            <button className="w-full sm:w-auto border border-white/30 bg-white/10 backdrop-blur-md text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-white/20 transition-all">
-              View Philosophy
-            </button>
+            <Link href="/philosophy" className="w-full sm:w-auto">
+              <button className="w-full sm:w-auto border border-white/30 bg-white/10 backdrop-blur-md text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-white/20 transition-all">
+                View Philosophy
+              </button>
+            </Link>
           </div>
         </div>
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">

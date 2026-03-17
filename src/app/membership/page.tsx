@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 import { Spotlight } from "@/components/ui/spotlight";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { GlowingButton, MovingBorder } from "@/components/ui/moving-border";
+import { MEDIA } from "@/lib/media";
 
 const PRIMARY = "#20603d";
 
@@ -27,7 +28,7 @@ export default function MembershipPage() {
           <div
             className="w-full h-full bg-cover bg-center scale-105"
             style={{
-              backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuD3DZklXa87yMZvITWtDPkCs2JmWllZxBOcy69qju9lYeD4Pzt80CeBUkXss9crwpL7-3x7xgbCJDtqzW9iWDeiQsuILk5wuObvr9zM6inBBEtlz7qgKz6XE2NFaYg5yr3-K_laGFb2gfle9ChAcMls2Iu5L5zsh9T5shUBGsVX-S9vwfRjbfg_8445U-aHuQKQPeEAnuYchohLX03tS_8NBGukQX0mZSVwo87Y1A2XVUZMffjALXhp3XSXFEd9dzXSVWblNDIKhNbB")`,
+              backgroundImage: `url("${MEDIA.pictures.img1}")`,
             }}
           />
         </div>
@@ -58,7 +59,7 @@ export default function MembershipPage() {
               <img
                 className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                 alt="Travelers engaging with local community members in a remote village"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7KlVLWnbf7ONPtcn9Wm4y3J4T2RyA0gxaah-LbRynW4-P8CaHtzy1Rk-6nkjzLfTxhEM4UcEk18VkKfvzBVlquTCEdFwQHzNCk8-T0ynpHeZZVxr5_JMjyOy3Rk_gqddY0fFHMgOFWdg2MBL4pR01BTuyXKB52QwhLynk7Ow5lexvRJPARhn9UnYBTSJhxBBRyWKaLGVfHXYVRHWJB8V_cUD-QnPBJPoSevIXyETx9UoTvhP4fBZi50KbHHVOaIbU7qOy9OwE2I-_"
+                src={MEDIA.pictures.img2}
               />
             </div>
             <div className="absolute -bottom-6 -right-6 bg-[#4A7C9E] p-8 rounded-xl text-white hidden md:block max-w-xs shadow-xl">
@@ -216,22 +217,22 @@ export default function MembershipPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[250px]">
             {[
               {
-                src: "https://lh3.googleusercontent.com/aida-public/AB6AXuC9qqTir4Fn13c6v4mpQSpkpp1nxaupUNQUtA33-PLQhfJneth27DQAWosTUToJZtHSOoFtYQ5W1SJCvvnTPeplO8Uh1jKhicB3XcOdDSaiIQtKLO8LW5UAopFWt5al9OPiKyzvE1vrf6cZVgedgWoB7CWpZiPVe2srU4n8tP2hY4n4LJaNkSfb83TVAMWtHek1QGy8_1LFjV15uY-phHWOC5oIFf9tp_C5z61C1CnEprj2xl_O4liq4V1zEu2IO-0i9v6GlSzPfGCb",
+                src: MEDIA.pictures.img3,
                 title: "Shared Rituals & Meals",
                 span: "col-span-2 row-span-2",
               },
               {
-                src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAosPw2G_Bsr_dkfcYu6GH297jTANsPSlc0a88N0TthnYgMX2-OQwknfMQm6Do3bLeckbf1eiLS7D3kYQPvwZS2YIs5-D0K1yf-dnLGvqgvdsZ1a72PY9EeqqVrveF0PA8MINlSXJ3Se5Yq97NvAHw-F16uiGpg7Gu3KPJ-74MgG4c5x_vGXUSp7JUqLzHgLzVk-CfS9NVfGee-zq4Fw1cdz09m3zu5PcJne9DM8hchQqRWsXN5m3qqADnwSCJMLEnPEX5eBcPmH_MR",
+                src: MEDIA.pictures.img4,
                 title: "Forest Exploration",
                 span: "",
               },
               {
-                src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAmOeoC5eCMlKUck1Xv29k7FRxeHJtJsteQqfSDFfksHPOxsgd3aG8B4wOmC_c_8EZv4aOAJyV0RpJqf-6v9Qiljpi4bi5RgkMcaJ5hxRnzn7lSGW-lxfimSLr-My3P-Xi2jkN3pH-5CVoMCCDrcliLrZzCUG7DobxFtCMERz_IJ-tWKdpC_z0Dvk8CUW3zIBWhpz5TW2X8aHwQrF6o3c7ofrsbTZLoij-UeTpjgkw4LvO9oqEGOjDwsuN5dplE8nAqFl3ASqVb80Go",
+                src: MEDIA.pictures.img5,
                 title: "Visual Storytelling",
                 span: "",
               },
               {
-                src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCxLR0RYHndJHqyq-kxVvC1HEViTtFFsO8XQw9UgOwcuvk3YuD0khNPP_2i3Fcmd248-6UYw7BargncnRgcPMHFuLFJUsREJXkED7N0S3atflEm8O3EV_HzmXDW2nzsGl9G4Ba5ztawMjgUdPQfSTKUj6bmvU1gO8-q-BWy73AC_4JJcsWjwXqw3F4Q0qzLP7ICAXtQPJOc4dB0ZyGehBAxpMandK-3Hb_VLC3BsosZ6j10r3aVyCKUVEKWNFa4xOapyCkqDj3RToCO",
+                src: MEDIA.pictures.img6,
                 title: "Nightly Storytelling Circles",
                 span: "col-span-2",
               },
@@ -305,7 +306,7 @@ export default function MembershipPage() {
           <img
             className="w-full h-full object-cover scale-110 opacity-40 blur-sm"
             alt="Jagged mountain peaks emerging from thick rolling morning mist"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgjeFr6JeP63QeyuW5GOr4eggQGSmtrqhEPDXoQDPCC0VjOnn7RzCkXsF1RE5YV52kaLpMcIm0JLmXEeJdQKO-oI4DwJZWZYMJp47jjeZeZGoP1H9RRmoIHXFd0OkgCt6k2Bfo7TWRluRsRYtjJ980E8DvOBa0RQ5zFSS8X8_3xjI9_xH3_hT2pyzyjG6AzyTKtEdUAmXl4C-dEcucEOGjb3q1jpkY0oqQJPGG5KzfiI6iLBVaWWizgsyVY80IJ-Tm6_JOlKMdwjgD"
+            src={MEDIA.pictures.img7}
           />
         </div>
         <div className="relative z-20 text-center px-6 max-w-4xl">

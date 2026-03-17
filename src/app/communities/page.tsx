@@ -371,7 +371,7 @@ export default function CommunitiesPage() {
               <img
                 alt="Map"
                 className="relative z-10 max-w-full"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4Mnb2_xBkbViuYm3fDYggGARFR7UgZxq4ERTi0aHNN1PpSoMj_A_174vm0vbcgTe8k8nHOiaIjPnt7ETMG6zpB2PgRoRby5v1ktABhYkDqA-zwEt9ZOvZCyPO72DOz8DpZMhg78WLXqC3vRtmQNMlPKCZpuDf65P9uEdL3DBE-e11Gb6DmudMTEQ4kF6vDpAxuia4oJ-BQcsb-53J5v37bz4xh48iHCQ088DtRZc9IyZB_uU8e25Gq6qHPst9uNAp0-tVqL8YLkLI"
+                src={MEDIA.pictures.img8}
               />
             </div>
           </div>
@@ -384,19 +384,19 @@ export default function CommunitiesPage() {
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
-              image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBs8CBYTsvgFBRrpPCPmxpBTfR3K4GVW9jS4i2L6MPKUKpYMwaWT4Aw1fDq6TgFdz0DimDbNFlJO--1LBDmInFYgFJvykoEFaquvOowJDSjQ1GYB_ayZHPs3xuPCZxHjUFQRoYRQjEDLN-CR9Oy55uoqB7tGg7tz6CHzi8uzyORcIwogZWbvjNKJHXKV_buMNbJgKWa2NSiaeKB4d2lAJWBHdzxUpATuIC-7X2VxWysY9zRX4QHD1mfEzvLItad-iqFsNqt2Yypzr4S",
+              image: MEDIA.pictures.img9,
               quote: "Working with 50/50 doesn't feel like business. It feels like making new family who want to learn our ways.",
               name: "Pema Tashi",
               role: "Village Elder, Mustang Region",
             },
             {
-              image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDU3sEGoWV-HI6ArfFKhH47v5VBXS6Soqa1G_wHjjCpjmRJ4-dItBLs4tumqtADmmlMkN2xKXD3mkypR-dRwbsYDcFgSR-KrfQZcKgpC85ehO87VB_TWhUbUL1Jv2EOLYDzkxJDDenXZgF0jb1QPsGpSyakDIYfDzoyOdKui92v3h1MZ7729Zu55IcXrLsS1NmHe97qdkeiJ-6slEM4yIWR1f9C3MAhAiTFFUbVuVq7qKFSOjtJGkcpL-GEJ2LhBpBn02aeS-gPUnKf",
+              image: MEDIA.pictures.img10,
               quote: "The community fund from our first journey helped us fix the roof of our ancestral gathering hall. Our culture is stronger now.",
               name: "Elena Quinto",
               role: "Host Mother, Sacred Valley",
             },
             {
-              image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBD32DDsG3hu2NvM8BP2YMicn5Vx4qkPaP145UPSBUunRmFIeEninK8mxuxr1U9R_jQG18DhPDbHidi7t35EihXHP7o6uUEKwaUVQ0ZrgL13RChn4jf56844VMrOZeRZ4Wqn8UE-Vsr67k9c_bXv__Q0ZolK3XWhl-JypAcQa1khNi9lDKFm4QEln4REapTB-7c9LpIGeAN_i4HMPvZU_5WBIlfRUAnLal70eFms4thk4oYblbNBMd_Rco372dAGKDR6n1_BUNRJjvE",
+              image: MEDIA.pictures.img11,
               quote: "They listen more than they talk. They treat our mountains like temples, just as we do.",
               name: "Dawa Sherpa",
               role: "Lead Guide, Solukhumbu",
@@ -423,7 +423,7 @@ export default function CommunitiesPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(rgba(31, 94, 59, 0.8), rgba(23, 34, 17, 0.9)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVUBsW_yGfle880pSqOuEmlmsEUgaN2JN6A1iEek2hdEBdRxs_jh-9PWB4Yz_8erce8CQPkt3vWsMXBiuGDwvobRpFfN7lwipJpNj92V-Cbad4W2AMUOKTxVvDkYbFFV-ZKVem3FvM50a5SzMqWhW1sCL6cSKJIE6QuiGJmLW-bLb5YRf69aTe_k4vLfoDpjlhFKEOZOwYeKnOharkzr3vYf5l8msRXStc4gfUvlzkHMUNmigi-GJNs7LXz60XsV4M3ffQmy_tHftz')`,
+            backgroundImage: `linear-gradient(rgba(31, 94, 59, 0.8), rgba(23, 34, 17, 0.9)), url('${MEDIA.pictures.img1}')`,
           }}
         />
         <div className="relative z-10 text-center px-6">

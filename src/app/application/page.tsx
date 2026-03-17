@@ -7,6 +7,7 @@ import Footer from "@/components/footer";
 import { Spotlight } from "@/components/ui/spotlight";
 import { HoverEffect, Card, CardTitle } from "@/components/ui/card-hover-effect";
 import { GlowingButton, MovingBorder } from "@/components/ui/moving-border";
+import { MEDIA } from "@/lib/media";
 
 const PRIMARY = "#20603d";
 
@@ -51,7 +52,7 @@ export default function ApplicationPage() {
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
-            backgroundImage: `linear-gradient(to bottom, rgba(20, 30, 25, 0.7), rgba(20, 30, 25, 0.4)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCHVM9RYWytk1I1QzzaLy1r2BKT4UMeKPM_WJd-BVhFmCf219Rlj0GQV4KOmag5k_PMssjbgI7Q262KHLHO6u_gMC1O9g2uP3eOmFQqkqpq0bfAPTnOLdwHNxCg_M-7SpO306k3B1UfGZM-FhFPZM1Ad4EM_jg8ZHGN4xMVxtu7IZEsUCQYGUVEJFztc9ufFeFWyTLRMKUIdHSSP7mdR_dhvIk05Xkik7f56iacBHjEq0ASneAdVocR2JPys8zFbWlz0EqSCR-czbzF')`,
+            backgroundImage: `linear-gradient(to bottom, rgba(20, 30, 25, 0.7), rgba(20, 30, 25, 0.4)), url('${MEDIA.pictures.img1}')`,
           }}
         />
         <div className="relative z-10 text-center px-6 max-w-4xl">
@@ -210,7 +211,7 @@ export default function ApplicationPage() {
                 <img
                   className="w-full h-full object-cover"
                   alt="Group of friends sitting around a campfire in the woods"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoDFaqDmSEmZbGyl_trY278vAqYkosMIu2VoRZ0W7OII_L7fI8lEusx0NH1wR_5II4DTKzsFLTZWnzmpkPpkIOlAG3Jb2Cb3l__Jaupcmuz-Wgd_Z2nxEFNP1QGA2vN-xsjxBBWLRxpWL86ZOPrQOzPOu1_uUacVthwi2WpIvuGf4XR0NHDxHhIHIQ0eTun6uq1VmmrY4f7oYllij4vO97U8xBiHXLyW7zsY4UZ77eu-nXEzklfuJHnbZgi3wF67PgfNtAg0XBdtzZ"
+                  src={MEDIA.pictures.img2}
                 />
               </div>
             </div>
@@ -393,7 +394,7 @@ export default function ApplicationPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(rgba(20, 30, 25, 0.8), rgba(20, 30, 25, 0.9)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNpoCx8MfK_2alG6ntRoUfe_pSXvy3rIk4CY39Y-816pg6ttrJqz5jOLsXcx2CEpEbZ0sQa_lJhz9bKKX-4Mjjm_BxMocvyRArTnTDUmO1chf5dhmny14PsKjVP3UeS5DxbRU5rhtDFv5dfoqr93SkheVKCnGwMITUx-7Y28dJvETHPZpq2GenZw7qpxw0n6P1dUPr5Q-O9R4Bx8DoP0pEFbrX6OTj8a5e1pQQj_BSZrFyTqpgcT-RW53wxVDsUTLMyouK6V6PavYC')`,
+            backgroundImage: `linear-gradient(rgba(20, 30, 25, 0.8), rgba(20, 30, 25, 0.9)), url('${MEDIA.pictures.img3}')`,
           }}
         />
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">

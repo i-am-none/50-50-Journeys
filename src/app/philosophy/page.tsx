@@ -6,6 +6,7 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { HoverEffect, Card, CardTitle } from "@/components/ui/card-hover-effect";
 import { GlowingButton, MovingBorder } from "@/components/ui/moving-border";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { MEDIA } from "@/lib/media";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -36,8 +37,7 @@ export default function PhilosophyPage() {
         <div
           className="absolute inset-0 scale-105 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCUAruztJ5KuDfNEOkef_ehD1qAkDUAfUdwa0kxrHFPSqLV7LOriV5vSrwmG1eywEIcQn0M6aEkpgK9cZqzpV8-w2niS-rJcolJZkgbePsrCsJUQhpfdKIcVDpL5-ZWVrUYTnu0O4HPCCTF9W1sMJ6k56H7l_YF7LMwvdvw4QC4KUPgxK-oSsCKeCZtnP605A2xN1jADeZSYJpMixRR1cT8sYEWTQCXXil_D5_cvWDtPCveDnTbbtmB97fID1j_1MSNuJ0otHRV6RF7')",
+            backgroundImage: `url('${MEDIA.pictures.img1}')`,
           }}
         />
         <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill={PRIMARY} />
@@ -91,8 +91,7 @@ export default function PhilosophyPage() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage:
-                  "url('https://lh3.googleusercontent.com/aida-public/AB6AXuA7b-ZltW9bPHV2qyKiu0-DIp4kBRqXbbpnNVMR9xKlwbzk2GPieWUceG-6RO0y-lbsyrz7a9REn0i-o7nWqBEeAyCNXiALIuuTsUICK7Wrl1j5nHnK9cMgNg1i-raPEvZ6fQgb6COyWAlErdMD0c-IHeoQ2LJtH156EEohfCP3kA_HeYVF4JOXCvSqOFS9dtto8_KOnFXKdy0GyeiWOwKomuUErDIfXtOsO-4UWNC7C_wdI5_mdMd8eFjqiCfZ5RzrMu1rTrWFDETa')",
+                backgroundImage: `url('${MEDIA.pictures.img2}')`,
               }}
             />
             <div className="absolute bottom-6 left-6 right-6 p-6 glass-panel rounded-xl text-white">
@@ -125,7 +124,7 @@ export default function PhilosophyPage() {
 
       {/* 3. Modern Problem */}
       <section className="bg-slate-900 text-white py-32 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 bg-[url('https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&q=80&w=1000')] bg-cover" />
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 bg-cover" style={{ backgroundImage: `url('${MEDIA.pictures.img5}')` }} />
         <div className="max-w-7xl mx-auto px-6 md:px-16 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -249,8 +248,7 @@ export default function PhilosophyPage() {
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
               style={{
-                backgroundImage:
-                  "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFvLce_v_2rVg5THPMgmhNpf5AqE9I2MgCND9Wac2XMfNerIInOSgfmfwEnO2DExcs3xXVB9T1L5T1GoSrc7zziOHm15rV7l8fO3MOIMGpFgFafD3Pg8ChpSpJygpAImL2fTMWYp-gAX5wWyso-pF7Jr7CyNuDz1va9JytJ5lMgsU_Nt1ulfpHm9hoYDT-ei83T-M1R5Q5VgRAS7VTD2HcoTOjQWyjcHLQ-fMLVPnOvxfshfXycRIFx5rRExhQUJh1N_sXzg8zN5ZI')",
+                backgroundImage: `url('${MEDIA.pictures.img3}')`,
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
@@ -340,7 +338,7 @@ export default function PhilosophyPage() {
 
       {/* 9. Final CTA */}
       <section className="relative min-h-[80vh] flex items-center justify-center py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1491555103946-3c6350739422?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${MEDIA.pictures.img4}')` }} />
         <div className="absolute inset-0 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-sm" />
         <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill={PRIMARY} />
         <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">

@@ -1,772 +1,595 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { Spotlight } from "@/components/ui/spotlight";
-import { motion, type Variants } from "framer-motion";
-import { useState } from "react";
-import Link from "next/link";
 import { MEDIA } from "@/lib/media";
+import Link from "next/link";
 
-const PRIMARY = "#20603d";
-const MOUNTAIN_BLUE = "#4A7C9E";
-const WARM_EARTH = "#C17C3A";
-const BG_DARK = "#0c1410";
+gsap.registerPlugin(ScrollTrigger);
 
-// ─── Data ──────────────────────────────────────────────────────────────────
+// ─── Brand tokens ─────────────────────────────────────────────────────────────
+const FOREST  = "#20603d";
+const EARTH   = "#C17C3A";
+const MOUNTAIN = "#4A7C9E";
+const BEIGE   = "#F5F3EE";
+const INK     = "#0c1410";
 
-const FILTER_TABS = [
-  { id: "all", label: "All" },
-  { id: "mystery", label: "Mystery" },
-  { id: "wellness", label: "Wellness" },
-  { id: "culture", label: "Culture" },
-  { id: "adventure", label: "Adventure" },
-];
-
-const JOURNEY_TYPES = [
-  { id: "solo", label: "Solo" },
-  { id: "couple", label: "Couple" },
-  { id: "group", label: "Group" },
-];
-
-const EXPEDITIONS = [
+// ─── Journey Steps ────────────────────────────────────────────────────────────
+const STEPS = [
   {
-    id: "silent-valley",
-    title: "The Silent Valley",
-    location: "Location revealed on arrival",
-    duration: "8 Days",
-    group: "4–7 Pax",
-    tags: ["Mystery", "Wellness"],
-    badge: "RUNNING SOON",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAiQchn7JfOfh18rxU451dE91zn9B1n1xI-wdAdmCsUL7im1Zt6b1mgbNp8JuaBcV6og56oi0WjNbR1M-3in2mfSRknF36j5Y00hW8LdTtJYF7-9kA861qmN6LjibtovjXUHDehdEQim2egh6aQALhcDkpSC6LiRj6hqLPvswbFDRukQ3WUCn_X9ZotSsi-kTwuhfkzTjMsvxa4TwdN7WJi7serzKSBpUMwrwWiR7v4h_0zANwEvUnH8bb8CHk2jcTLXthWiUoOClWg",
-    category: "mystery",
+    id: 1,
+    step: "STEP 01",
+    heading: "ARRIVAL: Dropped Into The Unknown",
+    body: "The transition begins the moment you lose signal. No maps, no itinerary, just the immediate presence of the valley air. This is where your old self ends.",
+    image: MEDIA.pictures.img1,
+    tint: `${FOREST}33`,
   },
   {
-    id: "forgotten-orchard",
-    title: "The Forgotten Orchard",
-    location: "Location revealed on arrival",
-    duration: "5 Days",
-    group: "2–4 Pax",
-    tags: ["Culture", "Mystery"],
-    badge: "LAST SPOT",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuATf5uGmAZOcuim59Imgm46SLvvA-tiB-YRiTxJ55ymUtx8fLgi8Q6x84sYrPWNgT1mk7DWTnTldIYVHOqju8t9thBf2cU9eU705CUVuoPTGxh94Dqxxu2yKHCbFBExREc6z6mkB2ybO2DhDQ0SZWSPOLEppXpit75tykt9jD7wzuYcruEZAL-uIy17YwH0M8AXhCEpkg247oRwukUWSzbDyRg2ld3EY5PGdfyOInTpRz64DjRiV8OG6wOi5zw5_kg7nY60PT_2-RYq",
-    category: "culture",
+    id: 2,
+    step: "STEP 02",
+    heading: "THE KIT: Tools for the Internal",
+    body: "We strip away the excess. Your backpack contains only what is essential. Every item has a story; every weight has a purpose.",
+    image: MEDIA.pictures.img3,
+    tint: `${INK}66`,
   },
   {
-    id: "whispers-coast",
-    title: "Whispers of the Coast",
-    location: "Location revealed on arrival",
-    duration: "6 Hours",
-    group: "8–10 Pax",
-    tags: ["Wellness", "Adventure"],
-    badge: null,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBRIbWVGlo4aUSDFa3U3ZJK3p-0yvTXvNJPu_SZIrh_MILBIFoZciNws66h8ckFP5wxxpg7jdb0AIflJRYBu372RnV32LY0TpbsuM2454v9va22Wzi413AV4N78x1KwcR1jQyW2qIeY7tNkiXJiL4BBLcCkORHc_4DSyCTQESmiYzD_GMfWh45kLtLTpA3iiAU7IeNBGcNoVnTFGJw-jVDQTNsQpMO25dMEYcIMPfXI180Kf8WWe0jtVE3B0ky1fNq_H6mfJod23i0q",
-    category: "wellness",
+    id: 3,
+    step: "STEP 03",
+    heading: "THE VOID: Unknown Zones",
+    body: "We navigate through blank spots on the topographic map. These 'unknown zones' mirror the unexplored parts of your own consciousness.",
+    image: MEDIA.pictures.img5,
+    tint: `${MOUNTAIN}4D`,
+  },
+  {
+    id: 4,
+    step: "STEP 04",
+    heading: "ASCENT: Rugged Physicality",
+    body: "The terrain demands respect. As the incline grows, the noise of daily life fades into the rhythm of your own breath and the crunch of earth.",
+    image: MEDIA.pictures.img7,
+    tint: "transparent",
+  },
+  {
+    id: 5,
+    step: "STEP 05",
+    heading: "SHELTER: The Warmth of Hearth",
+    body: "We find refuge in a secluded village. The smell of cedar smoke and the tactile warmth of a mountain home provide a backdrop for deep decompression.",
+    image: MEDIA.experience.locals,
+    tint: `${INK}40`,
+  },
+  {
+    id: 6,
+    step: "STEP 06",
+    heading: "TRIBE: Shared Solitude",
+    body: "Engagement without expectation. Participate in age-old traditions that bind the group together through shared labor and collective presence.",
+    image: MEDIA.experience.kids,
+    tint: `${INK}40`,
+  },
+  {
+    id: 7,
+    step: "STEP 07",
+    heading: "STILLNESS: The Calm Center",
+    body: "Meditation isn't an activity here; it's a state of being. The silence of the mountain becomes the silence of the mind.",
+    image: MEDIA.communities.yogi,
+    tint: `${INK}40`,
+  },
+  {
+    id: 8,
+    step: "STEP 08",
+    heading: "BONFIRE: The Reflection",
+    body: "As the embers dance into the night sky, you realise the journey hasn't ended. It has finally begun to live within you.",
+    image: MEDIA.pictures.img9,
+    tint: `${INK}40`,
   },
 ];
 
-const PATH_STEPS = [
-  { num: "01", icon: "edit_document", title: "Apply", desc: "Submit your profile and travel philosophy." },
-  { num: "02", icon: "self_improvement", title: "Prepare", desc: "Receive your analog journey kit." },
-  { num: "03", icon: "nightlight_round", title: "Arrival Ritual", desc: "The destination is finally revealed." },
-  { num: "04", icon: "diversity_3", title: "Missions", desc: "Engage with local communities." },
-  { num: "05", icon: "auto_stories", title: "Discovery", desc: "Uncover the village's sacred lore." },
-  { num: "06", icon: "flare", title: "Final Reveal", desc: "A moment of profound clarity." },
-];
-
+// ─── Architecture Pillars (Bento) ─────────────────────────────────────────────
 const PILLARS = [
   {
-    title: "Mystery Destinations",
-    description: "We partner with locals for authenticity, choosing paths less travelled by traditional tourists.",
-    className: "md:col-span-1 md:row-span-2",
-    header: (
-      <div
-        className="relative h-48 rounded-2xl overflow-hidden"
-        style={{
-          background: `linear-gradient(135deg, ${PRIMARY} 0%, #0f4d2e 100%)`,
-        }}
-      >
-        <div className="absolute inset-0 flex items-end p-4">
-          <span className="material-symbols-outlined text-white/20 text-[120px] absolute -right-4 -bottom-4">
-            explore
-          </span>
-        </div>
-      </div>
-    ),
-    icon: <span className="material-symbols-outlined text-[#20603d] text-2xl">explore</span>,
+    phase: "Phase 01",
+    title: "Detachment",
+    body: "Systematic removal of digital tethers and societal labels. Returning to a zero state.",
+    bg: FOREST,
+    text: BEIGE,
+    phaseColor: "rgba(245,243,238,0.6)",
   },
   {
-    title: "Digital Detox",
-    description: "Devices are locked away. We handle photography so you can fully disconnect.",
-    className: "md:col-span-1",
-    header: (
-      <div className="h-24 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
-        <span className="material-symbols-outlined text-white/40 text-5xl">do_not_disturb_on</span>
-      </div>
-    ),
-    icon: <span className="material-symbols-outlined text-[#4A7C9E] text-2xl">do_not_disturb_on</span>,
+    phase: "Phase 02",
+    title: "Exploration",
+    body: "Navigating terrain that tests physical limits and spatial awareness. The world becomes real again.",
+    bg: "white",
+    text: "#0D1117",
+    phaseColor: EARTH,
   },
   {
-    title: "Small Groups",
-    description: "Intimate gatherings of 4–8 explorers only. Private, not performative.",
-    className: "md:col-span-1",
-    header: (
-      <div className="h-24 rounded-2xl flex items-center justify-center"
-        style={{ background: `linear-gradient(135deg, ${WARM_EARTH}30, ${WARM_EARTH}10)` }}>
-        <span className="material-symbols-outlined text-5xl" style={{ color: WARM_EARTH }}>group</span>
-      </div>
-    ),
-    icon: <span className="material-symbols-outlined text-2xl" style={{ color: WARM_EARTH }}>group</span>,
+    phase: "Phase 03",
+    title: "Immersion",
+    body: "Deep integration with local culture and raw nature. No longer an observer, but a participant.",
+    bg: MOUNTAIN,
+    text: "white",
+    phaseColor: "rgba(255,255,255,0.7)",
   },
   {
-    title: "Community Hosts",
-    description: "Guided by local guardians, not traditional tourist guides.",
-    className: "md:col-span-2",
-    header: (
-      <div className="h-24 rounded-2xl flex items-center justify-center"
-        style={{ background: `linear-gradient(135deg, ${MOUNTAIN_BLUE}20, ${MOUNTAIN_BLUE}05)` }}>
-        <span className="material-symbols-outlined text-5xl" style={{ color: MOUNTAIN_BLUE }}>diversity_1</span>
-      </div>
-    ),
-    icon: <span className="material-symbols-outlined text-2xl" style={{ color: MOUNTAIN_BLUE }}>diversity_1</span>,
+    phase: "Phase 04",
+    title: "Reflection",
+    body: "Synthesising the experience into a lasting internal shift. Hardening the insights found in the wild.",
+    bg: INK,
+    text: BEIGE,
+    phaseColor: EARTH,
   },
 ];
 
-const MISSIONS = [
-  {
-    icon: "auto_stories",
-    title: "Hidden Village Stories",
-    description: "Explore local legends of the Shikoku trails and hear oral histories from the elders.",
-  },
-  {
-    icon: "outdoor_grill",
-    title: "Traditional Cooking",
-    description: "Learn century-old preparation techniques using heirloom ingredients from tribal gardens.",
-  },
-  {
-    icon: "landscape",
-    title: "Shepherd Trails",
-    description: "Navigate ancient mountain paths by nomad decree in the sacred meadows.",
-  },
-];
-
-// ─── Animations ─────────────────────────────────────────────────────────────
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i = 0) => ({
+// ─── Framer Motion variants ────────────────────────────────────────────────────
+const fadeUp = {
+  hidden:  { opacity: 0, y: 40 },
+  visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: [0, 0, 0.2, 1] as const },
+    transition: { delay: i * 0.12, duration: 0.7, ease: [0, 0, 0.2, 1] as const },
   }),
 };
 
-// ─── Page ────────────────────────────────────────────────────────────────────
+const slideIn = {
+  hidden:  { opacity: 0, x: -40 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0, 0, 0.2, 1] as const } },
+};
 
+// ─── Component ────────────────────────────────────────────────────────────────
 export default function ExperiencesPage() {
-  const [activeFilter, setActiveFilter] = useState("all");
-  const [journeyType, setJourneyType] = useState("solo");
+  const stickyRef    = useRef<HTMLDivElement>(null);
+  const panelRef     = useRef<HTMLDivElement>(null);
+  const imageRefs    = useRef<(HTMLDivElement | null)[]>([]);
+  const stepRefs     = useRef<(HTMLDivElement | null)[]>([]);
 
-  const filtered =
-    activeFilter === "all"
-      ? EXPEDITIONS
-      : EXPEDITIONS.filter((e) => e.category === activeFilter);
+  // Hero parallax
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: heroScroll } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroY = useSpring(useTransform(heroScroll, [0, 1], ["0%", "35%"]), {
+    stiffness: 60, damping: 20,
+  });
+  const heroOpacity = useTransform(heroScroll, [0, 0.7], [1, 0]);
+
+  // ─── GSAP: Sticky scroll image switcher ────────────────────────────────────
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (!panelRef.current) return;
+
+      STEPS.forEach((_, idx) => {
+        const step  = stepRefs.current[idx];
+        const image = imageRefs.current[idx];
+        if (!step || !image) return;
+
+        // Show image when the corresponding step text is centred in viewport
+        ScrollTrigger.create({
+          trigger: step,
+          start: "top 55%",
+          end: "bottom 45%",
+          onEnter: () => {
+            gsap.to(image, { opacity: 1, scale: 1, duration: 0.9, ease: "power3.out" });
+            // fade out siblings
+            imageRefs.current.forEach((img, i) => {
+              if (i !== idx && img) gsap.to(img, { opacity: 0, scale: 1.06, duration: 0.7, ease: "power3.in" });
+            });
+          },
+          onEnterBack: () => {
+            gsap.to(image, { opacity: 1, scale: 1, duration: 0.9, ease: "power3.out" });
+            imageRefs.current.forEach((img, i) => {
+              if (i !== idx && img) gsap.to(img, { opacity: 0, scale: 1.06, duration: 0.7, ease: "power3.in" });
+            });
+          },
+        });
+
+        // Text — GSAP reveal on enter
+        ScrollTrigger.create({
+          trigger: step,
+          start: "top 70%",
+          onEnter: () => {
+            gsap.fromTo(
+              step.querySelectorAll(".gsap-text"),
+              { opacity: 0, y: 36 },
+              { opacity: 1, y: 0, stagger: 0.12, duration: 0.75, ease: "power3.out" }
+            );
+          },
+          once: true,
+        });
+      });
+
+      // Progress bar: GSAP scrubber on the sticky section
+      ScrollTrigger.create({
+        trigger: stickyRef.current,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+        onUpdate: (self) => {
+          const bar = document.getElementById("exp-progress-bar");
+          if (bar) bar.style.width = `${self.progress * 100}%`;
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <main className="min-h-screen bg-[#F5F3EE] dark:bg-[#0c1410] transition-colors duration-300">
+    <main
+      className="min-h-screen overflow-x-hidden"
+      style={{ backgroundColor: INK, color: BEIGE }}
+    >
       <Navbar />
 
-      {/* ─── HERO ──────────────────────────────────────────────────── */}
-      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-        {/* Background Video */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover scale-110"
-          src={MEDIA.experience.horses}
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-0" style={{ background: `linear-gradient(180deg, ${BG_DARK}00 40%, ${BG_DARK} 100%)` }} />
+      {/* ─── 1. HERO ──────────────────────────────────────────── */}
+      <section
+        ref={heroRef}
+        className="relative h-screen w-full flex items-center justify-center overflow-hidden"
+      >
+        {/* Parallax video background */}
+        <motion.div
+          className="absolute inset-0 z-0"
+          style={{ y: heroY }}
+        >
+          <video
+            className="w-full h-full object-cover scale-110 opacity-65"
+            src={MEDIA.experience.horses}
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: `linear-gradient(to bottom, ${INK}00 0%, ${INK} 100%)` }}
+          />
+        </motion.div>
 
-        {/* Spotlight effect */}
-        <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill={PRIMARY} />
-
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
+        {/* Hero text */}
+        <motion.div
+          className="relative z-10 text-center px-6 max-w-5xl"
+          style={{ opacity: heroOpacity }}
+        >
+          <motion.span
+            className="inline-block mb-6 tracking-[0.3em] uppercase text-sm font-semibold"
+            style={{ color: EARTH }}
+            initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-widest mb-8"
+            transition={{ duration: 0.7 }}
           >
-            <span className="w-2 h-2 rounded-full bg-[#20603d] animate-pulse" />
-            Mystery Cultural Expeditions
-          </motion.div>
+            Fifty-Fifty Journeys
+          </motion.span>
 
           <motion.h1
+            className="font-serif text-5xl md:text-8xl mb-8 leading-tight"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-5xl md:text-7xl font-black text-white leading-[0.9] mb-4 tracking-tighter"
+            transition={{ duration: 0.9, delay: 0.15 }}
           >
-            Choose Your Next
+            This Is Not A Trip.
             <br />
-            <span
-              className="italic"
-              style={{
-                background: `linear-gradient(135deg, ${PRIMARY}, #4ade80)`,
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Mystery Journey
-            </span>
+            <span className="italic font-light">This Is A Transformation.</span>
           </motion.h1>
 
           <motion.p
+            className="text-xl md:text-2xl font-light text-gray-300 max-w-2xl mx-auto mb-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-white/80 text-lg font-light mb-10 max-w-2xl mx-auto leading-relaxed"
+            transition={{ duration: 0.7, delay: 0.35 }}
           >
-            Embark on mystery cultural expeditions where the destination is a
-            guarded secret until the moment you arrive. Rediscover the magic
-            of the unknown.
+            You don&apos;t follow a path. You discover it.
           </motion.p>
 
           <motion.div
+            className="flex flex-col md:flex-row gap-6 justify-center items-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            transition={{ duration: 0.7, delay: 0.5 }}
           >
-            <button
-              className="group relative overflow-hidden px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm text-white shadow-xl transition-all hover:scale-105"
-              style={{ backgroundColor: PRIMARY }}
+            <a
+              href="#sticky-journey"
+              className="group relative overflow-hidden px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105"
+              style={{ backgroundColor: EARTH }}
             >
-              <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              <span className="relative flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm">explore</span>
-                Browse Expeditions
-              </span>
-            </button>
-            <button className="px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm text-white border border-white/30 bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
-              How It Works
-            </button>
-          </motion.div>
-        </div>
-
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <span className="material-symbols-outlined text-white text-3xl">keyboard_double_arrow_down</span>
-        </div>
-      </section>
-
-      {/* ─── FILTER BAR ─────────────────────────────────────────────── */}
-      <section className="sticky top-20 z-40 px-6">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto bg-white/90 dark:bg-[#0f1f15]/90 backdrop-blur-xl rounded-2xl shadow-xl border border-[#20603d]/10 dark:border-[#20603d]/20 px-6 py-4 flex flex-wrap items-center gap-4"
-        >
-          {/* Category filters */}
-          <div className="flex items-center gap-2 flex-wrap">
-            {FILTER_TABS.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveFilter(tab.id)}
-                className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-200 ${
-                  activeFilter === tab.id
-                    ? "bg-[#20603d] text-white shadow-md"
-                    : "text-slate-500 dark:text-slate-400 hover:text-[#20603d] dark:hover:text-emerald-400"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="ml-auto hidden md:flex items-center gap-2">
-            <span className="text-xs text-slate-400 uppercase tracking-widest">Journey</span>
-            {JOURNEY_TYPES.map((t) => (
-              <button
-                key={t.id}
-                onClick={() => setJourneyType(t.id)}
-                className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
-                  journeyType === t.id
-                    ? "bg-[#20603d]/15 text-[#20603d] dark:text-emerald-400"
-                    : "text-slate-400 hover:text-[#20603d]"
-                }`}
-              >
-                {t.label}
-              </button>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-
-      {/* ─── ACTIVE EXPEDITIONS ─────────────────────────────────────── */}
-      <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">
-              Active Expeditions
-            </h2>
-            <p className="text-slate-500 dark:text-slate-400 text-sm">
-              Discover carefully curated mystery journeys.
-            </p>
-          </div>
-          <button className="text-xs font-bold uppercase tracking-widest text-[#20603d] dark:text-emerald-400 flex items-center gap-1 hover:gap-2 transition-all">
-            View all
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {filtered.map((exp, i) => (
-            <Link key={exp.id} href={`/expedition/${exp.id}`}>
-              <motion.div
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                variants={fadeUp}
-                className="group relative bg-white dark:bg-[#0f1f15] rounded-3xl overflow-hidden border border-[#20603d]/8 dark:border-[#20603d]/15 hover:shadow-2xl hover:shadow-[#20603d]/10 transition-all duration-500 cursor-pointer"
-              >
-              {/* Image */}
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={exp.image}
-                  alt={exp.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                {exp.badge && (
-                  <span
-                    className="absolute top-4 left-4 px-2 py-1 text-white text-[10px] font-black uppercase tracking-widest rounded-full"
-                    style={{ backgroundColor: PRIMARY }}
-                  >
-                    {exp.badge}
-                  </span>
-                )}
-                <div className="absolute bottom-4 left-4 flex gap-2">
-                  {exp.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 bg-white/20 backdrop-blur-sm rounded text-[9px] uppercase font-bold text-white tracking-widest"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <p className="text-xs text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1 font-medium">
-                  MYSTERY EXPEDITION
-                </p>
-                <h3 className="font-display text-xl font-bold text-slate-900 dark:text-white mb-4">
-                  {exp.title}
-                </h3>
-
-                <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400 mb-6">
-                  <span className="flex items-center gap-1">
-                    <span className="material-symbols-outlined text-sm" style={{ color: PRIMARY }}>schedule</span>
-                    {exp.duration}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <span className="material-symbols-outlined text-sm" style={{ color: PRIMARY }}>group</span>
-                    {exp.group}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <span className="material-symbols-outlined text-sm" style={{ color: PRIMARY }}>wellness</span>
-                    Wellness
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <p className="text-xs text-slate-400 dark:text-slate-500 italic">
-                    📍 {exp.location}
-                  </p>
-                  <button
-                    className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-110"
-                    style={{ backgroundColor: `${PRIMARY}15`, color: PRIMARY }}
-                  >
-                    <span className="material-symbols-outlined text-sm">add</span>
-                  </button>
-                </div>
-              </div>
-              </motion.div>
+              <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-400" />
+              <span className="relative">Enter The Unknown</span>
+            </a>
+            <Link
+              href="/application"
+              className="px-8 py-4 rounded-full font-semibold border border-white/30 hover:bg-white/10 transition-all duration-300"
+            >
+              Apply for Access
             </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* ─── PATH TO DISCOVERY ───────────────────────────────────── */}
-      <section
-        className="py-20 px-6 md:px-12"
-        style={{ backgroundColor: BG_DARK }}
-      >
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
-              The Path to Discovery
-            </h2>
-            <p className="text-slate-400 max-w-lg mx-auto font-light">
-              Every expedition follows a sacred sequence that gradually unveils the experience.
-            </p>
           </motion.div>
+        </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {PATH_STEPS.map((step, i) => (
-              <motion.div
-                key={step.num}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="text-center group cursor-pointer"
-              >
-                <div
-                  className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg"
-                  style={{
-                    backgroundColor: `${PRIMARY}20`,
-                    boxShadow: "0 0 0 0px rgba(32,96,61,0)",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.backgroundColor = PRIMARY;
-                    (e.currentTarget as HTMLElement).style.boxShadow = `0 0 20px rgba(32,96,61,0.4)`;
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.backgroundColor = `${PRIMARY}20`;
-                    (e.currentTarget as HTMLElement).style.boxShadow = "0 0 0 0px rgba(32,96,61,0)";
-                  }}
-                >
-                  <span className="material-symbols-outlined text-2xl text-white">{step.icon}</span>
-                </div>
-                <div className="text-[#20603d] text-xs font-bold mb-1">{step.num}</div>
-                <h4 className="text-white font-bold text-sm mb-1">{step.title}</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">{step.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 50/50 PILLARS (BENTO GRID) ──────────────────────────── */}
-      <section className="py-24 px-6 md:px-12 bg-[#F5F3EE] dark:bg-[#0c1410]">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-              The 50/50 Pillars
-            </h2>
-            <p className="text-slate-500 dark:text-slate-400 max-w-lg mx-auto font-light">
-              Our four pillars define every expedition we design. No compromises.
-            </p>
-          </motion.div>
-
-          <BentoGrid className="md:auto-rows-[14rem]">
-            {PILLARS.map((item, i) => (
-              <motion.div
-                key={item.title}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className={item.className}
-              >
-                <BentoGridItem
-                  title={item.title}
-                  description={item.description}
-                  header={item.header}
-                  icon={item.icon}
-                  className="h-full"
-                />
-              </motion.div>
-            ))}
-          </BentoGrid>
-        </div>
-      </section>
-
-      {/* ─── IMMERSIVE MISSIONS ───────────────────────────────────── */}
-      <section className="py-20 px-6 md:px-12 bg-white dark:bg-[#0f1f15]">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-              Immersive Missions
-            </h2>
-            <p className="text-slate-500 dark:text-slate-400 font-light">
-              Tasks that connect you deeply with each destination&apos;s soul.
-            </p>
-          </motion.div>
-
-          {/* Visual Grid with local media */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 h-48 md:h-64">
-            <div className="rounded-xl overflow-hidden h-full relative">
-              <img
-                className="w-full h-full object-cover"
-                src={MEDIA.experience.kids}
-                alt="Local children"
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden h-full col-span-1 md:col-span-2 relative">
-              <video
-                className="w-full h-full object-cover"
-                src={MEDIA.experience.solo}
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden h-full relative">
-              <img
-                className="w-full h-full object-cover grayscale"
-                src={MEDIA.experience.bnwGranny}
-                alt="Elder grandmother portrait"
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {MISSIONS.map((mission, i) => (
-              <motion.div
-                key={mission.title}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="group p-6 rounded-3xl border border-[#20603d]/10 dark:border-[#20603d]/20 hover:border-[#20603d]/30 dark:hover:border-[#20603d]/40 hover:shadow-xl hover:shadow-[#20603d]/5 transition-all duration-300 cursor-pointer bg-[#F5F3EE] dark:bg-[#0c1a10]"
-              >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
-                  style={{ backgroundColor: `${PRIMARY}15`, color: PRIMARY }}
-                >
-                  <span className="material-symbols-outlined text-2xl">{mission.icon}</span>
-                </div>
-                <h3 className="font-bold text-lg text-slate-900 dark:text-white mb-2">{mission.title}</h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light">
-                  {mission.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SUSTAINABILITY BANNER ───────────────────────────────── */}
-      <section className="py-0 px-6 md:px-12 max-w-7xl mx-auto my-20">
+        {/* Scroll cue */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-3xl"
-          style={{ backgroundColor: PRIMARY }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.5 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
         >
-          <div className="absolute inset-0">
-            <img
-              src={MEDIA.experience.canopyRays}
-              alt="Forest canopy with rays of light"
-              className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
+          <span className="text-[10px] uppercase tracking-widest">Scroll to Begin</span>
+          <div className="w-px h-12 bg-white/30 relative overflow-hidden">
+            <motion.div
+              className="absolute top-0 left-0 w-full h-1/2"
+              style={{ backgroundColor: EARTH }}
+              animate={{ y: ["0%", "200%"] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
-          <div className="relative z-10 grid md:grid-cols-2 gap-8 p-10 md:p-16 items-center">
-            <div>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-                Preserving the{" "}
-                <span className="italic" style={{ color: "#a3e0b8" }}>
-                  Unspoiled
-                </span>
-              </h2>
-              <p className="text-white/80 font-light leading-relaxed mb-8">
-                To ensure tourism remains a gift and not a burden, we limit our
-                presence to 40 journeys per village per year. This model
-                sustains local economies without disrupting the social fabric.
-              </p>
-              <div className="flex gap-8">
-                {[
-                  { num: "6", label: "Months research" },
-                  { num: "12", label: "Village partners" },
-                  { num: "100%", label: "Carbon offset" },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <div className="text-2xl font-black text-white font-display">{stat.num}</div>
-                    <div className="text-xs text-white/70 uppercase tracking-widest">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden">
-                <img
-                  src={MEDIA.experience.locals}
-                  alt="Local community members"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
         </motion.div>
       </section>
 
-      {/* ─── MEMBERSHIP (PRICING) ────────────────────────────────── */}
+      {/* ─── 2. STICKY SCROLL NARRATIVE ───────────────────────── */}
       <section
-        className="py-24"
-        style={{ backgroundColor: BG_DARK, color: "white" }}
+        id="sticky-journey"
+        ref={stickyRef}
+        className="relative"
+        style={{ backgroundColor: INK }}
       >
-        <div className="px-6 md:px-12 max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-              Join the Fellowship
-            </h2>
-            <p className="text-slate-400 font-light">
-              Exclusive access to our mystery calendar and private community events.
-            </p>
-          </motion.div>
+        {/* Thin progress bar pinned to the top */}
+        <div className="sticky top-0 z-50 h-0.5 w-full" style={{ backgroundColor: INK }}>
+          <div
+            id="exp-progress-bar"
+            className="h-full transition-none"
+            style={{ width: "0%", backgroundColor: EARTH }}
+          />
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Explorer */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="p-10 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/8 transition-colors relative overflow-hidden group"
-            >
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <span className="material-symbols-outlined text-8xl">explore</span>
-              </div>
-              <p className="text-xs uppercase tracking-widest text-slate-400 mb-2">Starter</p>
-              <h3 className="text-2xl font-bold mb-1">Explorer</h3>
-              <div className="text-4xl font-black mb-1">
-                $290 <span className="text-sm font-normal text-slate-400">/ year</span>
-              </div>
-              <p className="text-xs text-slate-400 mb-8">1 journey included</p>
-              <ul className="space-y-3 mb-10 text-slate-300">
-                {["Early access to expedition drops", "1 journey booking included", "Access to secret solo routes"].map(
-                  (f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm">
-                      <span className="material-symbols-outlined text-sm" style={{ color: PRIMARY }}>check_circle</span>
-                      {f}
-                    </li>
-                  )
-                )}
-              </ul>
-              <button className="w-full py-4 border border-white/20 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-[#20603d] transition-all duration-200">
-                Choose Explorer
-              </button>
-            </motion.div>
-
-            {/* Nomad */}
-            <motion.div
-              custom={1}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="p-10 rounded-3xl relative overflow-hidden"
-              style={{ border: `2px solid ${PRIMARY}`, backgroundColor: `${PRIMARY}1a` }}
-            >
+        <div className="flex flex-col lg:flex-row">
+          {/* LEFT: Sticky visual panel (45%) */}
+          <div className="lg:sticky lg:top-0 h-[50vh] lg:h-screen lg:w-[45%] relative overflow-hidden bg-black">
+            {STEPS.map((step, idx) => (
               <div
-                className="absolute top-4 right-4 px-3 py-1 text-white text-[10px] rounded-full font-bold uppercase tracking-widest"
-                style={{ backgroundColor: PRIMARY }}
+                key={step.id}
+                ref={(el) => { imageRefs.current[idx] = el; }}
+                className="absolute inset-0 transition-none"
+                style={{ opacity: idx === 0 ? 1 : 0, transform: idx === 0 ? "scale(1)" : "scale(1.06)" }}
               >
-                BEST VALUE
+                <img
+                  src={step.image}
+                  alt={step.heading}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0" style={{ backgroundColor: step.tint }} />
               </div>
-              <p className="text-xs uppercase tracking-widest text-slate-400 mb-2">Full Access</p>
-              <h3 className="text-2xl font-bold mb-1">Nomad</h3>
-              <div className="text-4xl font-black mb-1">
-                $550 <span className="text-sm font-normal text-slate-400">/ year</span>
-              </div>
-              <p className="text-xs text-slate-400 mb-8">3 journeys included</p>
-              <ul className="space-y-3 mb-10 text-slate-300">
-                {[
-                  "Priority expedition queueing",
-                  "3 journey bookings included",
-                  "Access to secret solo routes",
-                  "Private storyteller community",
-                ].map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm">
-                    <span className="material-symbols-outlined text-sm" style={{ color: PRIMARY }}>check_circle</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <button
-                className="w-full py-4 rounded-xl font-bold uppercase tracking-widest text-sm text-white hover:opacity-90 transition-all"
-                style={{ backgroundColor: PRIMARY }}
+            ))}
+
+            {/* Vignette */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ boxShadow: "inset 0 0 100px rgba(0,0,0,0.8)" }}
+            />
+
+            {/* Step counter overlay */}
+            <div
+              className="absolute bottom-8 left-8 z-10 font-mono text-xs uppercase tracking-widest opacity-50"
+              style={{ color: BEIGE }}
+            >
+              {STEPS.length} Chapters
+            </div>
+          </div>
+
+          {/* RIGHT: Scrollable narrative (55%) */}
+          <div className="lg:w-[55%] px-8 md:px-20 py-24 lg:py-0">
+            {STEPS.map((step, idx) => (
+              <div
+                key={step.id}
+                id={`step-${step.id}`}
+                ref={(el) => { stepRefs.current[idx] = el; }}
+                className="min-h-screen flex flex-col justify-center py-20"
               >
-                Choose Nomad
-              </button>
-            </motion.div>
+                <span
+                  className="gsap-text font-mono mb-4 block text-sm"
+                  style={{ color: EARTH }}
+                >
+                  {step.step}
+                </span>
+                <h2
+                  className="gsap-text font-serif text-4xl md:text-6xl mb-6 leading-tight"
+                  style={{ opacity: 0 }}
+                >
+                  {step.heading}
+                </h2>
+                <p
+                  className="gsap-text text-lg leading-relaxed max-w-xl text-gray-400"
+                  style={{ opacity: 0 }}
+                >
+                  {step.body}
+                </p>
+
+                {/* Step-specific accent line */}
+                <motion.div
+                  className="mt-10 h-px w-16"
+                  style={{ backgroundColor: EARTH, opacity: 0 }}
+                  whileInView={{ opacity: 0.6 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5, duration: 0.6 }}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ─── FINAL CTA ───────────────────────────────────────────── */}
-      <section className="relative py-32 flex items-center justify-center overflow-hidden">
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          src={MEDIA.experience.horses}
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 mist-overlay" />
-
-        <div className="relative z-10 text-center px-6 max-w-3xl">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-display text-4xl md:text-6xl font-bold text-white mb-8 leading-tight"
-          >
-            Your Next Destination Will Remain A Mystery Until The Journey Begins
-          </motion.h2>
+      {/* ─── 3. EXPERIENCE ARCHITECTURE (BENTO) ───────────────── */}
+      <section
+        className="py-32 px-6"
+        style={{ backgroundColor: BEIGE, color: INK }}
+      >
+        <div className="max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            className="mb-20"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
           >
-            <button
-              className="px-12 py-5 rounded-2xl text-lg font-bold uppercase tracking-widest shadow-2xl hover:scale-105 transition-all duration-200 text-white"
-              style={{ backgroundColor: PRIMARY }}
+            <h2 className="text-5xl font-serif mb-4">Experience Architecture</h2>
+            <div className="h-1 w-24" style={{ backgroundColor: FOREST }} />
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:h-[600px]">
+            {PILLARS.map((pillar, i) => (
+              <motion.div
+                key={pillar.title}
+                custom={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="group relative overflow-hidden p-8 flex flex-col justify-between rounded-2xl cursor-default"
+                style={{ backgroundColor: pillar.bg, color: pillar.text }}
+                whileHover={{ y: -8, transition: { duration: 0.35, ease: "easeOut" } }}
+              >
+                <div>
+                  <span
+                    className="text-xs uppercase tracking-[0.2em] opacity-70"
+                    style={{ color: pillar.phaseColor }}
+                  >
+                    {pillar.phase}
+                  </span>
+                  <h3 className="text-3xl font-serif mt-2">{pillar.title}</h3>
+                </div>
+                <p className="opacity-80 leading-relaxed text-sm">{pillar.body}</p>
+
+                {/* Decorative hover glow */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: `radial-gradient(circle at 70% 80%, ${EARTH}, transparent 60%)` }}
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 4. INVISIBLE SAFETY ──────────────────────────────── */}
+      <section
+        className="py-40 relative overflow-hidden"
+        style={{ backgroundColor: INK }}
+      >
+        <div
+          className="absolute top-0 left-0 w-full h-32"
+          style={{
+            background: `linear-gradient(to bottom, ${BEIGE}1a, transparent)`,
+          }}
+        />
+
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <motion.h3
+            className="font-mono tracking-widest mb-12 uppercase text-sm"
+            style={{ color: EARTH }}
+            variants={slideIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            Invisible Safety
+          </motion.h3>
+
+          <motion.p
+            className="text-3xl md:text-4xl font-light italic leading-relaxed text-gray-400 mb-20"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            &ldquo;The most powerful safety net is the one you never see.&rdquo;
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {["Silent Monitoring", "Exfiltration Ready", "Local Guardians"].map((item, i) => (
+              <motion.div
+                key={item}
+                custom={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="flex flex-col items-center gap-4 text-sm uppercase tracking-widest text-gray-500"
+              >
+                <span className="h-px w-8" style={{ backgroundColor: EARTH }} />
+                <span>{item}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 5. FINAL CTA ─────────────────────────────────────── */}
+      <section
+        className="relative h-screen flex items-center justify-center overflow-hidden"
+        style={{ backgroundColor: INK }}
+      >
+        {/* Background video with parallax */}
+        <div className="absolute inset-0 z-0">
+          <video
+            className="w-full h-full object-cover opacity-30"
+            src={MEDIA.hero.droneRiver}
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(to bottom, ${INK} 0%, transparent 30%, transparent 70%, ${INK} 100%)`,
+            }}
+          />
+        </div>
+
+        <div className="relative z-10 text-center px-6 max-w-4xl">
+          <motion.h2
+            className="text-4xl md:text-7xl font-serif mb-12 leading-tight"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            You don&apos;t choose this journey.{" "}
+            <br />
+            <span style={{ color: EARTH }}>You commit to it.</span>
+          </motion.h2>
+
+          <motion.div
+            variants={fadeUp}
+            custom={1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <Link href="/application">
+              <button
+                className="group relative px-12 py-6 overflow-hidden bg-transparent border rounded-full hover:border-[#C17C3A] transition-colors duration-500"
+                style={{ borderColor: `${BEIGE}4D` }}
+              >
+                <span
+                  className="relative z-10 text-xl tracking-widest uppercase font-semibold"
+                  style={{ color: BEIGE }}
+                >
+                  Request Access
+                </span>
+                <div
+                  className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
+                  style={{ backgroundColor: EARTH }}
+                />
+              </button>
+            </Link>
+            <motion.p
+              className="mt-12 text-sm font-mono text-gray-500"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
             >
-              Apply for the Next Expedition
-            </button>
+              Application-only experiences. Limited to 8 seekers per quarter.
+            </motion.p>
           </motion.div>
         </div>
       </section>

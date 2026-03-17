@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 import { Spotlight } from "@/components/ui/spotlight";
 import { HoverEffect, Card, CardTitle } from "@/components/ui/card-hover-effect";
 import { GlowingButton, MovingBorder } from "@/components/ui/moving-border";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -55,7 +56,11 @@ export default function PhilosophyPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-white/90 text-lg md:text-2xl font-light mb-10 max-w-2xl mx-auto"
           >
-            For thousands of years people traveled not to escape life but to understand it.
+            <TextGenerateEffect
+              words="For thousands of years people traveled not to escape life but to understand it."
+              className="bg-black/40 backdrop-blur-sm px-4 py-2 rounded-lg inline-block"
+              duration={3}
+            />
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

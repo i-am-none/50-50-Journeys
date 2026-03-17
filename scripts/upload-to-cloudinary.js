@@ -14,9 +14,7 @@ cloudinary.config({
 });
 
 const FOLDERS = [
-  { local: 'public/Communities', cloudinary: 'communities' },
-  { local: 'public/Experience', cloudinary: 'experience' },
-  { local: 'public/home/hero', cloudinary: 'hero' },
+  { local: 'pictures', cloudinary: 'pictures' },
 ];
 
 async function uploadFile(filePath, folder, publicId) {

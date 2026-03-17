@@ -41,3 +41,15 @@ yarn-error.log*
 next-env.d.ts
 
 /src/generated/prisma
+
+# Project folders to ignore
+/design
+/bugs
+/public
+
+# Large media files - hosted on Cloudinary
+/public/Communities/*.mp4
+/public/Communities/*.jpg
+/public/Experience/*.mp4
+/public/Experience/*.jpg
+/public/home/hero/*.mp4

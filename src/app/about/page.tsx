@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 import { Spotlight } from "@/components/ui/spotlight";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { GlowingButton, MovingBorder } from "@/components/ui/moving-border";
+import { MEDIA } from "@/lib/media";
 import { motion } from "framer-motion";
 
 const PRIMARY = "#20603d";
@@ -57,22 +58,22 @@ const VALUES = [
 // Community images
 const COMMUNITY_IMAGES = [
   {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDz4WZSTJYJcYsYGrxuyWPjtvfhGebE23AQChGO2moCTXaKHkqT71VHiRblH4x6JGZKOn0qRDeeHBG0fgOI14hZ1j8cNbiQYn-IhbOXISd_hjiHfyYYqPkrtCbaHeUhJQoj64JpMQAVaUbYejhYEuIMfp1528SSJtshDN0XvdHt6fMDMZGCPUnTFLqeQ8T5KJQ1L_a9dMPEAEYlu-_ZGgFXs50EKsJ31PSIk3iz3NaksXffrKX4dcwV36Q5wXQhz5EpkPq7uJw27NFT",
+    src: MEDIA.pictures.img1,
     alt: "Local village host sharing a story with travelers",
     className: "",
   },
   {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCxlWU6w-J7bI0mcmtGKEvYKwZZx2bKgg6COZ4xYQLMcU2N26tLh_HYqgzQHJcednulMIE4QqkKv8__f5ZvgqrTgi7ewF1Ep5AQapvBMwfcfGz5czt9VUPgXzKqAg4rzQpIVFBz_op7tPMEV8i_nQGyd9k6GRW5EDjbrt8hSQBbguJQSEIQ7hnJ_dIXDCKJrJbP-IXuQFXUYJ-3Ch5SDAyquccL7fdYJBDKpjqkPjaWIVeGP9DhOC3M-NnDXiUbBgh0PRiKshYWpryQ",
+    src: MEDIA.pictures.img2,
     alt: "Traditional cooking class in an open-air mountain kitchen",
     className: "mt-8",
   },
   {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAv3b17AeXbSapW5dzFcPGzOp89C16bysPfwDQy-CJYOnStzgyRZx2MnIPmb1Rua9oHuPyiAN1T2izlzWcOcWNXrfptwKJYg6XLExqc5cxcBnsXaLggzKbIDTnIaODXJogzhQlExzAi5QYzUEi05R8hxrV7BySGFTQcvO_nDM0cl-EIbHUr31FsSUNIIbno4NGEGbNXiVW8pBSole5HRoXDfYmk8RB848MavctYBLop2WsxRkA-z3LwBYXh05dvTgOwOUVDFnRBuadx",
+    src: MEDIA.pictures.img3,
     alt: "Group walking through a lush forest trail",
     className: "-mt-8",
   },
   {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuD1WdXeXs0Myjy3qD0310c3-U_7JHBNFf7bahCJS0LqMm_9D4dIyvH98SXEO0auWFy9KQRRIwkoDNhaCYsRVj-ehxt1oJxbTFzOFEnTDD3uf-PAcs7-Gpn8G-Et7W40tR9dboykrYKX7oBXBfOnuK3mu8GtN-I8-b10C0j6l405Ke5AQvnavuGygXY2GbZ0dSJPtzF-ewdCvYrNT-zQSWNZ9K4Y5385BbSUHcLgyv5lybaHDV-77p-NRrS2kRKVny9NYdumBBzICFRP",
+    src: MEDIA.pictures.img4,
     alt: "Artisans weaving traditional fabrics together",
     className: "",
   },
@@ -98,7 +99,7 @@ export default function AboutPage() {
           <img
             className="w-full h-full object-cover scale-105"
             alt="Cinematic wide shot of explorers standing on a misty mountain ridge"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIZIdKAUI-yXqQMqHa6DgLemEA1ejWbOi2fzcwJ7-vzPRQCZf4WvEfqvzQGP9ULLVcSkqh0DEK-Y1WAB19PAQezepl9ZSt5RdFDUGgFuU-PRKXqJUT6qndI9YHRmsAfU2hFKoSc6Fa6Z3oe1ehW1EgFKz00581MKwQwuzAESDa4vz2DSkm23XYWxy7UFziaxtsH6I4oMSxH26DKUCH5wuEkgx9S6QwzGWY7nYXwiKKi7H0cp8erRM-vOEkivkZQAzR4Wz7fdwWgEy-"
+            src={MEDIA.pictures.img5}
           />
         </div>
 
@@ -179,7 +180,7 @@ export default function AboutPage() {
             <img
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               alt="Breathtaking mountain photography showing a lone hiker under a starry sky"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQkVFFamQ5HL3N2PjnNxsA3PLrRdiScQSz0Z7TmHAWtPVDeJ8wP0YXmbhJb3N6rFaWgSNXV0NPKx8z2uWMdsW1zdHUgs_jXLlDJyG2RCIkAd9bvz5Co0gzbTxnsab64Dbku5RX91U4YutT0vo9XEfT5glxWP8DlXZPhdekqSivDXnldo90rmF25w7x0wzpSAmOwNQg-wt12SbXiitCtDXWh9pBMl0xBoELEndqe2vDmx7Se56nqSqkPri6gjLMsEnF76RgyJ1rWO_B"
+              src={MEDIA.pictures.img6}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#20603d]/60 to-transparent" />
           </motion.div>
@@ -370,7 +371,7 @@ export default function AboutPage() {
           <img
             className="w-full h-full object-cover"
             alt="Cinematic wide landscape of rolling hills and moving clouds"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_DsbDCENOxLOQ2QQla7kd1cD78c9Ri0SYI9NMprwKG1Ww3j5Muei_Kyks8IY6puY-GeTOkM0WXYhdTF7Juy2RvRn6adgf5PPZYA02pEMqXgaqZ3LLVSxpdvKKL0-G12V1P7PiQfCdXbf7SVHcF7zqaTj0VUnGlfFVqWQPJ5b2HrqN5NiYVc339tu4USzFcrxp5FIh8nqA-ORwDp_GBWk43V6CBdjemtMOpc2hJTNo7RLWUxrR8r3A8lS7FB3f8xnHhLiMikwAkVtA"
+            src={MEDIA.pictures.img7}
           />
         </div>
 

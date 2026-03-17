@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import { Spotlight } from "@/components/ui/spotlight";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { GlowingButton, MovingBorder } from "@/components/ui/moving-border";
+import { MEDIA } from "@/lib/media";
 
 const PRIMARY = "#20603d";
 const MOUNTAIN_BLUE = "#4A7C9E";
@@ -42,7 +43,7 @@ const EXPEDITIONS: Record<string, {
     groupSize: "4 - 7 Explorers",
     difficulty: "Moderate",
     season: "Spring / Autumn",
-    heroImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuBLxcXtojhLy9o18kFqVGQ4rlI4P9mpUqoQ0BwIWpttAjZVn3tPt1Ri7ikZC121Xm0mRtTcz5s4utZc5IgjpDyEpGBR6wx3-cJV_dsrE9Xp3tc36hytDMZ2bIukEVnptPdkOVSTeJX4nuW92iYmiUZDgicNGwnhLBfTO4Lapk1j3eRLh4ezOH-d1caHsM8hNS0ce6y3OwQ-TxsVc_hYGU2Zjdwurg5fgen4-WxXfNMx7c_HhcmTYV8IcCXg-Br6nxFzahrKY2mlunmT",
+    heroImage: MEDIA.pictures.img1,
     overview: [
       "The Silent Valley is not just a destination; it's a temporal enclave where the pace of the modern world dissolves into the rhythmic sounds of the forest. Located in a high-altitude sanctuary accessible only by foot, this journey challenges you to surrender control.",
       "You will not receive a map. You will not have a GPS. You will have a mission, a local guide, and the shared curiosity of six other souls."
@@ -53,16 +54,16 @@ const EXPEDITIONS: Record<string, {
       { icon: "forest", text: "Terrain: Alpine meadows, dense cedar forests, and rocky ridgelines." }
     ],
     bentoItems: [
-      { type: "image", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuApFOEau7lMahw9K02dpxsqkUafu_T0ZrioKrCkugBxUuzoymwelBzYi2qPnZ7GDk4uddsMFRLy8INrzqJ9-HFSqu7T8wOkm1nMv3car6yNizFPGERD9vp_6VG1We2bkrNw1UeXk1m912A-WMZW1454c9wGRS3ekyHDc-qlESVcp2T-wIvsU_EVSqaCi4OqbXfrtwKbHU7eKWzCCrYHkPJMsB5OKDJOEzLW905NI74EJlawVIbs7jfLSCC2g9a6EDq7Wv2sneeUDeCR", title: "Village Life", desc: "Become part of a lineage, not just a visitor.", span: "md:col-span-2" },
+      { type: "image", image: MEDIA.pictures.img2, title: "Village Life", desc: "Become part of a lineage, not just a visitor.", span: "md:col-span-2" },
       { type: "color", color: WARM_EARTH, title: "Storytelling Nights", desc: "Oral histories shared around the central hearth." },
-      { type: "image", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAjDYw1v4gB_GTg6sjyd8Gb0RYqRa4aGTiyltP7TYNueRDtZm8ZaRBJEADDMSeT_lX6uNLnwPT4GdNGCVdgRSGkGxAQ-OyQVhNZNsZb0Kf_bPt3qns1GzTmAIRiaYGO8xIpi7GVnolLL8XfjNymvZaR1vu4NQLqosQLBOc9fJ8ELxtqsEyKJf4ohzcnag5H0Q5L8lYjRw-3E_Ddw8qrqHYFf5hJt6Ccj-UCecxCucNSlCj0xVp_JcnK7OIaWC_RLBC6tXdqKCbLDBCQ", title: "Nature Exploration", desc: "Off-trail navigation through primal landscapes.", span: "md:row-span-2" },
+      { type: "image", image: MEDIA.pictures.img3, title: "Nature Exploration", desc: "Off-trail navigation through primal landscapes.", span: "md:row-span-2" },
       { type: "color", color: "slate-100", title: "Cultural Missions", desc: "Collaborative tasks that bridge the gap between you and the local community through skill-sharing.", span: "md:col-span-3" }
     ],
     timeline: [
-      { num: "01", title: "The Arrival Ritual", desc: "Crossing the bridge where technology is left behind. A purification by the falls.", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB26aNu4AuK9FFPk6XZcaz2X__MHY9TbKEYyknRY5npamoIcnBHwXc8z-V2perdJ6isWQwLK5bf9gzyLvb_BYg1BOsom5zZFuHCVr9L8dn1COQCXmjaFS1QiaqEdUjk9ShqMHQIpgprnmdlEaaCD3T39ehij5dkiUOV9hszUYSf9br5jfkWbNgiV_1bejSa2q9qzYgQmTN1KKb-2CnTnrp0_Wau17r4RNM08IFcI5n0NtYqPBKNFwHLPFIbFEWwHv-eys3H2meJLFHI" },
-      { num: "02", title: "The First Mission", desc: "Finding your host family using only a hand-drawn map and local landmarks.", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAXAm_mw8Ew3aUvNUxbJGX-7ZH0HTFgXuZwRIScmuChK7Yvn3Vd5qOBIA2VYi8wx-DHEj_APvPlBPTyS0h-9W5lUP5ejtmici3p-bYiKnN6LZNpGyJM0xsrcDq6dY0WinyrB0fTC3lL8O-luvMNXbbr-QuEJ6maOCCG-1UGSxevBhIwNvjjpHTl5kEvf2HyIS2-0QwzuOq2NehAjOzTDb0jiMrqUtj2S98lK7yoU2U9RzqhConPJRMy1bmvWdn6RbmJqFo5dUuDJRUk" },
-      { num: "03", title: "Exploration Day", desc: "Summiting the Whisper Peak to witness the valley's true scale at dawn.", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB3ex-YGY58YGm9SuFBf00VO4aLbU0_gHhX4Mk6Mk9skWXhrLvNJgwuBFuUImJdyvO_XIyGuqqm_47tBYSHr2zF6yhc_Ehqmz8UiqdLPMrkLSy9uEz6MRFkU335eQoTu2XXzGZWVtTPz0M8tfaGBJPTXEYUO3-pkZC8XwWIFX4lFtPrEDSW8t8JtGg5-pEcXQBs80iZP20ULd67kH3gslGjiKpGo7TMfqE_irq51-D_X8ojEEoIlVpCw9ms_S0IrTEjqStFJiJCTU0w" },
-      { num: "04", title: "The Final Reveal", desc: "The gathering of all explorers to piece together the valley's secret history.", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBHDTtqVrXgjf_T8EXoCv1fvg-NMiMp2hyfRhYISTwK1Sqc4UHdqoC4AhNasCiMkE6-xzI15-joovgjvglxtJYR0jXOW_knMkaIcvFL43LYZlTrvG9KellcRiEzXVVxKmn3ol7BPdUGg4YQOv0i_4_DiFqeyj6Ehl4q_ott5Are0Qi8ZmFmKMe7sAoMMeaPIGKKV6iRDDp2l7yrpKUVIvNIkn3_w0zAMKvdiz2I8QimqXrZqfPuS8BdR-gv1gnGSpJIrBEL7nIoAYlQ" }
+      { num: "01", title: "The Arrival Ritual", desc: "Crossing the bridge where technology is left behind. A purification by the falls.", image: MEDIA.pictures.img4 },
+      { num: "02", title: "The First Mission", desc: "Finding your host family using only a hand-drawn map and local landmarks.", image: MEDIA.pictures.img5 },
+      { num: "03", title: "Exploration Day", desc: "Summiting the Whisper Peak to witness the valley's true scale at dawn.", image: MEDIA.pictures.img6 },
+      { num: "04", title: "The Final Reveal", desc: "The gathering of all explorers to piece together the valley's secret history.", image: MEDIA.pictures.img7 }
     ],
     missions: [
       { icon: "skillet", title: "Traditional Cooking", desc: "Learn to prepare forest-foraged meals over open fire with Grandma Elara." },
@@ -94,7 +95,7 @@ const EXPEDITIONS: Record<string, {
     groupSize: "2 - 4 Explorers",
     difficulty: "Easy",
     season: "Summer / Autumn",
-    heroImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuATf5uGmAZOcuim59Imgm46SLvvA-tiB-YRiTxJ55ymUtx8fLgi8Q6x84sYrPWNgT1mk7DWTnTldIYVHOqju8t9thBf2cU9eU705CUVuoPTGxh94Dqxxu2yKHCbFBExREc6z6mkB2ybO2DhDQ0SZWSPOLEppXpit75tykt9jD7wzuYcruEZAL-uIy17YwH0M8AXhCEpkg247oRwukUWSzbDyRg2ld3EY5PGdfyOInTpRz64DjRiV8OG6wOi5zw5_kg7nY60PT_2-RYq",
+    heroImage: MEDIA.pictures.img8,
     overview: [
       "The Forgotten Orchard is a hidden gem nestled in the rolling hills of an ancient agricultural region. This journey invites you to rediscover the lost art of traditional farming and the secrets of heritage crops.",
       "You will work alongside local farmers, learning techniques passed down through generations while helping to preserve endangered varieties of fruits and grains."
@@ -105,16 +106,16 @@ const EXPEDITIONS: Record<string, {
       { icon: "forest", text: "Terrain: Gentle orchard slopes, meadows, and traditional farmsteads." }
     ],
     bentoItems: [
-      { type: "image", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuApFOEau7lMahw9K02dpxsqkUafu_T0ZrioKrCkugBxUuzoymwelBzYi2qPnZ7GDk4uddsMFRLy8INrzqJ9-HFSqu7T8wOkm1nMv3car6yNizFPGERD9vp_6VG1We2bkrNw1UeXk1m912A-WMZW1454c9wGRS3ekyHDc-qlESVcp2T-wIvsU_EVSqaCi4OqbXfrtwKbHU7eKWzCCrYHkPJMsB5OKDJOEzLW905NI74EJlawVIbs7jfLSCC2g9a6EDq7Wv2sneeUDeCR", title: "Orchard Life", desc: "Tend to ancient trees and learn the rhythms of nature.", span: "md:col-span-2" },
+      { type: "image", image: MEDIA.pictures.img9, title: "Orchard Life", desc: "Tend to ancient trees and learn the rhythms of nature.", span: "md:col-span-2" },
       { type: "color", color: PRIMARY, title: "Harvest Rituals", desc: "Participate in seasonal harvest ceremonies." },
-      { type: "image", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAjDYw1v4gB_GTg6sjyd8Gb0RYqRa4aGTiyltP7TYNueRDtZm8ZaRBJEADDMSeT_lX6uNLnwPT4GdNGCVdgRSGkGxAQ-OyQVhNZNsZb0Kf_bPt3qns1GzTmAIRiaYGO8xIpi7GVnolLL8XfjNymvZaR1vu4NQLqosQLBOc9fJ8ELxtqsEyKJf4ohzcnag5H0Q5L8lYjRw-3E_Ddw8qrqHYFf5hJt6Ccj-UCecxCucNSlCj0xVp_JcnK7OIaWC_RLBC6tXdqKCbLDBCQ", title: "Nature Walks", desc: "Explore the surrounding wilderness.", span: "md:row-span-2" },
+      { type: "image", image: MEDIA.pictures.img10, title: "Nature Walks", desc: "Explore the surrounding wilderness.", span: "md:row-span-2" },
       { type: "color", color: "slate-100", title: "Seed Saving", desc: "Learn the ancient art of preserving heirloom varieties.", span: "md:col-span-3" }
     ],
     timeline: [
-      { num: "01", title: "Arrival & Welcome", desc: "Meet your host family and settle into your rustic accommodation.", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB26aNu4AuK9FFPk6XZcaz2X__MHY9TbKEYyknRY5npamoIcnBHwXc8z-V2perdJ6isWQwLK5bf9gzyLvb_BYg1BOsom5zZFuHCVr9L8dn1COQCXmjaFS1QiaqEdUjk9ShqMHQIpgprnmdlEaaCD3T39ehij5dkiUOV9hszUYSf9br5jfkWbNgiV_1bejSa2q9qzYgQmTN1KKb-2CnTnrp0_Wau17r4RNM08IFcI5n0NtYqPBKNFwHLPFIbFEWwHv-eys3H2meJLFHI" },
-      { num: "02", title: "Orchard Work", desc: "Begin your hands-on training in traditional orchard management.", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAXAm_mw8Ew3aUvNUxbJGX-7ZH0HTFgXuZwRIScmuChK7Yvn3Vd5qOBIA2VYi8wx-DHEj_APvPlBPTyS0h-9W5lUP5ejtmici3p-bYiKnN6LZNpGyJM0xsrcDq6dY0WinyrB0fTC3lL8O-luvMNXbbr-QuEJ6maOCCG-1UGSxevBhIwNvjjpHTl5kEvf2HyIS2-0QwzuOq2NehAjOzTDb0jiMrqUtj2S98lK7yoU2U9RzqhConPJRMy1bmvWdn6RbmJqFo5dUuDJRUk" },
-      { num: "03", title: "Harvest Day", desc: "Participate in the communal harvest and learn preservation techniques.", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB3ex-YGY58YGm9SuFBf00VO4aLbU0_gHhX4Mk6Mk9skWXhrLvNJgwuBFuUImJdyvO_XIyGuqqm_47tBYSHr2zF6yhc_Ehqmz8UiqdLPMrkLSy9uEz6MRFkU335eQoTu2XXzGZWVtTPz0M8tfaGBJPTXEYUO3-pkZC8XwWIFX4lFtPrEDSW8t8JtGg5-pEcXQBs80iZP20ULd67kH3gslGjiKpGo7TMfqE_irq51-D_X8ojEEoIlVpCw9ms_S0IrTEjqStFJiJCTU0w" },
-      { num: "04", title: "Farewell Feast", desc: "Celebrate your journey with a farm-to-table dinner.", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBHDTtqVrXgjf_T8EXoCv1fvg-NMiMp2hyfRhYISTwK1Sqc4UHdqoC4AhNasCiMkE6-xzI15-joovgjvglxtJYR0jXOW_knMkaIcvFL43LYZlTrvG9KellcRiEzXVVxKmn3ol7BPdUGg4YQOv0i_4_DiFqeyj6Ehl4q_ott5Are0Qi8ZmFmKMe7sAoMMeaPIGKKV6iRDDp2l7yrpKUVIvNIkn3_w0zAMKvdiz2I8QimqXrZqfPuS8BdR-gv1gnGSpJIrBEL7nIoAYlQ" }
+      { num: "01", title: "Arrival & Welcome", desc: "Meet your host family and settle into your rustic accommodation.", image: MEDIA.pictures.img1 },
+      { num: "02", title: "Orchard Work", desc: "Begin your hands-on training in traditional orchard management.", image: MEDIA.pictures.img2 },
+      { num: "03", title: "Harvest Day", desc: "Participate in the communal harvest and learn preservation techniques.", image: MEDIA.pictures.img3 },
+      { num: "04", title: "Farewell Feast", desc: "Celebrate your journey with a farm-to-table dinner.", image: MEDIA.pictures.img4 }
     ],
     missions: [
       { icon: "agriculture", title: "Tree Care", desc: "Learn pruning and grafting techniques from master orchardists." },
@@ -146,7 +147,7 @@ const EXPEDITIONS: Record<string, {
     groupSize: "8 - 10 Explorers",
     difficulty: "Easy",
     season: "Year Round",
-    heroImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuBRIbWVGlo4aUSDFa3U3ZJK3p-0yvTXvNJPu_SZIrh_MILBIFoZciNws66h8ckFP5wxxpg7jdb0AIflJRYBu372RnV32LY0TpbsuM2454v9va22Wzi413AV4N78x1KwcR1jQyW2qIeY7tNkiXJiL4BBLcCkORHc_4DSyCTQESmiYzD_GMfWh45kLtLTpA3iiAU7IeNBGcNoVnTFGJw-jVDQTNsQpMO25dMEYcIMPfXI180Kf8WWe0jtVE3B0ky1fNq_H6mfJod23i0q",
+    heroImage: MEDIA.pictures.img5,
     overview: [
       "Whispers of the Coast is a half-day immersive experience along a hidden shoreline known only to local fishermen. This journey offers a taste of the 50/50 philosophy in a condensed format.",
       "You will explore tide pools, learn traditional fishing methods, and share a beachside meal prepared with the morning's catch."
@@ -157,16 +158,16 @@ const EXPEDITIONS: Record<string, {
       { icon: "forest", text: "Terrain: Sandy beaches, rocky coves, and coastal trails." }
     ],
     bentoItems: [
-      { type: "image", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuApFOEau7lMahw9K02dpxsqkUafu_T0ZrioKrCkugBxUuzoymwelBzYi2qPnZ7GDk4uddsMFRLy8INrzqJ9-HFSqu7T8wOkm1nMv3car6yNizFPGERD9vp_6VG1We2bkrNw1UeXk1m912A-WMZW1454c9wGRS3ekyHDc-qlESVcp2T-wIvsU_EVSqaCi4OqbXfrtwKbHU7eKWzCCrYHkPJMsB5OKDJOEzLW905NI74EJlawVIbs7jfLSCC2g9a6EDq7Wv2sneeUDeCR", title: "Coastal Walk", desc: "Traverse hidden paths along dramatic cliffs.", span: "md:col-span-2" },
+      { type: "image", image: MEDIA.pictures.img6, title: "Coastal Walk", desc: "Traverse hidden paths along dramatic cliffs.", span: "md:col-span-2" },
       { type: "color", color: MOUNTAIN_BLUE, title: "Tide Pooling", desc: "Discover the micro-ecosystems of the intertidal zone." },
-      { type: "image", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAjDYw1v4gB_GTg6sjyd8Gb0RYqRa4aGTiyltP7TYNueRDtZm8ZaRBJEADDMSeT_lX6uNLnwPT4GdNGCVdgRSGkGxAQ-OyQVhNZNsZb0Kf_bPt3qns1GzTmAIRiaYGO8xIpi7GVnolLL8XfjNymvZaR1vu4NQLqosQLBOc9fJ8ELxtqsEyKJf4ohzcnag5H0Q5L8lYjRw-3E_Ddw8qrqHYFf5hJt6Ccj-UCecxCucNSlCj0xVp_JcnK7OIaWC_RLBC6tXdqKCbLDBCQ", title: "Ocean Views", desc: "Witness the raw power of the sea.", span: "md:row-span-2" },
+      { type: "image", image: MEDIA.pictures.img7, title: "Ocean Views", desc: "Witness the raw power of the sea.", span: "md:row-span-2" },
       { type: "color", color: "slate-100", title: "Beach Feast", desc: "Share a communal meal prepared from the day's catch.", span: "md:col-span-3" }
     ],
     timeline: [
-      { num: "01", title: "Dawn Gathering", desc: "Meet at the secret location as the sun rises.", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB26aNu4AuK9FFPk6XZcaz2X__MHY9TbKEYyknRY5npamoIcnBHwXc8z-V2perdJ6isWQwLK5bf9gzyLvb_BYg1BOsom5zZFuHCVr9L8dn1COQCXmjaFS1QiaqEdUjk9ShqMHQIpgprnmdlEaaCD3T39ehij5dkiUOV9hszUYSf9br5jfkWbNgiV_1bejSa2q9qzYgQmTN1KKb-2CnTnrp0_Wau17r4RNM08IFcI5n0NtYqPBKNFwHLPFIbFEWwHv-eys3H2meJLFHI" },
-      { num: "02", title: "Coastal Walk", desc: "Journey along hidden paths with your local guide.", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAXAm_mw8Ew3aUvNUxbJGX-7ZH0HTFgXuZwRIScmuChK7Yvn3Vd5qOBIA2VYi8wx-DHEj_APvPlBPTyS0h-9W5lUP5ejtmici3p-bYiKnN6LZNpGyJM0xsrcDq6dY0WinyrB0fTC3lL8O-luvMNXbbr-QuEJ6maOCCG-1UGSxevBhIwNvjjpHTl5kEvf2HyIS2-0QwzuOq2NehAjOzTDb0jiMrqUtj2S98lK7yoU2U9RzqhConPJRMy1bmvWdn6RbmJqFo5dUuDJRUk" },
-      { num: "03", title: "Fishing Lesson", desc: "Learn traditional techniques from local fishermen.", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB3ex-YGY58YGm9SuFBf00VO4aLbU0_gHhX4Mk6Mk9skWXhrLvNJgwuBFuUImJdyvO_XIyGuqqm_47tBYSHr2zF6yhc_Ehqmz8UiqdLPMrkLSy9uEz6MRFkU335eQoTu2XXzGZWVtTPz0M8tfaGBJPTXEYUO3-pkZC8XwWIFX4lFtPrEDSW8t8JtGg5-pEcXQBs80iZP20ULd67kH3gslGjiKpGo7TMfqE_irq51-D_X8ojEEoIlVpCw9ms_S0IrTEjqStFJiJCTU0w" },
-      { num: "04", title: "Beach Feast", desc: "Share stories over a freshly prepared seafood meal.", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBHDTtqVrXgjf_T8EXoCv1fvg-NMiMp2hyfRhYISTwK1Sqc4UHdqoC4AhNasCiMkE6-xzI15-joovgjvglxtJYR0jXOW_knMkaIcvFL43LYZlTrvG9KellcRiEzXVVxKmn3ol7BPdUGg4YQOv0i_4_DiFqeyj6Ehl4q_ott5Are0Qi8ZmFmKMe7sAoMMeaPIGKKV6iRDDp2l7yrpKUVIvNIkn3_w0zAMKvdiz2I8QimqXrZqfPuS8BdR-gv1gnGSpJIrBEL7nIoAYlQ" }
+      { num: "01", title: "Dawn Gathering", desc: "Meet at the secret location as the sun rises.", image: MEDIA.pictures.img8 },
+      { num: "02", title: "Coastal Walk", desc: "Journey along hidden paths with your local guide.", image: MEDIA.pictures.img9 },
+      { num: "03", title: "Fishing Lesson", desc: "Learn traditional techniques from local fishermen.", image: MEDIA.pictures.img10 },
+      { num: "04", title: "Beach Feast", desc: "Share stories over a freshly prepared seafood meal.", image: MEDIA.pictures.img11 }
     ],
     missions: [
       { icon: "phishing", title: "Traditional Fishing", desc: "Learn casting nets and line fishing from local experts." },
@@ -407,7 +408,7 @@ export default function ExpeditionPage() {
           <img
             className="w-full h-full object-cover"
             alt="Dense dark green pine forest under fog"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhhPKcT0NY_3BuJ783Ppww0bJVd7cUJ51mdLJjQjvB7YCK3aCjUeyg7qwB7TMk8rGz_7J9Akgegx9D5lGrBVidpH_IyEjkLetXyaxE5nVHAfYXMibkPDopKOEGl9rU2W2DyhDacIseIAs-kGvpuoEcey8QTL0IlAltLXcs3LxDNLv1oFbwyRX7ekHFSAudXqi0v4rwEDYNX5ndyQWh4aSRMCX25CZe6Bmp651KGx9i8KQnq2bS7VnjM-S-YUnmEFxZ8AskdAmZxLoW"
+            src={MEDIA.pictures.img1}
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">

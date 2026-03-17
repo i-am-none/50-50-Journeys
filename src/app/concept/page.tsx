@@ -1,5 +1,6 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { MEDIA } from "@/lib/media";
 
 const PRIMARY = "#20603d";
 const BG_LIGHT = "#f6f8f7";
@@ -24,8 +25,7 @@ export default function ConceptPage() {
           <div
             className="w-full h-full bg-cover bg-center scale-105"
             style={{
-              backgroundImage:
-                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDF4_3FMsaeAf-N6FCGStI6l7rh8QPSVrFIysqroRT8MBUkTOIDcJPxH5ZfkRsckmXfpYm6lWI59lcHjQ3Vcx__p-vLlBbRK4Ie6PzXZgU5awbInA4gPPvGXU0I2N-eAcGs4kh_Oh7YOwsQxZy92ioMWY6gfKDS1cy0pTAu2Zp1xk6J_j8-A2su5YU-VkPGqJrTQWelDNXDZ1i6DV8Sp93lNmypdeijcVDiq5Rb36hc73pvyYFjevUJCI7O7vNAucGYirTCTr-Vzmq9')",
+              backgroundImage: `url('${MEDIA.pictures.img1}')`,
             }}
           />
         </div>
@@ -51,7 +51,7 @@ export default function ConceptPage() {
             <img
               alt="Tourists taking photos with phones"
               className="w-full h-full object-cover grayscale opacity-80"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjN7eTed-Q8o8tdSOka-MZOGj_yHmxG9tyXJ0O5f-55nqtblRJYp_1RT_K96ALk52ulwWN_D2sxudSh4dr6cILCJiiVU_1fuCdski1jq8V8HZov5A97VfI8rMQicCxJvK4LDdeKDBDeLBtxy3VkboyuMm8FTUFqPer_6gDjkORQepOIeoXrd2oLn3A72B_q25ovRM_OYwxvCF2Kxpgzw-G5AfAB8XQf3dKiCIvfzDCAoZhBSd-D0-Hcb3aYH7lki9vg65GF6PxB7X4"
+              src={MEDIA.pictures.img2}
             />
           </div>
           <div className="space-y-8">
@@ -148,8 +148,7 @@ export default function ConceptPage() {
           <div
             className="w-full h-full bg-cover bg-center blur-md opacity-30 grayscale"
             style={{
-              backgroundImage:
-                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCrW4ObLOHQJuxqPpo_TWV1ceJDgNi3VyMIV1BvBw2NYi_TCbvsFWvw-FI4NFA7K8DSUGTGfYL9G3xZAnx_DjxagwbSsC5cyi2Ghvj48YUgoV4K8ojyoGyWWtsTiNrOg_uwRu8J1NWX1t8Z2DTy7z_vPk93nQ-TC_hoKCW0nrLZtvrSZcBHIX4nXGyX3jwoJ0jBha2FEEKaSeWpjc_O0sLoCw7ZMYGTpFg5vK-45JD66wYiGjT6nhDxQa3MmW7s3vlTNWeddcMo49mm')",
+              backgroundImage: `url('${MEDIA.pictures.img3}')`,
             }}
           />
         </div>
@@ -202,7 +201,7 @@ export default function ConceptPage() {
             <img
               alt="Person walking in forest"
               className="w-full h-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6UEL1Gx3x-1VOe-wEJl0kqka-neS021apSSl3nok5O0Wutco-6oPpMeTwRRZDAJmy23z_hNgB74nCfU1LUiASnJSNw_D_C31OwfXMHAU06_IUN1-I69wsT8jrJC8VjS_9FTZNpN4-irR47_ULfeyzKZ6hAKnZKOuioLXNhaU3s5EmsRxZQHQ7sxYDlDzcr_6zendnB4urzWu4r2S6ioYSC-jLfkY_J2sU-t2aDkyVKEBVdXivkFXL0kywOoH78wIqbJfsr8hc2498"
+              src={MEDIA.pictures.img4}
             />
           </div>
         </div>
@@ -226,28 +225,28 @@ export default function ConceptPage() {
               <img
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 alt="Villagers cooking over an open fire"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTBWzqFjZFQm8jYpDS1yfNh0N--LUZWst2l2GtAKEpAn_Bnj5JoVoE9yn1wRCgYXcbsolphDfIb5mEmrHScl4xJh42vrsAfWQibBmaBMXcxqtBz6kbLg0dWLqFO8eFY_VgOEc8bkaas9GqRaY-XLH3NfqJg6dX1atTGUZ3UFGXp1QZgkxLanU2-gNNGE_NuMTj3Sy9DS8XrZsz_T9L_nx7xkKhSC-gtuoy6WsLS1GaMhDzkSy00O-fQBf3YepxGjrB8nIzcBgop1Hw"
+                src={MEDIA.pictures.img5}
               />
             </div>
             <div className="rounded-xl overflow-hidden aspect-square group">
               <img
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 alt="Close up of artisan hands working with clay"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQhs0EQxtAcKOf2O73DVN0XBqukozDVMaEz3rFI69Ao_bgz45AQj9skIQGwp-46SbQEH2bTjE4Smo-ujKJiBK0C0aruTzErvGjiCF1gop2isiVRDr5hP8z2rbgM9_tCWgxCZQpBziHXdmGXPE6ArmoBSO-PVqxKSgfxvOjag0x7B4Tu9ozpJyC6NzxugSimqM5p-K8O4jx0501Hpq1Y3nnrLLvOxJEM2DragS30LX4IDI01J-W9I1tJSny9Gely7_Ypqa7OB7oi0jW"
+                src={MEDIA.pictures.img6}
               />
             </div>
             <div className="rounded-xl overflow-hidden aspect-square group">
               <img
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 alt="Shepherd leading flock through mountains"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPOC-fA4ThgI-soX0IHK2r2diICkNHavGqp-_Z9DRFTPA-PiPb1Mn_r548whi99-3O65IBFV-Hy36vFTheMC85zTW929G0k5i7V2KgGKJb_xp-03FGn3IOBrf2Q-QQ3BFUYaiTP8Tuy5cQdJQ74KZrVQp_8zJuS4how-eV3BidlGWs4rxMqTIxcRvzg5Ycx6ZoKhitFhm0eRCpZW6m0-GEZoYZdBAQX1fJ72PKBTkHYv6bVyBHGwU2obQaht396ywvj6zadtWjfBfu"
+                src={MEDIA.pictures.img7}
               />
             </div>
             <div className="col-span-2 rounded-xl overflow-hidden aspect-video group">
               <img
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 alt="Wide mountain vista with a small traditional village"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3K1F2raMU68To6py1ezAnOvwVQkbCphBWCqldMPC_-VKDZqpXDK53k67AJOGf2CoMLMQVm1oOH8dvEmSRCal-jwwImp7OZXOKSPvK3npFE32gMiSe4E8N52dfhMS_JT7eH1PaxR79Dvi55aFgZllb_f0X8xDpl7Fqb3gISJCCTqN6BztqAVeXOMcwFf8x3LMk0-0tvBvNSiD5ot_iTks01qG2uaBaBZQfYT6aDmY3o7hDIfT6z3DZnBdbWoYlmQs_R-Sre5d2KdVV"
+                src={MEDIA.pictures.img8}
               />
             </div>
           </div>
@@ -357,7 +356,7 @@ export default function ConceptPage() {
           <img
             alt="Mist mountain landscape"
             className="w-full h-full object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuApm6Lcp6M5MZBnFt2GKnavuNaYLpMgs3VcQbB3r7jmZ3b6I3c3Q0OB8zxv0eTZ6lhmrMEeH72cu1Xax_S_KnA9KvYcZoBuRJV5dLgsffO2k54yTlrVb28asiCHnyh_-stCbm0WuKwxSnBBmUIav7wrEWBJ98C7XcY7D06s_7Owd2C2_TxRTM6FbopusburHtSaX55DRIfpxA3OsUkqOtty_ZAX4JfrwLRe49vCdj5Qwy8xYPUYiLdy2bkCgXJMJtvugIjCl5yAUnu0"
+            src={MEDIA.pictures.img9}
           />
         </div>
         <div className="relative z-20 max-w-2xl">

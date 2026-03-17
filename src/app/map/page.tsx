@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Spotlight } from "@/components/ui/spotlight";
 import { GlowingButton, MovingBorder } from "@/components/ui/moving-border";
+import { MEDIA } from "@/lib/media";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -19,7 +20,7 @@ const MAP_MARKERS = [
     color: PRIMARY,
     title: "The Silent Valley",
     subtitle: "4 Active Villages • High Altitude",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBYkuT49qJAUK6Gtb13bgdr3m8-Yk5_e6Oh8VxAOH8UB8aDwTA0n6wznoawgbPw-opzqyC0GHsarrHbQwnHbBPC1FZoJ3QyQlWKgKvwo9iO6s9mufOpzxBBZDMPi57xlAXL2ZkI69VIX5S_YYr6xOgOkx_vF8Z_hDyBtMdeqcIjvnbQ0vspKDjEA5CfEXRodERrOF2D_ugQLgto_CFucFC85IKvczFGFbV1-Gn78AwMD-Y1gOyuY1aGRtVzp3gTN0rwc0AI34UWHVC0",
+    image: MEDIA.pictures.img1,
     href: "/expedition/silent-valley"
   },
   {
@@ -28,7 +29,7 @@ const MAP_MARKERS = [
     color: WARM_EARTH,
     title: "The Shepherd's Trail",
     subtitle: "Nomadic Route • Seasonal",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD9j0jb6lWl135o9NBhtl2rLpfCGq8cmoSPe3ITtW6nzHQfz2WX7UJgwLDavnwsE8OfXLTD5f_KMd-obSyoqz-9eDNaWsTl07l3pfw0Ul0cgF_TNGwgn5FaLYCuTs7mvDmMzymvwB-LiDeznnK3diLe7TokOKC_dHcsGLfmCcHEGyDHWuaLQWvIGP8m_1jzKsiWuNIUW7HSpyKxUB_B05mQ9ONlDBnVAYB4mtchtq1sey5V_SMPtCfAlAP6dyw-HJLbLTD97ib-5Yo-",
+    image: MEDIA.pictures.img2,
     href: "#"
   }
 ];
@@ -38,21 +39,21 @@ const REGIONS = [
   {
     title: "Hidden Himalayan Valleys",
     description: "Accessed only via multi-day trekking, these valleys host cultures unchanged for centuries.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDdhkCWeTHmz79fQ5lBPOBzyeIUNf-F9JlYF5wGo1UN5Jrfw22IY8co1jykwriFCqU7X6E8VWuuWTU83cSSioUcniGwdq0sAsXtX1TKu3oTfn-id-mEUXYcDCTUV7dq6qbTGBe1AbYKbI-krF8SUFDR1VuCcF0qeqy-ZqXrFw6NmMhXsZBgzJZCtvHMzv2R5BtY21qWAQ3tSi4agGQZE0poRhi45t-bDIDMYzoDQfzZxWuO7pU13DIs4Vt9oVv8QM3xepllgUpysyde",
+    image: MEDIA.pictures.img3,
     badge: "TIER 1 PRESERVATION",
     villages: "8 VILLAGES IN NETWORK"
   },
   {
     title: "Forest Villages",
     description: "Arboreal communities with deep-rooted spiritual connections to the ancient surrounding timberlands.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuApjzt7bNE2XXLU7lyueOoyoQIryfGMVWUZMdmPrOn8yXun6ccT6VX7OOTwy4VGYknWPVlzndjkWgzh4JxczG4ba82xhGz4SCVV-jKRCtEuDKVvbgHA8E-ZRUc-dOrQV6ivvUosOcouc_dfRbshdAcpuwtR6VUDPywFrC7XYlVVHU-0qENAz42afuaD2OUc-Gq1rsW3sLzG_pzhK5ctR6wxf_31EW0k8bSfXa_oQ1WUITB8VXkorHg0_I7Trs1behREPcGC4XKxSSvt",
+    image: MEDIA.pictures.img4,
     badge: "TIER 2 PRESERVATION",
     villages: "12 VILLAGES IN NETWORK"
   },
   {
     title: "Mountain Orchard Communities",
     description: "Vertical agriculture specialists maintaining boutique heirloom harvests at 4000 meters.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA5BkrvKDrQHjMbqsJZcfWk1sfZIiO_bWKiTKBRjILcDOu2pd-8YRN2TSUAiXsoZFc_2WRiGaQw3RHSz9k5MTkZ5N-xjE_i_PoCqP-ilH9QFoWni62upl1jQ7otno23AmfcivrXQ7Ine4dDjaJLQqv6s2THVo2vUXQAaHXaHUTsd-kbjtXBel5SOKiF1PmBrVl6SgKHsTErC9e1K7pZnDtMTcBgcKSM6Uv6F-5pwIiJ6X2jtctzzV1Y6bFD3eAhzusXYtljYwTKsPVo",
+    image: MEDIA.pictures.img5,
     badge: "TIER 1 PRESERVATION",
     villages: "5 VILLAGES IN NETWORK"
   }
@@ -206,7 +207,7 @@ export default function JourneyMapPage() {
           <img
             className="w-full h-full object-cover opacity-80"
             alt="Detailed topographic mountain map with valleys and rivers"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyqXxR7YxKsgqZFLF-WbDoBkC1yJLhioRQRaIDFTiyxWMUy1THm47nZiVsRmcLowkX4I_U-8Ck9kpJ1gHK6p2FVdLJtaNNw35HqCSpujlQ9agqdfSjqNhEp40z-NY5hBNXfGgDZ6BaermrkWFAVQKEV8RtFFcyEpJY2lWwrxjAOZ8U10jdaQZmMHHuVNONBVWFVuFBdN0WP6z8WdcA2hQg79adVYIF5zRCeasd2UiQGCcW7_mwGkL1qhLHhJCWurQRdzyMZB8PKg3D"
+            src={MEDIA.pictures.img6}
           />
 
           {/* Pulsing Markers */}
@@ -348,7 +349,7 @@ export default function JourneyMapPage() {
               <img
                 className="w-full h-full object-cover blur-xl"
                 alt="Blurred topographic map texture"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKZllP6wj7OJksrroV0TPcv2FEW5bTg8kfuxVDmvO3rGhlbMhtEMmgCRXRl6sdkuOukxVDmpw0T4uGNCBjROfX7MKzdFZWl6Hw2YgYaIlMy-4lEeiGK2ADP90oWmoNG8AKsP0L8xAQf4Lz4VonSmCmcK_YRDlGmjnH7Xoy_YfNt_Hcj2WK1IGOeI9OXsi1pB_0qAcNzWX8PkMjp4uFtn8a3uVYG1KAYwxoJh2LW-iPWd_FMiMbqNoJYCRZP3XURUkoIEDaxeixPnMe"
+                src={MEDIA.pictures.img7}
               />
             </div>
             
@@ -433,7 +434,7 @@ export default function JourneyMapPage() {
             <img
               className="w-full h-full object-cover opacity-10"
               alt="World map outlined in minimalist green lines"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH7e8ojJHR5Gb_AF21E1dL4jJBn7sDP4Gw1IaIDr7DB_4nDPZdRfq7J7gYuxl-mU_W0t3T1AXbndoRUE5XNPL1Sb-1Vm8Qqexoz4GlzKCRGNOhOoc7Rp266UBy3ijqid9er2ytEd_SjFfBzmN3-vd_FeehTEdBF2TBpj11yT8eRzvIMwuf2xeK7brGrJOvkRPPfAkhJFD0EVRBbVQoJAEZYQnDIUW3NR17uiL1qCdGaggwLn8RMP0wwrdzHMn0u1QGGDxUJjujNZn6"
+              src={MEDIA.pictures.img8}
             />
 
             {/* Expansion Points */}
@@ -474,7 +475,7 @@ export default function JourneyMapPage() {
           <img
             className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-[10s]"
             alt="Cloudy mountain peak in high contrast"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD88nKFxmgFEmIjssA1VBmNw5J5RRxVAZ6t60xtC9-eVXpZh1Ag61Uv4Zg7MEpuhxCVpZkaPsz5OIA-ZZ6ELFzIXcUZnOv8LpS173BUHuPrQdM2fVWISDZ8R-IXK2TMk-Sv2HjV1lRY2Yqf0y2ddQEXTEqZ9EnnqpaGyz_gHChfMKgbzh1Ke0CKzyAH9NqIXl8y99TNamf9a7cBNKCWoc8Z5riKVDVRKS2FmvEAuMiqOECSXME9hwnoiW6n-ze7HnrQArzB1GF5j02c"
+            src={MEDIA.pictures.img9}
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#20603d] via-[#20603d]/80 to-transparent" />

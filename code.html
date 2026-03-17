@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>50/50 Journeys | This Is Not A Trip</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: '#20603d',
+            mountain: '#4A7C9E',
+            earth: '#C17C3A',
+            beige: '#F5F3EE',
+            ink: '#0D1117'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-animations">
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .text-glow {
+      text-shadow: 0 0 20px rgba(193, 124, 58, 0.3);
+    }
+
+    /* Hide scrollbar for clean aesthetic */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .gradient-overlay {
+      background: linear-gradient(to bottom, rgba(13, 17, 23, 0) 0%, rgba(13, 17, 23, 1) 100%);
+    }
+
+    .reveal-image {
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+</head>
+<body class="bg-ink text-beige font-sans selection:bg-earth selection:text-white">
+<!-- BEGIN: HeroSection -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden" data-purpose="hero">
+<!-- Background Cinematic Video/Image Placeholder -->
+<div class="absolute inset-0 z-0">
+<img alt="Cinematic Mountain" class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Yf0-sMWr6KmPEEEsOKzq3E-4eef-LAwlgpkGcTUvnt0O8KYYbDdcuClkfpT0UewJHPb7_1znrqsveQZPtFDUNMMyM4G5OUQSRTV27vjcRZAUIOWo6yoI2nQ389aoQpCXdVsQRah2lYCJun5YmO_Ar-DizvQ5glnJjvAx6JVc_m50MYO7WYbIYgKbTN-f_wSNV1b-vkoy2RRzX6bQD9WH64c1lI40u0mG-tGobMlkh7Cub3Mq_Gcw68U80f7l2TyUmQ_I4D0zazcN"/>
+<div class="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 text-center px-6 max-w-5xl">
+<span class="inline-block mb-6 tracking-[0.3em] text-earth uppercase text-sm font-semibold animate-pulse">Fifty-Fifty Journeys</span>
+<h1 class="font-serif text-5xl md:text-8xl mb-8 leading-tight">
+        This Is Not A Trip.<br/>
+<span class="italic font-light">This Is A Transformation.</span>
+</h1>
+<p class="text-xl md:text-2xl font-light text-gray-300 max-w-2xl mx-auto mb-12">
+        You don’t follow a path. You discover it.
+      </p>
+<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+<a class="px-8 py-4 bg-earth text-white font-semibold rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105" href="#sticky-journey">
+          Enter The Unknown
+        </a>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+<span class="text-[10px] uppercase tracking-widest">Scroll to Begin</span>
+<div class="w-px h-12 bg-beige/30 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1/2 bg-earth animate-[bounce_2s_infinite]"></div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: StickyScrollSection -->
+<section class="relative bg-ink" data-purpose="narrative-scroller" id="sticky-journey">
+<div class="flex flex-col lg:flex-row min-h-screen">
+<!-- Left Panel: Sticky Visuals (45%) -->
+<div class="lg:sticky lg:top-0 h-[50vh] lg:h-screen lg:w-[45%] overflow-hidden bg-black">
+<!-- Visual 1: Explorer -->
+<div class="reveal-image absolute inset-0 opacity-100 scale-100" id="visual-1">
+<img alt="Explorer in Valley" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA39LKTXd93mt-6szCsAPw6q9B98DpQ27pFo2uXIe-1UMOT1Y2LW4EjajycA8f7uDWQyRszNYKVpsjUJ8rv410IbYqMM_GfUALfCyeTNWQ8jC7ZRsV2g-64j5Tm5cSNA5ZTWsxcqZP4DFFwhLZa-nvbM9ob4x16CmABfxHgM0Z9ZFsV_9mLTNkUYd5ywBZpHGj5ge2XtlyL2F_NNbcv54z1f7rXKK-KkxiwobA5C5oIOuD0JOyTbW2O8WcplcKcFlFds7IWon5Y2ZsO"/>
+<div class="absolute inset-0 bg-forest/20 mix-blend-multiply"></div>
+</div>
+<!-- Visual 2: Floating Gear -->
+<div class="reveal-image absolute inset-0 opacity-0 scale-110" id="visual-2">
+<img alt="Gear items" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeJCtwMWfFuR9Ug3POayBkWiXVsf9bXLpubSSs55OoG-i5I0ttIS3CGEGvzty5Qn1yoiMBdJvhmVwi9ypiKHcGJf7WbPhxoG4W-nxXUtjlH3Ub2DcgGEW5tahM83MJ9fMmTUV4fNiqrpLL3VKz_1VK3rHlyXeRmbmA3Cv9WGL8rqaeAxusOUD748QmxdaI_RD50qy59KulG5mfLBG-6r1GXSXhCUE8zM9_4rIjH9QSC4mRPeC7x6ytFH05F0_Q96weCSi6X7HRS8y1"/>
+<div class="absolute inset-0 bg-ink/40"></div>
+</div>
+<!-- Visual 3: Topographic Map -->
+<div class="reveal-image absolute inset-0 opacity-0 scale-110" id="visual-3">
+<img alt="Map" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRfcTNJE9bF59RhyEdVA3qyB1e0FUCmodQrG4JNMhFPTX-MVLA3W3bU5eVYlG3GemOkH82z4JBLvu4mz_VTN7yoEUeb2qMHFt55_ocADVnVEdYyawrPZ02GD_aQLwNX3RvtVAmnp-qTimIpXzOt3TU2PzkyInUSjbuZLfra_5HDn-7ziPQlkxTelN7PuEiInFzurYm3TsQLoUs_a6CBi6PNuZApou0Crhebtt5vJtxlv3_sAZb2j-ZsXD8H3s1Apv8jYSWbBT49ETA"/>
+<div class="absolute inset-0 bg-mountain/30 mix-blend-overlay"></div>
+</div>
+<!-- Visual 4: Rugged Terrain -->
+<div class="reveal-image absolute inset-0 opacity-0 scale-110" id="visual-4">
+<img alt="Rugged terrain" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2JbGb9ovAE7xiQ69-qs2sGyotdc-qBlFXZH1EEBeYxE8lt4LMC5DnAqFhRim_gFMfJnkgASLGXScD6cqpfP4cCj4gxTlGn0t4-Zfdz9WTxSaiAtXM3l4For0-zKvQX2TSlZijoTcPAiTSUhJZ3HiagpxxIhNN9gxvcVushCMcRHZQspdgqi8pmLl9HYo3ZnUMNOQ0iTlVoEJY9-jWKNIxqgXTbt3DTQXQKolc0Kqd7YRkKToEDCxwM8UAgAq2KPdn1ssopMsUY6Cj"/>
+</div>
+<!-- Visual 5: Warm Village -->
+<div class="reveal-image absolute inset-0 opacity-0 scale-110" id="visual-5">
+<img alt="Village Interior" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgZWsNnTzJymIAk5DEC00mGc9u0s2pFI_vw9sryKEbX_Stsay6Aey4yNJ9XK5x71sY7XLkeHOyU8pETudnstOS1paqg0nCnEuilKh5Mdo_u2z3nKnDuslz-bGaeH4a_wzAfQ8Ws3E_LUNbxPYXgFoBqhumE3KOIe_omiwFGCQDiMOWACm-cs1dakdjp_y-IU0IRH_DGBUFAV5ACz-jmar_p05tH5cG_ouCFEQXxSGxFKajJpWC7za1SXTnxO0CqIMUirgr0FqeCfU8"/>
+</div>
+<!-- Visual 6: Community -->
+<div class="reveal-image absolute inset-0 opacity-0 scale-110" id="visual-6">
+<img alt="Community Activity" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1eTP-6qUZfIXWkaQHTRu2TqOcewb2D8xokPL5w_EvKhh2wEUJoqoyMn7PjMJEhJG8SPVbN542UmMb5RpJFEElB7XHH2C2qvxrxCt5hJCsGgTgbCgPQDvrhoV04_JrkNgC-H-6K0AXPQYAx_rswTYg8ZVUGag5obXYXs60aUX8keVnb-QhIYqTeI_3-rHOuqmwTU40a3L9SES7hYW2K0VWo2Tx4qQipbtdaTv9q5bVuknKfBofQuqlU_ifjKV6E2qrxxCcAI80F9fA"/>
+</div>
+<!-- Visual 7: Meditation -->
+<div class="reveal-image absolute inset-0 opacity-0 scale-110" id="visual-7">
+<img alt="Meditation" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS5MoYQN79jSEDLftqQ5veCzmkAweFcIMzjxpoKkiSdprlbbt1ss_QxWneCnMtHb1DsNxxK2cH27WhmXKbFOVFRxBbI35zJbaysXEsJkI_QKUIBePpNzwkHja607gheCUFo2cxO4I8HEv3NrOl4l5slfLYKTHgUpwU4GLOgBRIqihVU_po7sZ0LIhNlCaMnFlxR7PM-3MMaPrjWzmphkGTXoPM0Lx9YT_X1z2Ywx1w5e4Y1XyZhv4JTyjcycK1E_l09CCqiQ0_hzUV"/>
+</div>
+<!-- Visual 8: Night Bonfire -->
+<div class="reveal-image absolute inset-0 opacity-0 scale-110" id="visual-8">
+<img alt="Bonfire" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGT84WepMiP3NJOYQ3ykoEZ9ckIdR4NvIsvpFFcrivLe4Mf9Tzs8r2ATwbwIl2_GY_r6rBkpZaa4dPIfYJ7_xanhAffeNL03kUIoQx3UxhIHuvMpEmDMYu_PNuhe6AjWtV1N1BsFzHl8PJ7PCujJXQ-HvgS87KY9vWPMPcYf5uvVIyBiPyfJLltUD6TsGGRHKNC2onpmsKpuIterfG8Cbwf7katYEK55vaCRNCNZfXApbsY8g3alidvq9KQ2-BRBNHDnRnlGMowmb7"/>
+</div>
+<!-- Subtle vignette -->
+<div class="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.8)]"></div>
+</div>
+<!-- Right Panel: Narrative Content (55%) -->
+<div class="lg:w-[55%] px-8 md:px-20 py-24 lg:py-0" data-purpose="scroll-content">
+<!-- Step 01 -->
+<div class="min-h-screen flex flex-col justify-center py-20" data-trigger="1" id="step-1">
+<span class="text-earth font-mono mb-4 block">STEP 01</span>
+<h2 class="text-4xl md:text-6xl font-serif mb-6">ARRIVAL: Dropped Into The Unknown</h2>
+<p class="text-lg text-gray-400 leading-relaxed max-w-xl">
+            The transition begins the moment you lose signal. No maps, no itinerary, just the immediate presence of the valley air. This is where your old self ends.
+          </p>
+</div>
+<!-- Step 02 -->
+<div class="min-h-screen flex flex-col justify-center py-20" data-trigger="2" id="step-2">
+<span class="text-earth font-mono mb-4 block">STEP 02</span>
+<h2 class="text-4xl md:text-6xl font-serif mb-6">THE KIT: Tools for the Internal</h2>
+<p class="text-lg text-gray-400 leading-relaxed max-w-xl">
+            We strip away the excess. Your backpack contains only what is essential. Every item has a story; every weight has a purpose.
+          </p>
+</div>
+<!-- Step 03 -->
+<div class="min-h-screen flex flex-col justify-center py-20" data-trigger="3" id="step-3">
+<span class="text-earth font-mono mb-4 block">STEP 03</span>
+<h2 class="text-4xl md:text-6xl font-serif mb-6">THE VOID: Unknown Zones</h2>
+<p class="text-lg text-gray-400 leading-relaxed max-w-xl">
+            We navigate through blank spots on the topographic map. These 'unknown zones' mirror the unexplored parts of your own consciousness.
+          </p>
+</div>
+<!-- Step 04 -->
+<div class="min-h-screen flex flex-col justify-center py-20" data-trigger="4" id="step-4">
+<span class="text-earth font-mono mb-4 block">STEP 04</span>
+<h2 class="text-4xl md:text-6xl font-serif mb-6">ASCENT: Rugged Physicality</h2>
+<p class="text-lg text-gray-400 leading-relaxed max-w-xl">
+            The terrain demands respect. As the incline grows, the noise of daily life fades into the rhythm of your own breath and the crunch of earth.
+          </p>
+</div>
+<!-- Step 05 -->
+<div class="min-h-screen flex flex-col justify-center py-20" data-trigger="5" id="step-5">
+<span class="text-earth font-mono mb-4 block">STEP 05</span>
+<h2 class="text-4xl md:text-6xl font-serif mb-6">SHELTER: The Warmth of Hearth</h2>
+<p class="text-lg text-gray-400 leading-relaxed max-w-xl">
+            We find refuge in a secluded village. The smell of cedar smoke and the tactile warmth of a mountain home provide a backdrop for deep decompression.
+          </p>
+</div>
+<!-- Step 06 -->
+<div class="min-h-screen flex flex-col justify-center py-20" data-trigger="6" id="step-6">
+<span class="text-earth font-mono mb-4 block">STEP 06</span>
+<h2 class="text-4xl md:text-6xl font-serif mb-6">TRIBE: Shared Solitude</h2>
+<p class="text-lg text-gray-400 leading-relaxed max-w-xl">
+            Engagement without expectation. Participate in age-old traditions that bind the group together through shared labor and collective presence.
+          </p>
+</div>
+<!-- Step 07 -->
+<div class="min-h-screen flex flex-col justify-center py-20" data-trigger="7" id="step-7">
+<span class="text-earth font-mono mb-4 block">STEP 07</span>
+<h2 class="text-4xl md:text-6xl font-serif mb-6">STILLNESS: The Calm Center</h2>
+<p class="text-lg text-gray-400 leading-relaxed max-w-xl">
+            Meditation isn't an activity here; it's a state of being. The silence of the mountain becomes the silence of the mind.
+          </p>
+</div>
+<!-- Step 08 -->
+<div class="min-h-screen flex flex-col justify-center py-20 pb-40" data-trigger="8" id="step-8">
+<span class="text-earth font-mono mb-4 block">STEP 08</span>
+<h2 class="text-4xl md:text-6xl font-serif mb-6">BONFIRE: The Reflection</h2>
+<p class="text-lg text-gray-400 leading-relaxed max-w-xl">
+            As the embers dance into the night sky, you realize the journey hasn't ended. It has finally begun to live within you.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: StickyScrollSection -->
+<!-- BEGIN: BentoGridSection -->
+<section class="py-32 px-6 bg-beige text-ink" data-purpose="experience-architecture">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20">
+<h2 class="text-5xl font-serif mb-4">Experience Architecture</h2>
+<div class="h-1 w-24 bg-forest"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 h-auto lg:h-[600px]">
+<!-- Quadrant 1: Detachment -->
+<div class="group relative overflow-hidden bg-forest text-beige p-8 flex flex-col justify-between rounded-2xl transition-transform duration-500 hover:-translate-y-2">
+<div class="z-10">
+<span class="text-xs uppercase tracking-[0.2em] opacity-60">Phase 01</span>
+<h3 class="text-3xl font-serif mt-2">Detachment</h3>
+</div>
+<p class="z-10 opacity-80 leading-relaxed">Systematic removal of digital tethers and societal labels. Returning to a zero state.</p>
+<div class="absolute bottom-0 right-0 p-4 opacity-10 group-hover:scale-150 transition-transform duration-700">
+<svg class="w-24 h-24" fill="currentColor" viewbox="0 0 24 24"><path d="M13 13h-2v-2h2v2zm0-4h-2V7h2v2zm0 8h-2v-2h2v2zm-1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg>
+</div>
+</div>
+<!-- Quadrant 2: Exploration -->
+<div class="group relative overflow-hidden bg-white border border-gray-200 p-8 flex flex-col justify-between rounded-2xl transition-transform duration-500 hover:-translate-y-2">
+<div class="z-10">
+<span class="text-xs uppercase tracking-[0.2em] text-earth">Phase 02</span>
+<h3 class="text-3xl font-serif mt-2">Exploration</h3>
+</div>
+<p class="z-10 text-gray-600 leading-relaxed">Navigating terrain that tests physical limits and spatial awareness. The world becomes real again.</p>
+<div class="absolute -bottom-10 -right-10 opacity-5">
+<img alt="Map Texture" class="w-64" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGWUhqI3nQR8trCTt_erXrnM98Vc8NyxiK8trizHxLtGaq3GNVAWhLwWEFjSYliIC1PRjeWe7bCe-gxgpWX6NGPFSdbMhBz28I_QTNfd4v33qVTXDhm3d1ioXehsTjC6O70epCZCkXmn1rrV5poIbc5_Ee_B7G3SmFQ8le1-if5r_vzRSUkxOi4YvjyFurcZYRDPaXdfAy22yk4eDAUCVXwX-c4bTLaxdxnSOTP6WJlvnaYhUC0cWTtuD8gX5O9u_xzBoP2jxG-kdn"/>
+</div>
+</div>
+<!-- Quadrant 3: Immersion -->
+<div class="group relative overflow-hidden bg-mountain text-white p-8 flex flex-col justify-between rounded-2xl transition-transform duration-500 hover:-translate-y-2 lg:col-span-1">
+<div class="z-10">
+<span class="text-xs uppercase tracking-[0.2em] opacity-70">Phase 03</span>
+<h3 class="text-3xl font-serif mt-2">Immersion</h3>
+</div>
+<p class="z-10 opacity-90 leading-relaxed">Deep integration with local culture and raw nature. No longer an observer, but a participant.</p>
+</div>
+<!-- Quadrant 4: Reflection -->
+<div class="group relative overflow-hidden bg-ink text-beige p-8 flex flex-col justify-between rounded-2xl transition-transform duration-500 hover:-translate-y-2">
+<div class="z-10">
+<span class="text-xs uppercase tracking-[0.2em] text-earth">Phase 04</span>
+<h3 class="text-3xl font-serif mt-2">Reflection</h3>
+</div>
+<p class="z-10 opacity-70 leading-relaxed">Synthesizing the experience into a lasting internal shift. Hardening the insights found in the wild.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: BentoGridSection -->
+<!-- BEGIN: InvisibleSafetySection -->
+<section class="py-40 bg-ink relative overflow-hidden" data-purpose="safety">
+<div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-beige to-transparent opacity-10"></div>
+<div class="max-w-4xl mx-auto px-6 text-center">
+<h3 class="text-earth font-mono tracking-widest mb-12 uppercase">Invisible Safety</h3>
+<div class="space-y-16">
+<p class="text-3xl md:text-4xl font-light italic leading-relaxed text-gray-400">
+          "The most powerful safety net is the one you never see."
+        </p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-sm uppercase tracking-widest text-gray-500">
+<div class="flex flex-col items-center gap-4">
+<span class="h-px w-8 bg-earth"></span>
+<span>Silent Monitoring</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<span class="h-px w-8 bg-earth"></span>
+<span>Exfiltration Ready</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<span class="h-px w-8 bg-earth"></span>
+<span>Local Guardians</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: InvisibleSafetySection -->
+<!-- BEGIN: FinalCTA -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden bg-ink" data-purpose="footer-cta">
+<!-- Mist Effect -->
+<div class="absolute inset-0 z-0">
+<img alt="Mist" class="w-full h-full object-cover opacity-30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNnYuuWwXYh6QETsJzBFeyreDds6JnMdr0YhIW1Hn1N8L6Gtr9oU8AdEuE7l4xgQM7xxJjY0mGqBmGsD0KDjLrwJ_PO5i0oW_cV-SMY-xCgNnkFDXuaof4_oU7kqi6VbKsQGT-fza6igvZ86S7cG6WTvMvBLVnT356I3fsxjcfU5BY5mP2VOxwPZMJkYqEVje0gXWbsqJmATjHoYd3zX6gcLuqACxvFgz6VXjDqj2cdsIssQZegbhnl4nnv1aLLfJHXdq6Ex5vnxWy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink"></div>
+</div>
+<div class="relative z-10 text-center px-6">
+<h2 class="text-4xl md:text-7xl font-serif mb-12 max-w-4xl mx-auto leading-tight">
+        You don’t choose this journey. <br/>
+<span class="text-earth">You commit to it.</span>
+</h2>
+<button class="group relative px-12 py-6 overflow-hidden bg-transparent border border-beige/30 rounded-full hover:border-earth transition-colors duration-500">
+<span class="relative z-10 text-xl tracking-widest uppercase font-semibold">Request Access</span>
+<div class="absolute inset-0 bg-earth translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+</button>
+<p class="mt-12 text-gray-500 font-mono text-sm">Application-only experiences. Limited to 8 seekers per quarter.</p>
+</div>
+</section>
+<!-- END: FinalCTA -->
+<!-- BEGIN: Scripts -->
+<script data-purpose="sticky-scroll-logic">
+    // Simple intersection observer to switch visuals based on scrolling text
+    const visualElements = Array.from({length: 8}, (_, i) => document.getElementById(`visual-${i + 1}`));
+    const sections = document.querySelectorAll('[data-trigger]');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0% -40% 0%', // Trigger when section is in the middle of viewport
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const stepId = entry.target.getAttribute('data-trigger');
+          updateVisual(stepId);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    function updateVisual(id) {
+      visualElements.forEach((el, index) => {
+        if (index + 1 == id) {
+          el.classList.remove('opacity-0', 'scale-110');
+          el.classList.add('opacity-100', 'scale-100');
+        } else {
+          el.classList.add('opacity-0', 'scale-110');
+          el.classList.remove('opacity-100', 'scale-100');
+        }
+      });
+    }
+  </script>
+<!-- END: Scripts -->
+</body></html>

@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import HeroVideo from "@/components/hero-video";
+import { MEDIA } from "@/lib/media";
 
 const PRIMARY = "#20603d";
 const MOUNTAIN_BLUE = "#4A7C9E";
@@ -130,7 +131,7 @@ export default function Home() {
           <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl">
             <img
               className="w-full h-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiuMWHgu3FIJoJR7-hVRv39Br8zHxSKymF1ZxVhWVS6bU4--7u5mcocAqpuwlh6p_q-LHBIz0m2rhJQmcyA1lkdVJmmkm1dr1Bo3eX3Rr4G-rLOfshkqje1ptlI6_gYJdGzL8X1E9z_Gdr8lfx8fli3B9UKJvwYIEaqoLw1X7LA1iyp9W64Wh0cROYGAXWBZ9fKhophd4dTcCH3EahOvlCcuKASTC3TNeP9XUzL3mQmiR37FsfzlNBKU-xiUq7unHIosOlPQqO0sBx"
+              src={MEDIA.pictures.img1}
               alt="Person meditating on a mountain cliff overlooking clouds"
             />
             <div
@@ -203,21 +204,21 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
-              src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAiQchn7JfOfh18rxU451dE91zn9B1n1xI-wdAdmCsUL7im1Zt6b1mgbNp8JuaBcV6og56oi0WjNbR1M-3in2mfSRknF36j5Y00hW8LdTtJYF7-9kA861qmN6LjibtovjXUHDehdEQim2egh6aQALhcDkpSC6LiRj6hqLPvswbFDRukQ3WUCn_X9ZotSsi-kTwuhfkzTjMsvxa4TwdN7WJi7serzKSBpUMwrwWiR7v4h_0zANwEvUnH8bb8CHk2jcTLXthWiUoOClWg",
+              src: MEDIA.pictures.img2,
               alt: "Ancient village alleyway in Japan",
               title: "Hidden Village Stories",
               desc: "Infiltrate the forgotten oral histories of the Shikoku trails.",
               tag: "Mystery",
             },
             {
-              src: "https://lh3.googleusercontent.com/aida-public/AB6AXuATf5uGmAZOcuim59Imgm46SLvvA-tiB-YRiTxJ55ymUtx8fLgi8Q6x84sYrPWNgT1mk7DWTnTldIYVHOqju8t9thBf2cU9eU705CUVuoPTGxh94Dqxxu2yKHCbFBExREc6z6mkB2ybO2DhDQ0SZWSPOLEppXpit75tykt9jD7wzuYcruEZAL-uIy17YwH0M8AXhCEpkg247oRwukUWSzbDyRg2ld3EY5PGdfyOInTpRz64DjRiV8OG6wOi5zw5_kg7nY60PT_2-RYq",
+              src: MEDIA.pictures.img3,
               alt: "Shepherd leading sheep in a misty green field",
               title: "Shepherd Trails",
               desc: "Live with nomadic tribes in the Altai Mountains for 48 hours.",
               tag: "Culture",
             },
             {
-              src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBRIbWVGlo4aUSDFa3U3ZJK3p-0yvTXvNJPu_SZIrh_MILBIFoZciNws66h8ckFP5wxxpg7jdb0AIflJRYBu372RnV32LY0TpbsuM2454v9va22Wzi413AV4N78x1KwcR1jQyW2qIeY7tNkiXJiL4BBLcCkORHc_4DSyCTQESmiYzD_GMfWh45kLtLTpA3iiAU7IeNBGcNoVnTFGJw-jVDQTNsQpMO25dMEYcIMPfXI180Kf8WWe0jtVE3B0ky1fNq_H6mfJod23i0q",
+              src: MEDIA.pictures.img4,
               alt: "Close up of traditional incense burning in a temple",
               title: "Local Rituals",
               desc: "Participate in ancient healing ceremonies in the Sacred Valley.",
@@ -261,16 +262,16 @@ export default function Home() {
             <div className="relative rounded-3xl overflow-hidden aspect-video">
               <img
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxm990pTMPnQh9oJF_7MqlBwNudpWB0XB5GFH3-0m5dmZpLrXYQ4otLbe8A2Zr6P_vbcBxVn3NkqkNHvPw9c3BvqyEb0-t-Yt1Kjh579V7QK6r2jZBaEpdYZbFiTNkEfdRJWmvrmGzn4kL5PdwHttyUUNASD6ONJygvkJHhg3bNWstYUgqxEiWL4v8C2MCGamnQGi5pq-t1GEnitNbj-kgJhuXa9cAvA-ikQ2FLygkkY-1wW1-Y7z_M6rtW7zFSID3T0LXIiw_eCZU"
+                src={MEDIA.pictures.img5}
                 alt="Person sitting by a lake in the forest with no devices"
               />
             </div>
             <div className="mt-6 flex items-center gap-4">
               <div className="flex -space-x-4">
                 {[
-                  "https://lh3.googleusercontent.com/aida-public/AB6AXuDWaIMh2UE_qFul3ccchB5idMke1zW08LQpUeD4qj_B1D88_9tsWDOhn0cZVlbnmHmLollrQ2SrEliSiyCys9qIjwpP1LAUNCyCd6pTau5XGBy--5ImG2HTVVgsWWRrHu_vdj_NJP2ax1g6pjvnl6cBVyAQSgf-ym8RYF81H33-p9eFmMWFcPTpuJV5BLNwplncqTq4A65iRnIO6IJTqLfIpPSs5J96Yqq5Rxe-59iWnvmVBfCUuKbDP7N33YL-rmYIbCAlD6aRfRRE",
-                  "https://lh3.googleusercontent.com/aida-public/AB6AXuCnxBlD_74lSAz7N5R8kehFbn04b65dsU2gk3YrKlGeLitpVQWnx4Mr3N-SxYK7PJg0ssCXGR_-QsX7mSc4n63QB8s2jxvCOvL1-Bx9ftbFe5I8qtdrTR0LKbT6razwYmMdl0aPPRnQfZFMju2VkL2Nt1b8H_ugQZh0J2dRgGgTD71PF4eMCUs_Auw-MXosAbi6ukbEtOC8a6i1GP1V8vnlEqs4sVrvsP_FcB1_HvJx0w4FYEFRgKjJ8VJLEv99JZMEHwPEtCxpdWD3",
-                  "https://lh3.googleusercontent.com/aida-public/AB6AXuASbxJMPfTTIcz011gGqo9hWEOfXcFsmgit1fHvdFurYyCn-R3h-vPxU-ommcGZNDeeurkdRZYLWiU7vPvIaC1hAj5gFK0sHx7CizAm8TyILBl-gif9WsmrrGwiexpBp9scU3_fRdEGlAAW1HgieFMap9QB1uyl1gxDtRVuoURBv-E8dsZPS7BoKi-NuLT7gVolAXqlireyxS8n30Mkqu0jdX5K6gHVyszAza8cvghErgAtTRgiZ8SyIsc__C_ZjnTiLhd34KS_TS9R",
+                  MEDIA.pictures.img6,
+                  MEDIA.pictures.img7,
+                  MEDIA.pictures.img8,
                 ].map((src, i) => (
                   <img
                     key={i}
@@ -509,7 +510,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <img
             className="w-full h-full object-cover grayscale brightness-50"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaWMgnUKXsE7e9aA4WMieVgomQymxC_I21DEHpYEuyVQn2lGk-PzSc3ZrOdYnyafv21AuzqiDwYXFOCKKPUdmEdsvhQE-4d0wxLe_VCDGmJZdhi__lyyDkPaY9Kd83pCPqa5iV9uSSt2JU5l-m59YmAJtkLV-xF-dq6nHbkCgB9NmJeteZcb_rPPg4R9jQhwGy9DnxsUuVdqpd8GgifC5JlbXPSoat9_4VjD861wl1DljpTeQJFFtb_f2MplRKZo10AXOm7NAXhjXS"
+            src={MEDIA.pictures.img9}
             alt="Dreamy valley landscape with mist and low sunlight"
           />
           <div className="absolute inset-0 mist-overlay" />
